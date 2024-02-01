@@ -1,12 +1,3 @@
-body {
-    background-color: #242624;
-    overflow-x: hidden;
-}
-
-* {
-    color: white;
-}
-
 button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
