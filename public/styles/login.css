@@ -66,3 +66,9 @@ button{
     font-weight: 600;
     cursor: pointer;
 }
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+  }
