@@ -22,6 +22,7 @@ button, input[type="submit"], input[type="reset"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .title-1 {
@@ -71,13 +72,13 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .login-button {
-    width: 250px;
-    height: 80px;
+    width: 100px;
+    height: 30px;
     border-radius: 25px;
     background: rgb(120, 120, 120);
     box-shadow: 0 5px 10px rgb(0,0,0);
     transition: 0.3s;
-    animation: bounce 2s ease infinite;
+    animation: appear-login-button 3s ease;
 }
   
 .login-button:hover {
@@ -85,14 +86,11 @@ button, input[type="submit"], input[type="reset"] {
     scale: 1.05;
 }
 
-@keyframes bounce {
+@keyframes appear-login-button {
     0% {
-        transform: translateY(0);
+        transform: translateY(2000px);
     }
-    25% {
-        transform: translateY(-3px);
-    }
-    50% {
+    100% {
         transform: translateY(0);
     }
 }
