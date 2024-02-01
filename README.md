@@ -4,6 +4,9 @@ Signed Dominik Kienle
 
 Stand 31.01.2024
 
+Die erste Zusammenarbeit hat auch gut geklappt, wir haben eine Login Page, danke an euch,
+Und ja, ich versuch mich jetzt noch weiter, bald bin ich auf der Rennbahn und versuch aufzuholen
+
 
 
 db.run('CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY, username TEXT, email TEXT, password TEXT)');
