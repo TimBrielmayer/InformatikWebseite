@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
-
   <link rel="stylesheet" href="styles/general.css">
   <link rel="stylesheet" href="styles/register.css">
-
   <title>Registration Form</title>
+  <script defer src="js/register.js"></script>
 </head>
 
-
 <body>
-  <form>
+  <form id="registrationForm">
     <h3>Registration Form</h3>
-
     <label for="username-input">Username</label>
-    <input type="text" placeholder="Type your Email or Phone here" id="username-input">
+    <input type="text" placeholder="Type your username here" id="username-input">
+
+    <label for="email-input">Email</label>
+    <input type="text" placeholder="Type your email here" id="email-input">
 
     <label for="password">Password</label>
     <input type="password" placeholder="Type your Password here" id="password">
 
-    <label for="password">Repeat your Password</label>
-    <input type="password" placeholder="Type your Password here" id="password">
+    <label for="passwordRepeat">Repeat your Password</label>
+    <input type="password" placeholder="Repeat your Password here" id="passwordRepeat">
 
-    <button>Sign Up</button>
-
+    <button type="button" id="registerButton">Sign Up</button>
   </form>
 </body>
+
 </html>
