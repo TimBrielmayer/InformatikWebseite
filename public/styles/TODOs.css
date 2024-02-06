@@ -5,7 +5,7 @@ h1{
     position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
-    left: 10%;
+    left: 12%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
@@ -19,3 +19,35 @@ h1 *{
     outline: none;
     border: none;
 }
+
+table{
+    overflow-y:scroll; 
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height:150px;
+    width:200px;
+   display:block;  
+   border:2px solid red;
+   border-spacing: 1px;  
+   margin-top:10px;    
+   }th{
+   width:75px; 
+    position:fixed; 
+   background:rgb(168, 165, 13);    
+   }th:nth-of-type(2){
+    left:75px;  
+   }td{
+   width:75px;    
+   }
+   /*Die scheiße macht granix, wäre aber mega, dann könnte man die Namen
+   der Listen näher an die Nummer schieben*/
+   
+   
+   tbody tr:hover, tfoot tr:hover { 
+    background-color:#fffbf0;
+  }
+  
+  tbody td:hover, tfoot td:hover { 
+    background-color: #fce4a2; 
+  }
