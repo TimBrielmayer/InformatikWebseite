@@ -1,6 +1,6 @@
 async function getTasks(uid) {
   try {
-    const response = await fetch(`http://localhost:4000/tasks/${uid}`);
+    const response = await fetch(`http://localhost:4000/tasks`);
     if (!response.ok) {
       throw new Error(`Fehler bei der Anfrage: ${response.status} ${response.statusText}`);
     }
