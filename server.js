@@ -26,7 +26,7 @@ app.listen(port, () => {
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   let checkUserQuery = `SELECT * FROM users WHERE username = '${username}'`;
-  
+
   db.get(checkUserQuery, async (err, row) => {
     if (row === undefined) {
       if (password.length < 5) {
@@ -36,7 +36,7 @@ app.post("/register", async (req, res) => {
         let hashedPassword = await bcrypt.hash(password, 10);
         let createNewUser = `INSERT INTO users (username, email, password)
           VALUES ('${username}', '${email}', '${hashedPassword}')`;
-        
+
         await db.run(createNewUser);
 
         let getUID = `SELECT uid FROM users WHERE username = "${username}"`;
@@ -100,10 +100,33 @@ app.get('/tasks', (req, res) => {
   });
 });
 
+app.post('/addTask', async (req, res) => {
 
+  const { task, sdate, edate } = req.body;
+  const uid = req.session.uid;
+  var tid = -1;
 
-const sql = 'SELECT * FROM users';
+  var sql = `INSERT INTO todos (task,sdate,edate) VALUES('${task}','${sdate}','${edate}'); SELECT last_insert_rowid() AS tid;`
+  db.get(sql, async (err, row) => {
+    console.log(row)
+    tid = row.tid;
 
+    sql = `INSERT INTO usertodos (tid,uid) VALUES(${tid},${uid})`
+    await db.run();
+    res.status(200);
+    res.send("task created")
+  })
+
+})
+
+console.log("tasks:")
+var sql = 'SELECT * FROM todos'
 db.all(sql, (err, rows) => {
   console.log(rows)
-});
+})
+
+console.log("usertodos:")
+sql = 'SELECT * FROM usertodos'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
