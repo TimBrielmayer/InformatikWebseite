@@ -104,22 +104,25 @@ app.post('/addTask', async (req, res) => {
 
   const { task, sdate, edate } = req.body;
   const uid = req.session.uid;
-  var tid = -1;
 
-  var sql = `INSERT INTO todos (task,sdate,edate) VALUES('${task}','${sdate}','${edate}'); SELECT last_insert_rowid() AS tid;`
-  db.get(sql, async (err, row) => {
-    console.log(row)
-    tid = row.tid;
+  var sql = `INSERT INTO todos (task,sdate,edate) VALUES('${task}','${sdate}','${edate}')`
+  db.run(sql, async function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
 
+    const tid = this.lastID;
+    
     sql = `INSERT INTO usertodos (tid,uid) VALUES(${tid},${uid})`
-    await db.run();
+    await db.run(sql);
     res.status(200);
     res.send("task created")
-  })
+  });
+
 
 })
 
-console.log("tasks:")
+/*console.log("tasks:")
 var sql = 'SELECT * FROM todos'
 db.all(sql, (err, rows) => {
   console.log(rows)
@@ -129,4 +132,4 @@ console.log("usertodos:")
 sql = 'SELECT * FROM usertodos'
 db.all(sql, (err, rows) => {
   console.log(rows)
-})
+})*/
