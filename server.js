@@ -1,9 +1,10 @@
 const express = require("express")
 const sqlite3 = require('sqlite3').verbose();
-const app = express()
 const session = require('express-session');
 const bcrypt = require('bcrypt')
 const bodyParser = require('body-parser');
+
+const app = express()
 
 const port = 4000
 
