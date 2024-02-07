@@ -122,7 +122,28 @@ app.post('/addTask', async (req, res) => {
 
 })
 
-/*console.log("tasks:")
+app.post('/deleteTask', async (req, res) => {
+
+  const { tid } = req.body;
+
+  var sql = `DELETE FROM usertodos WHERE tid = ${tid};DELETE FROM todos WHERE tid = ${tid};`
+  db.run(sql, async function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
+    sql = `DELETE FROM todos WHERE tid = ${tid};`
+    db.run(sql, function(err) {
+      if(err) {
+        return console.error(err.message)
+      }
+      res.status(200);
+      res.send("task deleted")
+    });
+  });
+
+})
+
+console.log("tasks:")
 var sql = 'SELECT * FROM todos'
 db.all(sql, (err, rows) => {
   console.log(rows)
@@ -132,4 +153,4 @@ console.log("usertodos:")
 sql = 'SELECT * FROM usertodos'
 db.all(sql, (err, rows) => {
   console.log(rows)
-})*/
+})
