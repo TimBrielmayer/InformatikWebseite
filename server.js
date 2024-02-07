@@ -118,8 +118,6 @@ app.post('/addTask', async (req, res) => {
     res.status(200);
     res.send("task created")
   });
-
-
 })
 
 app.post('/deleteTask', async (req, res) => {
