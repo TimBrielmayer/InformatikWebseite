@@ -1,5 +1,4 @@
 async function addTask() {
-    console.log("hallo")
     const task = "waschen";
     const sdate = "20201202 10:10:01 AM";
     const edate = "20201202 12:10:01 AM";
