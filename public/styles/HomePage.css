@@ -1,81 +1,87 @@
-body {
+
+  body {
     margin: 0;
     font-family: Arial, sans-serif;
   }
-  
   nav {
     background-color: #333;
     color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Align items and button */
     align-items: center;
-    padding: 10px 20px;
   }
   
-  .logo a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-  }
-  
-  .nav-links {
-    list-style: none;
+  .nav-left {
     display: flex;
+    align-items: center;
   }
   
-  .nav-links li {
-    margin-right: 20px;
+  .nav-right {
+    display: flex;
+    align-items: center;
   }
   
-  .nav-links li a {
-    color: #fff;
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Make the navigation items flex */
+    align-items: center;
+  }
+  
+  nav ul li {
+    position: relative;
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
     text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: block;
   }
   
-  .burger {
+  nav ul li ul {
     display: none;
-    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: #333;
+    padding: 10px;
+    border-top: 1px solid #000;
+  }
+  
+  nav ul li:hover ul {
+    display: block;
+  }
+  
+  nav ul li ul li {
+    margin: 0;
+  }
+  
+  .Logo {
+    height: 100px;
+    scale: 1;
+  }
+  
+  button {
+    background-color: #ffffff;
+    color: #080710;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
   }
   
-  .line1,
-  .line2,
-  .line3 {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 3px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .nav-links {
-      display: none;
-    }
-  
-    .burger {
-      display: flex;
-    }
-  
-    .content {
-      padding-top: 50px;
-    }
-  
-    nav.active .nav-links {
-      display: flex;
-      flex-direction: column;
-      background-color: #333;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      padding: 10px 20px;
-      box-sizing: border-box;
-    }
-  
-    nav.active .nav-links li {
-      margin-right: 0;
-      margin-bottom: 10px;
-    }
+  button:hover {
+    background-color: #0d941d;
+    scale: 1.05;
   }
   
