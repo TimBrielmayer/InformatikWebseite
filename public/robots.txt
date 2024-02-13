@@ -1,0 +1,11 @@
+User-agent: Bingbot
+Disallow: /
+User-agent: Googlebot
+Disallow: /privacy
+User-agent: *
+Allow: /
+Sitemap:
+https://www.example.com/sitemap.xml
+
+
+Vorgaben für die Crawler der Suchmaschinen + Angabe der Sitemap
