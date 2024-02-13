@@ -10,5 +10,13 @@ Und ja, ich versuch mich jetzt noch weiter, bald bin ich auf der Rennbahn und ve
 
 
 db.run('CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY, username TEXT, email TEXT, password TEXT)');
-  db.run('CREATE TABLE IF NOT EXISTS todos (tid INTEGER PRIMARY KEY, task TEXT, sdate DATETIME, edate DATETIME)');
-  db.run('CREATE TABLE IF NOT EXISTS usertodos (utid INTEGER PRIMARY KEY, tid INTEGER, uid INTEGER)');
+db.run('CREATE TABLE IF NOT EXISTS todos (tid INTEGER PRIMARY KEY, task TEXT, sdate DATETIME, edate DATETIME)');
+db.run('CREATE TABLE IF NOT EXISTS usertodos (utid INTEGER PRIMARY KEY, tid INTEGER, uid INTEGER)');
+
+
+
+
+db.run('CREATE TABLE IF NOT EXISTS users (uid INTEGER PRIMARY KEY, username TEXT, email TEXT, password TEXT)');
+db.run('CREATE TABLE IF NOT EXISTS task (tid INTEGER PRIMARY KEY, taskname TEXT, sdate DATETIME, edate DATETIME, lid INTEGER)');
+db.run('CREATE TABLE IF NOT EXISTS userlist (ulid INTEGER PRIMARY KEY, lid INTEGER, uid INTEGER)');
+db.run('CREATE TABLE IF NOT EXISTS list (lid INTEGER PRIMARY KEY, listname TEXT)');
