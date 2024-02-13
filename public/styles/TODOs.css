@@ -1,53 +1,91 @@
-h1{
-    height: 70%;
-    width: 200px;
-    background-color: rgba(39, 193, 167, 0.13);
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 12%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
-}
-h1 *{
-    font-family: 'Poppins',sans-serif;
-    color: #000000;
-    letter-spacing: 0.5px;
-    outline: none;
-    border: none;
+body {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
 }
 
-table{
-    overflow-y:scroll; 
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    height:150px;
-    width:200px;
-   display:block;  
-   border:2px solid red;
-   border-spacing: 1px;  
-   margin-top:10px;    
-   }th{
-   width:75px; 
-    position:fixed; 
-   background:rgb(168, 165, 13);    
-   }th:nth-of-type(2){
-    left:75px;  
-   }td{
-   width:75px;    
-   }
-   /*Die scheiße macht granix, wäre aber mega, dann könnte man die Namen
-   der Listen näher an die Nummer schieben*/
-   
-   
-   tbody tr:hover, tfoot tr:hover { 
-    background-color:#fffbf0;
-  }
+header{
+  height: 10%;
+}
+
+.content{
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+}
+
+hr{
+  margin: 5px;
+}
+
+.Taskselection {
+  position: relative;
+  height: 100%;
+  width: 210px;
+  background-color: #8689cd;
+}
+
+.Tasklist {
+  position: relative;
+  height: 100%;
+  width: 750px;
+  background-color: #5aba75;
+}
+
+.Tasklisthead {
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100%;
+  background-color: #8689cd;
   
-  tbody td:hover, tfoot td:hover { 
-    background-color: #fce4a2; 
-  }
+}
+
+.Tasklistcontent{
+  position: relative;
+  height: calc(100%-30px);
+  width: 100%;
+
+}
+
+
+.groupTasks, .personalTasks {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 40%;
+  width: 80%;
+  left: 5%;
+  display: block;
+  border: 0.3rem solid red;
+  border-spacing: 0.5rem;
+  margin-top: 10%;
+}
+
+.List {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Task{
+  height: 40px;
+  background-color: red;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox{
+  height:30px;
+  width: 30px;
+  
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .zeile {
+      padding-right: 30px; /* Platz für den Knopf */
+    }
+
+    .knopf {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      display: none;
+    }
+
+    .container:hover .knopf {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="zeile">Hier ist der Text der Zeile.</div>
+  <button class="knopf">Mein Knopf</button>
+</div>
+
+</body>
+</html>

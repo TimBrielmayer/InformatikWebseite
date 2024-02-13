@@ -11,71 +11,40 @@
 </head>
 
 <body>
-
-
+  <header> <!-- Kopfzeile mit Logo und Account Dartstellung-->
     <p>To Do's</p>
     <hr>
-    <p>Der Text unterhalb</p>
-
-    <nav>
-        <h1>WAS GEHT AB!!!!?! das habe ich mich schon immer gefragt
-              
-                <table>
-                    <tbody>
-                        <thead>
-                            <tr>
-                              <caption>Group</caption>
-                            </tr>
-                          </thead>
-                        <tr><td>1</td><td>test</td></tr>
-                        <tr><td>2</td><td>test</td></tr>
-                        <tr><td>3</td><td>test</td></tr>
-                        <tr><td>4</td><td>test</td></tr>
-                        <tr><td>5</td><td>test</td></tr>
-                        <tr><td>6</td><td>test</td></tr>
-                        <tr><td>7</td><td>test</td></tr>
-                        <tr><td>8</td><td>test</td></tr>
-                        <tr><td>9</td><td>test</td></tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                          <td>Add ToDo</td>
-                        </tr>
-                      </tfoot>        
-                </table></a></p>
-
-                <table>
-                    <thead>
-                        <tr>
-                          <caption>Personal</caption>
-                        </tr>
-                      </thead>
-                    <tbody>
-                        <tr><td>1</td><td>test</td></tr>
-                        <tr><td>2</td><td>test</td></tr>
-                        <tr><td>3</td><td>test</td></tr>
-                        <tr><td>4</td><td>test</td></tr>
-                        <tr><td>5</td><td>test</td></tr>
-                        <tr><td>6</td><td>test</td></tr>
-                        <tr><td>7</td><td>test</td></tr>
-                        <tr><td>8</td><td>test</td></tr>
-                        <tr><td>9</td><td>test</td></tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                          <td>Add ToDo</td>
-                        </tr>
-                      </tfoot>        
-                </table></a></p>
-        </h1>
-
-    </nav>
-
-
-
-
-
+  </header>
+  <div class="content"><!-- Aufbau der Todo Webseite mit Auswahl der Todo Liste und Präsentation der Liste-->
+    <div class="Taskselection"><!-- Auswahl der Todo Liste-->
+      
+      <div class="groupTasks"> <!-- Gruppenlisten Auswahl-->
+        <caption>Group</caption>
+        <p class="List">1: Test Test Test Test Test Test Test</p>
+        <p class="List">1: Test Test Test Test Test Test Test</p>
+        <p class="List">1: Test Test Test Test Test Test Test</p>
+        <p class="List">1: Test Test Test Test Test Test Test</p>
+        <p class="List">1: Test Test Test Test Test Test Test</p>
+      </div>
+      
+      <div class="personalTasks"> <!-- Persönliche Listenausahl-->
+        <caption>Personal</caption>
+        <p class="List">1: Test Test Test Test Test Test Test</p>
+      </div>
+    </div>
+    <div class="Tasklist"> <!-- Darstellung der ausgewählten Liste-->
+      <div class="Tasklisthead"><!-- Der angeziegte Name der ausgewählten Liste-->
+        Listname:
+      </div>
+      <div class = "Tasklistcontent"> <!-- Inhalt der ausgewählten Liste-->
+        <div class = "Task">
+          <input type="checkbox" class = "checkbox">
+          hello
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </body>
 
 </html>
-
