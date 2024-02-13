@@ -82,16 +82,13 @@ app.post("/login", async (req, res) => {
   });
 });
 
-app.get('/gettasks', (req, res) => {
+app.post('/getTasks', (req, res) => {
 
-  const { lid } = req.body.lid;
-  const sql = `
-      SELECT list.*, task.*
-      FROM list
-      INNER JOIN task ON list.lid = task.lid
-      WHERE list.lid = ?`;
+  const { lid } = req.body;
+  const sql = `SELECT * FROM task WHERE lid = ${lid}`;
 
-  db.all(sql, [lid], (err, rows) => {
+
+  db.all(sql, (err, rows) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -99,16 +96,18 @@ app.get('/gettasks', (req, res) => {
   });
 });
 
-app.get('/getlists', (req, res) => {
+app.post('/getLists', (req, res) => {
 
   const uid = req.session.uid;
   const sql = `
       SELECT userlist.lid
       FROM userlist
-      INNER JOIN user ON userlist.uid = user.uid
-      WHERE user.uid = ?`;
+      INNER JOIN users ON userlist.uid = users.uid
+      WHERE users.uid = ${uid}`;
 
-  db.all(sql, [uid], (err, rows) => {
+  console.log(sql)
+
+  db.all(sql, (err, rows) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
@@ -146,7 +145,7 @@ app.post('/deleteTask', async (req, res) => {
 
 })
 
-app.post('/createlist', async (req, res) => {
+app.post('/createList', async (req, res) => {
 
   const { listname, users } = req.body;
 
@@ -173,7 +172,7 @@ app.post('/createlist', async (req, res) => {
   });
 })
 
-app.post('/deletelist', async (req, res) => {
+app.post('/deleteList', async (req, res) => {
 
   const { lid } = req.body;
 
@@ -193,30 +192,46 @@ app.post('/deletelist', async (req, res) => {
 
   });
 
+  sql = `DELETE FROM userlist WHERE lid = ${lid};`
+  db.run(sql, async function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
+
+  });
+
   res.status(200);
   res.send("list deleted")
 
 })
 
-app.post('/removeuserfromlist', async (req, res) => {
+app.post('/removeUserFromList', async (req, res) => {
 
-  const { lid,uid } = req.body;
+  const { lid, uid } = req.body;
 
   var sql = `DELETE FROM userlist WHERE lid = ${lid} AND uid = ${uid};`
   db.run(sql, async function (err) {
     if (err) {
       return console.error(err.message);
     }
-
-  res.status(200);
-  res.send("user removed")
+    sql = `SELECT * FROM userlist WHERE lid = ${lid}`;
+    db.all(sql, (err, rows) => {
+      if (rows.length == 0) {
+        sql = `DELETE FROM list WHERE lid = ${lid}`;
+        db.run(sql);
+        sql = `DELETE FROM task WHERE lid = ${lid}`;
+        db.run(sql);
+      }
+    })
+    res.status(200);
+    res.send("user removed")
   });
 
 })
 
-app.post('/addusertolist', async (req, res) => {
+app.post('/addUserToList', async (req, res) => {
 
-  const { lid,uid } = req.body;
+  const { lid, uid } = req.body;
 
   var sql = `INSERT INTO userlist (uid,lid) VALUES (${uid}, ${lid});`
   db.run(sql, async function (err) {
@@ -224,12 +239,11 @@ app.post('/addusertolist', async (req, res) => {
       return console.error(err.message);
     }
 
-  res.status(200);
-  res.send("user added")
+    res.status(200);
+    res.send("user added")
   });
 
 })
-
 
 
 console.log("tasks:")
@@ -238,9 +252,50 @@ db.all(sql, (err, rows) => {
   console.log(rows)
 })
 
-console.log("usertodos:")
+console.log("list:")
+sql = 'SELECT * FROM list'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+
+console.log("userlist:")
 sql = 'SELECT * FROM userlist'
 db.all(sql, (err, rows) => {
   console.log(rows)
 })
 
+/*
+sql = 'INSERT INTO list(listname) VALUES("einkaufen")'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+
+sql = 'INSERT INTO task(taskname, sdate, edate, lid) VALUES("apfel", "20201202 10:10:01 AM", "20201202 10:10:01 AM", 1)'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+
+sql = 'INSERT INTO task(taskname, sdate, edate, lid) VALUES("banane", "20201202 10:10:01 AM", "20201202 10:10:01 AM", 1)'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+
+sql = 'INSERT INTO userlist(uid, lid) VALUES(1,1)'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+
+
+sql = 'DELETE FROM task WHERE 1'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+sql = 'DELETE FROM userlist WHERE 1'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+sql = 'DELETE FROM list WHERE 1'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+*/
