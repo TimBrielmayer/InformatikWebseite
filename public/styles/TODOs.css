@@ -8,14 +8,14 @@ header{
   height: 10%;
 }
 
+hr{
+  margin: 5px;
+}
+
 .content{
   display: flex;
   flex-direction: row;
   height: 90%;
-}
-
-hr{
-  margin: 5px;
 }
 
 .Taskselection {
@@ -75,6 +75,11 @@ hr{
   text-overflow: ellipsis;
 }
 
+.List:active{
+  background-color: rgb(113, 96, 208);
+  /* Dieser Bereich für die Javascript Funktion bei Auswahl einer Lister, dass deren Tasks geladen werden*/
+}
+
 .Task{
   height: 40px;
   background-color: red;
@@ -82,6 +87,12 @@ hr{
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.List:hover, .Task:hover{
+  background-color: rgb(96, 169, 208);
+  /*border: 4px black; //Wäre nice wenn das klappt*/
+
 }
 
 .checkbox{
