@@ -1,114 +1,129 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between; /* Align items and button */
+  align-items: center;
+}
 
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border-bottom: 1px solid #000;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between; /* Align items and button */
-    align-items: center;
-  }
-  
-  .nav-left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .nav-right {
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Make the navigation items flex */
-    align-items: center;
-  }
-  
-  nav ul li {
-    position: relative;
-    margin: 0 10px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px;
-    display: block;
-  }
-  
-  nav ul li ul {
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: 0;
-    background-color: #333;
-    padding: 10px;
-    border-top: 1px solid #000;
-  }
-  
-  nav ul li:hover ul {
-    display: block;
-  }
-  
-  nav ul li ul li {
-    margin: 0;
-  }
-  
-  .Logo {
-    height: 100px;
-    scale: 1;
-  }
-  
-  button {
-    background-color: #ffffff;
-    color: #080710;
-    padding: 10px 50px;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #0d941d;
-    scale: 1.05;
-  }
-  h1 {
-    font-size: 40px;
-    text-align: center;
-  }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 20px;
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Make the navigation items flex */
+  align-items: center;
+}
+
+nav ul li {
+  position: relative;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  display: block;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  padding: 10px;
+  border-top: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li {
+  margin: 0;
+  padding: 8px 0;
+}
+
+nav ul li ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 20px; /* Add padding to dropdown items */
+  display: block;
+}
+
+nav ul li ul li a:hover {
+  background-color: #444; /* Change background color on hover */
+}
+
+.Logo {
+  height: 100px;
+  scale: 1;
+}
+
+button {
+  background-color: #ffffff;
+  color: #080710;
+  padding: 10px 50px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0d941d;
+  scale: 1.05;
+}
+h1 {
+  font-size: 40px;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .content {
-    flex: 1 0 70%; /* 70% des verfügbaren Platzes */
-    text-align: justify;
+  flex: 1 0 70%; /* 70% des verfügbaren Platzes */
+  text-align: justify;
 }
 
 .sidebar {
-    flex: 1 0 25%; /* 25% des verfügbaren Platzes */
-    padding: 25px;
+  flex: 1 0 25%; /* 25% des verfügbaren Platzes */
+  padding: 25px;
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333; /* Choose your preferred background color */
+  color: #fff; /* Choose your preferred text color */
+  padding: 20px 0; /* Adjust padding as needed */
+  text-align: center;
 }
