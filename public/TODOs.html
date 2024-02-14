@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/TODOs.css">
+  <script defer src="js/Todos.js"></script>
 
 
   <title>TODOs</title>
@@ -12,9 +13,10 @@
 
 <body>
   <header> <!-- Kopfzeile mit Logo und Account Dartstellung-->
-    <p>To Do's</p>
-    <hr>
+    <img src="pictures/ToDo-neu.png" class="Logo"></img>
+    <div class = "Account"><span class="circle"></span> HEYO!!</div>
   </header>
+  <hr>
   <div class="content"><!-- Aufbau der Todo Webseite mit Auswahl der Todo Liste und Präsentation der Liste-->
     <div class="Taskselection"><!-- Auswahl der Todo Liste-->
       
@@ -26,6 +28,7 @@
         <p class="List">1: Test Test Test Test Test Test Test</p>
         <p class="List">1: Test Test Test Test Test Test Test</p>
       </div>
+      <input type ="button" class ="Addbuttontasklist" value="+Add tasklist" onclick ="Addtasklistfunction">
       
       <div class="personalTasks"> <!-- Persönliche Listenausahl-->
         <caption>Personal</caption>
@@ -40,11 +43,19 @@
         <div class = "Task">
           hello
           <input type="checkbox" class = "checkbox">
+          <img src="pictures/trashcan2.png" class="trashicon"></img>
+        </div>
+        <div class = "Task">
+          hello
+          <input type="checkbox" class = "checkbox">
+        </div>
+        <div class = "Taskoption">
+          <button class = "Addbuttontask" value ="+Add task" onclick ="window.location.href='addTask.html'"> </button>
         </div>
       </div>
     </div>
   </div>
-  
+
 </body>
 
 </html>

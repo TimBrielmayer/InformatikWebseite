@@ -6,6 +6,49 @@ body {
 
 header{
   height: 10%;
+  display: flex;
+  justify-content : space-between;
+  
+}
+
+.Account{
+  position:relative;
+  right:10px;
+  width: 150px;
+  height:80%;
+
+  background-color: #8689cd;
+  border-radius: 0.5rem;
+
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.circle{ /*Ist für den Grünen Punkt beim Account Name Zuständig, in hmtl unter <span class ="circle">
+  Möglichkeit noch dazu, die Verbindung zum Server über Grün und Rot als Offline darzustellen*/
+  height: 10px;
+  width: 10px;
+  background-color: #29c934;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.Logo {
+  height: 70%;
+  scale: 1;
+}
+.trashicon{
+  height:70%;
+  scale:1;
+  padding: 10px;
+  border-radius:50%;
+}
+.trashicon:hover{
+  background-color: red;
+  scale:1.1;
 }
 
 hr{
@@ -45,6 +88,11 @@ hr{
 }
 
 .Tasklistcontent{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  
   position: relative;
   height: calc(100%-30px);
   width: 100%;
@@ -74,6 +122,25 @@ hr{
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.Addbuttontasklist{
+  position: relative;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  height: 20px;
+  border-radius:45%;
+}
+
+.Addbuttontask{
+  position: relative;
+  width: 100px;
+  height: 20px;
+}
+
+.Addbuttontasklist:hover, .Addbuttontask:hover{
+  background-color: #29c934;
+
+}
 
 .List:active{
   background-color: rgb(113, 96, 208);
@@ -82,11 +149,14 @@ hr{
 
 .Task{
   height: 40px;
-  background-color: red;
+  background-color: rgb(255, 206, 71);
   position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.Task:nth-child(even){
+  background-color: rgb(83, 240, 35);
 }
 
 .List:hover, .Task:hover{
@@ -98,5 +168,15 @@ hr{
 .checkbox{
   height:30px;
   width: 30px;
+  
+}
+
+.Taskoption{
+  height: 40px;
+  background-color: rgb(66, 64, 60);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   
 }
