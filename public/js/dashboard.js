@@ -1,3 +1,8 @@
+function addTask(){
+    var popUp = document.getElementById("addTaskPopUp");
+    popUp.style.display = "flex";
+}
+
 async function deleteTask() {
   console.log("hallo")
   const tid = 2;
