@@ -3,8 +3,25 @@ function addTask(){
     popUp.style.display = "flex";
 }
 
+function addList() {
+    var popUp = document.getElementById("addListPopUp");
+    popUp.style.display = "flex";
+}
+
+async function loadAllTaskLists() {
+    const allLists = await getLists();
+    
+    for(let i in allLists) {
+        var list = document.createElement("p");
+        list.classList.add("List");
+        list.textContent = allLists[i].listname;
+        
+        const listContainer = document.getElementById("listContainer");
+        listContainer.appendChild(list);
+    }
+}
+
 async function deleteTask() {
-  console.log("hallo")
   const tid = 2;
   try {
       const response = await fetch('/deleteTask', {
@@ -58,7 +75,7 @@ async function getLists() {
           body:JSON.stringify({})
       })
       const data = await response.json();
-      console.log(data.data)
+      return data.data;
 
   } catch (error) {
       console.error('Error during addtask:', error);

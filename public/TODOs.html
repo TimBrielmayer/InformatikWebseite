@@ -11,7 +11,7 @@
   <script src="js/dashboard.js"></script>
 </head>
 
-<body>
+<body onload="loadAllTaskLists()">
   <header> <!-- Kopfzeile mit Logo und Account Dartstellung-->
     <img src="pictures/ToDo-neu.png" class="Logo">
     <div class="Account"><span class="circle"></span> HEYO!!</div>
@@ -19,40 +19,29 @@
   <hr>
   <div class="content"><!-- Aufbau der Todo Webseite mit Auswahl der Todo Liste und Präsentation der Liste-->
     <div class="Taskselection"><!-- Auswahl der Todo Liste-->
+      <input type="button" class="Addbuttontasklist" value="+Add tasklist" onclick="addList()">
+      <div class="groupTasks" id="listContainer"> <!-- listen Auswahl-->
 
-      <div class="groupTasks"> <!-- Gruppenlisten Auswahl-->
-        <caption>Group</caption>
-        <p class="List">1: Test Test Test Test Test Test Test</p>
-        <p class="List">1: Test Test Test Test Test Test Test</p>
-        <p class="List">1: Test Test Test Test Test Test Test</p>
-        <p class="List">1: Test Test Test Test Test Test Test</p>
-        <p class="List">1: Test Test Test Test Test Test Test</p>
-      </div>
-      <input type="button" class="Addbuttontasklist" value="+Add tasklist" onclick="Addtasklistfunction">
-
-      <div class="personalTasks"> <!-- Persönliche Listenausahl-->
-        <caption>Personal</caption>
-        <p class="List">1: Test Test Test Test Test Test Test</p>
       </div>
     </div>
     <div class="Tasklist"> <!-- Darstellung der ausgewählten Liste-->
       <div class="Tasklisthead"><!-- Der angeziegte Name der ausgewählten Liste-->
-        Listname:
+        Listname
       </div>
       <div class="Tasklistcontent"> <!-- Inhalt der ausgewählten Liste-->
         <div class="Task">
-          hello
           <input type="checkbox" class="checkbox">
+          <p>Hallo ich bin Task Nummer 1</p>
           <img src="pictures/trashcan2.png" class="trashicon">
         </div>
         <div class="Task">
-          hello
           <input type="checkbox" class="checkbox">
+          <p>Hallo ich bin Task Nummer 2</p>
+          <img src="pictures/trashcan2.png" class="trashicon">
         </div>
         <div class="Taskoption">
           <button class="Addbuttontask" onclick='addTask()'>Add Task</button>
         </div>
-        <div class="addTaskButton" onclick='addTask()'>+</div>
       </div>
     </div>
   </div>
@@ -65,6 +54,13 @@
       <label for="edate">Enddatum</label>
       <input type="datetime-local" name="edate" id="edate">
       <button type="button" name="taskSpeichern" id="taskSpeichern">Speichern</button>
+    </form>
+  </div>
+  <div id="addListPopUp">
+    <form id="addListForm">
+      <label for="listname">Listenname</label>
+      <input type="text" name="taskname" id="taskname">
+      <button type="button" name="listSpeichern" id="listSpeichern">Speichern</button>
     </form>
   </div>
 

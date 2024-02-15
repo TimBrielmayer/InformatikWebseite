@@ -98,14 +98,14 @@ app.post('/getTasks', (req, res) => {
 
 app.post('/getLists', (req, res) => {
 
-  const uid = req.session.uid;
+  //const uid = req.session.uid;
+  const uid = 1;
   const sql = `
-      SELECT userlist.lid
+      SELECT userlist.lid, list.listname
       FROM userlist
       INNER JOIN users ON userlist.uid = users.uid
+      INNER JOIN list ON list.lid = userlist.lid
       WHERE users.uid = ${uid}`;
-
-  console.log(sql)
 
   db.all(sql, (err, rows) => {
     if (err) {
