@@ -11,7 +11,7 @@
   <script src="js/dashboard.js"></script>
 </head>
 
-<body onload="loadAllTaskLists();">
+<body onload="loadAllTaskLists()">
   <header> <!-- Kopfzeile mit Logo und Account Dartstellung-->
     <img src="pictures/ToDo-neu.png" class="Logo">
     <div class="Account"><span class="circle"></span> HEYO!!</div>
@@ -21,11 +21,6 @@
     <div class="Taskselection"><!-- Auswahl der Todo Liste-->
       <input type="button" class="Addbuttontasklist" value="+Add tasklist" onclick="addList()">
       <div class="groupTasks" id="listContainer"> <!-- listen Auswahl-->
-          
-            <div class="List">
-              <p>Liste 1 </p>
-              <img src="pictures/trashcan2.png" class="trashicon2">
-            </div>
           
       </div>
     </div>
@@ -37,16 +32,6 @@
         <button class="Addbuttontask" onclick='addTask()'>Add Task</button>
       </div>
       <div class="Tasklistcontent" id="taskContainer"> <!-- Inhalt der ausgewählten Liste-->
-        <div class="Task">
-          <input type="checkbox" class="checkbox">
-          <p>Hallo ich bin Task Nummer 1</p>
-          <img src="pictures/trashcan2.png" class="trashicon">
-        </div>
-        <div class="Task">
-          <input type="checkbox" class="checkbox">
-          <p>Hallo ich bin Task Nummer 2</p>
-          <img src="pictures/trashcan2.png" class="trashicon">
-        </div>
       </div>
     </div>
   </div>

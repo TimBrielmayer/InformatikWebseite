@@ -46,6 +46,7 @@ header{
   scale:1;
   padding: 10px;
   border-radius:50%;
+  cursor: pointer;
 }
 .trashicon2{
   position:relative;
@@ -53,6 +54,7 @@ header{
   scale:1;
   padding: 10px;
   border-radius:50%;
+  cursor: pointer;
 }
 .trashicon:hover, .trashicon2:hover{
   background-color: red;
