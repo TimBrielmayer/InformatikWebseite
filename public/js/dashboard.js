@@ -18,34 +18,35 @@ async function loadAllTaskLists() {
         var list = document.createElement("p");
         list.classList.add("List");
         list.textContent = allLists[i].listname;
+        list.setAttribute("onclick", `loadTasks(${allLists[i].lid})`)
 
         listContainer.appendChild(list);
     }
 }
 
-async function deleteTask(tid,lid) {
-    
-    try {
-        const response = await fetch('/deleteTask', {
-            method: 'POST',
-            headers:
-            {
-                'Content-Type': 'application/json',
+async function deleteTask(tid, lid) {
+    if (confirm("Bist du dir sicher, dass du diese Task löschen willst?")) {
+        try {
+            const response = await fetch('/deleteTask', {
+                method: 'POST',
+                headers:
+                {
+                    'Content-Type': 'application/json',
 
-            },
-            body: JSON.stringify({
-                tid: tid,
+                },
+                body: JSON.stringify({
+                    tid: tid,
+                })
             })
-        })
-        loadTasks(lid);
+            loadTasks(lid);
 
-    } catch (error) {
-        console.error('Error during addtask:', error);
+        } catch (error) {
+            console.error('Error during addtask:', error);
+        }
     }
 }
 
-async function getTasks() {
-    const lid = 1;
+async function getTasks(lid) {
     try {
         const response = await fetch('/getTasks', {
             method: 'POST',
@@ -150,12 +151,13 @@ async function addUserToList() {
 }
 
 
-async function loadTasks(lid){
+async function loadTasks(lid) {
+    sessionStorage.setItem("lid", lid)
 
     const tasks = await getTasks(lid);
     var taskContainer = document.getElementById('taskContainer');
     taskContainer.innerHTML = '';
-    for(let i in tasks){
+    for (let i in tasks) {
         var taskDiv = document.createElement('div');
         taskDiv.classList.add("Task")
         var checkBox = document.createElement('input')
@@ -164,15 +166,15 @@ async function loadTasks(lid){
         var taskname = document.createElement('p');
         taskname.textContent = tasks[i].taskname;
         var loeschen = document.createElement('img')
-        loeschen.setAttribute('src' , 'pictures/trashcan2.png');
-        loeschen.setAttribute('onclick' , `deleteTask(${tasks[i].tid}, ${lid})`);
+        loeschen.setAttribute('src', 'pictures/trashcan2.png');
+        loeschen.setAttribute('onclick', `deleteTask(${tasks[i].tid}, ${lid})`);
         loeschen.classList.add('trashicon');
 
         taskDiv.appendChild(checkBox);
         taskDiv.appendChild(taskname)
         taskDiv.appendChild(loeschen)
 
-       
+
         taskContainer.appendChild(taskDiv)
     }
 }
