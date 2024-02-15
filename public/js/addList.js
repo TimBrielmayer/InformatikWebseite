@@ -1,8 +1,8 @@
 document.getElementById("listSpeichern").addEventListener('click', async function (event) {
     event.preventDefault();
 
-    const list = document.getElementById("listname").value;
-    const users = [1]
+    const listname = document.getElementById("listname").value;
+    const users = ["philipp"]
     try {
         const response = await fetch('/createList', {
             method: 'POST',

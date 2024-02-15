@@ -158,7 +158,7 @@ app.post('/createList', async (req, res) => {
     for (i = 0; i < users.length; i++) {
       sql = `SELECT uid FROM users WHERE username = "${users[i]}"`;
       db.get(sql, (err, row) => {
-        sql = `INSERT INTO userlist (uid,lid) VALUES (${users[i]},${lid})`;
+        sql = `INSERT INTO userlist (uid,lid) VALUES (${row.uid},${lid})`;
 
         db.run(sql, async function (err) {
           if (err) {
