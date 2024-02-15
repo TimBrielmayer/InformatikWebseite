@@ -86,8 +86,7 @@ async function getLists() {
     }
 }
 
-async function deleteList() {
-    const lid = 3;
+async function deleteList(lid) {
     try {
         const response = await fetch('/deleteList', {
             method: 'POST',
