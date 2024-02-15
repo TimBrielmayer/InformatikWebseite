@@ -74,6 +74,8 @@ hr{
   height: 100%;
   width: 750px;
   background-color: #5aba75;
+  box-sizing: border-box;
+  border: 3px solid black;
 }
 
 .Tasklisthead {
@@ -85,6 +87,9 @@ hr{
   height: 30px;
   width: 100%;
   background-color: #8689cd;
+  box-sizing: border-box;
+  border-bottom: 2px solid black;
+  
   
 }
 
@@ -106,12 +111,19 @@ hr{
   margin-top: 10%;
 }
 
-.List {
+.List {/*Das ist In der Auflistung der Listen eine einzelne Liste*/
   position: relative;
+  left:4%;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+
+  box-sizing: border-box;
+  border-bottom: 2px solid black;
+  box-shadow: 1px 2px 5px blueviolet;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
 }
 .Addbuttontasklist{
   position: relative;
@@ -159,9 +171,18 @@ hr{
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content : space-between;
+  overflow:hidden;
 }
 .Task:nth-child(even){
   background-color: rgb(83, 240, 35);
+}
+
+.Tasksentence{ /*Bitte noch in HMTL implementieren, ist die Klasse für die einzelnenen Task für <P>*/
+  width:85%;
+  overflow-x:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .List:hover, .Task:hover{
