@@ -5,21 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/TODOs.css">
-  <script defer src="js/Todos.js"></script>
-
 
   <title>TODOs</title>
+
+  <script src="js/dashboard.js"></script>
 </head>
 
 <body>
   <header> <!-- Kopfzeile mit Logo und Account Dartstellung-->
-    <img src="pictures/ToDo-neu.png" class="Logo"></img>
-    <div class = "Account"><span class="circle"></span> HEYO!!</div>
+    <img src="pictures/ToDo-neu.png" class="Logo">
+    <div class="Account"><span class="circle"></span> HEYO!!</div>
   </header>
   <hr>
   <div class="content"><!-- Aufbau der Todo Webseite mit Auswahl der Todo Liste und Präsentation der Liste-->
     <div class="Taskselection"><!-- Auswahl der Todo Liste-->
-      
+
       <div class="groupTasks"> <!-- Gruppenlisten Auswahl-->
         <caption>Group</caption>
         <p class="List">1: Test Test Test Test Test Test Test</p>
@@ -28,8 +28,8 @@
         <p class="List">1: Test Test Test Test Test Test Test</p>
         <p class="List">1: Test Test Test Test Test Test Test</p>
       </div>
-      <input type ="button" class ="Addbuttontasklist" value="+Add tasklist" onclick ="Addtasklistfunction">
-      
+      <input type="button" class="Addbuttontasklist" value="+Add tasklist" onclick="Addtasklistfunction">
+
       <div class="personalTasks"> <!-- Persönliche Listenausahl-->
         <caption>Personal</caption>
         <p class="List">1: Test Test Test Test Test Test Test</p>
@@ -39,23 +39,36 @@
       <div class="Tasklisthead"><!-- Der angeziegte Name der ausgewählten Liste-->
         Listname:
       </div>
-      <div class = "Tasklistcontent"> <!-- Inhalt der ausgewählten Liste-->
-        <div class = "Task">
+      <div class="Tasklistcontent"> <!-- Inhalt der ausgewählten Liste-->
+        <div class="Task">
           hello
-          <input type="checkbox" class = "checkbox">
+          <input type="checkbox" class="checkbox">
           <img src="pictures/trashcan2.png" class="trashicon">
         </div>
-        <div class = "Task">
+        <div class="Task">
           hello
-          <input type="checkbox" class = "checkbox">
+          <input type="checkbox" class="checkbox">
         </div>
-        <div class = "Taskoption">
-          <button class = "Addbuttontask" value ="+Add task" onclick ="window.location.href='addTask.html'"> </button>
+        <div class="Taskoption">
+          <button class="Addbuttontask" onclick='addTask()'>Add Task</button>
         </div>
+        <div class="addTaskButton" onclick='addTask()'>+</div>
       </div>
     </div>
   </div>
+  <div id="addTaskPopUp">
+    <form id="addTaskForm">
+      <label for="taskname">Taskname</label>
+      <input type="text" name="taskname" id="taskname">
+      <label for="sdate">Startdatum</label>
+      <input type="datetime-local" name="sdate" id="sdate">
+      <label for="edate">Enddatum</label>
+      <input type="datetime-local" name="edate" id="edate">
+      <button type="button" name="taskSpeichern" id="taskSpeichern">Speichern</button>
+    </form>
+  </div>
 
+  <script src="js/addTask.js"></script>
 </body>
 
 </html>
