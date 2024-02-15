@@ -5,7 +5,10 @@ Signed Dominik Kienle
 Stand 31.01.2024
 
 Die erste Zusammenarbeit hat auch gut geklappt, wir haben eine Login Page, danke an euch,
-Und ja, ich versuch mich jetzt noch weiter, bald bin ich auf der Rennbahn und versuch aufzuholen
+Und ja, ich versuch mich jetzt noch weiter, bald bin ich auf der Rennbahn und versuch aufzuholen.
+
+Jo, also die Webseite nimmt ja langsam gestallt an, wir haben nun die Todos Seite über die, die
+Listen erkennbar sind und auswählbar, außerdem lassen sich neue Tasks in der Datenbank hinzufügen und löschen.
 
 
 
