@@ -1,6 +1,4 @@
 
-var popUp = document.getElementById("addTaskPopUp");
-
 document.getElementById("taskSpeichern").addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -30,7 +28,7 @@ document.getElementById("taskSpeichern").addEventListener('click', async functio
                 lid: lid,
             })
         })
-        //var popUp = document.getElementById("addTaskPopUp");
+        var popUp = document.getElementById("addTaskPopUp");
         popUp.style.display = "none";
 
         loadTasks(lid)
@@ -41,5 +39,7 @@ document.getElementById("taskSpeichern").addEventListener('click', async functio
 });
 
 document.getElementById("taskabbrechen").addEventListener('click', async function (event) {
+    event.preventDefault();
+    var popUp = document.getElementById("addTaskPopUp");
         popUp.style.display = "none";
 });
