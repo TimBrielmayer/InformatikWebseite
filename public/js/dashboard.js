@@ -1,4 +1,4 @@
-function addTask(){
+function addTask() {
     var popUp = document.getElementById("addTaskPopUp");
     popUp.style.display = "flex";
 }
@@ -10,160 +10,140 @@ function addList() {
 
 async function loadAllTaskLists() {
     const allLists = await getLists();
-    
-    for(let i in allLists) {
+
+    const listContainer = document.getElementById("listContainer");
+    listContainer.innerHTML = '';
+
+    for (let i in allLists) {
         var list = document.createElement("p");
         list.classList.add("List");
         list.textContent = allLists[i].listname;
-        
-        const listContainer = document.getElementById("listContainer");
+
         listContainer.appendChild(list);
     }
 }
 
 async function deleteTask() {
-  const tid = 2;
-  try {
-      const response = await fetch('/deleteTask', {
-          method: 'POST',
-          headers:
-          {
-              'Content-Type': 'application/json',
+    const tid = 2;
+    try {
+        const response = await fetch('/deleteTask', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
 
-          },
-          body:JSON.stringify({
-              tid: tid,
-          })
-      })
+            },
+            body: JSON.stringify({
+                tid: tid,
+            })
+        })
 
-  } catch (error) {
-      console.error('Error during addtask:', error);
-  }
+    } catch (error) {
+        console.error('Error during addtask:', error);
+    }
 }
 
 async function getTasks() {
-  const lid = 1;
-  try {
-      const response = await fetch('/getTasks', {
-          method: 'POST',
-          headers:
-          {
-              'Content-Type': 'application/json',
+    const lid = 1;
+    try {
+        const response = await fetch('/getTasks', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
 
-          },
-          body:JSON.stringify({
-              lid: lid,
-          })
-      })
-      const data = await response.json();
-      console.log(data.data)
+            },
+            body: JSON.stringify({
+                lid: lid,
+            })
+        })
+        const data = await response.json();
+        console.log(data.data)
 
-  } catch (error) {
-      console.error('Error during addtask:', error);
-  }
+    } catch (error) {
+        console.error('Error during addtask:', error);
+    }
 }
 
 async function getLists() {
-  try {
-      const response = await fetch('/getLists', {
-          method: 'POST',
-          headers:
-          {
-              'Content-Type': 'application/json',
+    try {
+        const response = await fetch('/getLists', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
 
-          },
-          body:JSON.stringify({})
-      })
-      const data = await response.json();
-      return data.data;
+            },
+            body: JSON.stringify({})
+        })
+        const data = await response.json();
+        return data.data;
 
-  } catch (error) {
-      console.error('Error during addtask:', error);
-  }
-}
-
-async function createList() {
-  const listname = "uni";
-  const users = [2]
-  try {
-      const response = await fetch('/createList', {
-          method: 'POST',
-          headers:
-          {
-              'Content-Type': 'application/json',
-
-          },
-          body:JSON.stringify({
-            listname: listname,
-            users: users
-          })
-      })
-
-  } catch (error) {
-      console.error('Error during addtask:', error);
-  }
+    } catch (error) {
+        console.error('Error during addtask:', error);
+    }
 }
 
 async function deleteList() {
-  const lid = 3;
-  try {
-      const response = await fetch('/deleteList', {
-          method: 'POST',
-          headers:
-          {
-              'Content-Type': 'application/json',
+    const lid = 3;
+    try {
+        const response = await fetch('/deleteList', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
 
-          },
-          body:JSON.stringify({
-            lid: lid
-          })
-      })
+            },
+            body: JSON.stringify({
+                lid: lid
+            })
+        })
 
-  } catch (error) {
-      console.error('Error during addtask:', error);
-  }
+    } catch (error) {
+        console.error('Error during addtask:', error);
+    }
 }
 
 async function removeUserFromList() {
-  const lid = 1;
-  const uid = 2;
-  try {
-      const response = await fetch('/removeUserFromList', {
-          method: 'POST',
-          headers:
-          {
-              'Content-Type': 'application/json',
+    const lid = 1;
+    const uid = 2;
+    try {
+        const response = await fetch('/removeUserFromList', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
 
-          },
-          body:JSON.stringify({
-            lid: lid,
-            uid: uid
-          })
-      })
+            },
+            body: JSON.stringify({
+                lid: lid,
+                uid: uid
+            })
+        })
 
-  } catch (error) {
-      console.error('Error during addtask:', error);
-  }
+    } catch (error) {
+        console.error('Error during addtask:', error);
+    }
 }
 
 async function addUserToList() {
-  const lid = 1;
-  const uid = 2;
-  try {
-      const response = await fetch('/addUserToList', {
-          method: 'POST',
-          headers:
-          {
-              'Content-Type': 'application/json',
+    const lid = 1;
+    const uid = 2;
+    try {
+        const response = await fetch('/addUserToList', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
 
-          },
-          body:JSON.stringify({
-            lid: lid,
-            uid: uid
-          })
-      })
+            },
+            body: JSON.stringify({
+                lid: lid,
+                uid: uid
+            })
+        })
 
-  } catch (error) {
-      console.error('Error during addtask:', error);
-  }
+    } catch (error) {
+        console.error('Error during addtask:', error);
+    }
 }

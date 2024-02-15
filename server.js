@@ -156,15 +156,17 @@ app.post('/createList', async (req, res) => {
     }
     const lid = this.lastID
     for (i = 0; i < users.length; i++) {
-      sql = `INSERT INTO userlist (uid,lid) VALUES (${users[i]},${lid})`;
+      sql = `SELECT uid FROM users WHERE username = "${users[i]}"`;
+      db.get(sql, (err, row) => {
+        sql = `INSERT INTO userlist (uid,lid) VALUES (${users[i]},${lid})`;
 
-      db.run(sql, async function (err) {
-        if (err) {
-          return console.error(err.message);
-        }
+        db.run(sql, async function (err) {
+          if (err) {
+            return console.error(err.message);
+          }
 
+        });
       });
-
     }
 
     res.status(200);
