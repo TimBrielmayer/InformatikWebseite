@@ -18,7 +18,7 @@ async function loadAllTaskLists() {
         var list = document.createElement("p");
         list.classList.add("List");
         list.textContent = allLists[i].listname;
-        list.setAttribute("onclick", `loadTasks(${allLists[i].lid})`)
+        list.setAttribute("onclick", `loadTaskList("${allLists[i].listname}",${allLists[i].lid})`)
 
         listContainer.appendChild(list);
     }
@@ -149,6 +149,12 @@ async function addUserToList() {
     }
 }
 
+function loadTaskList(listname, lid) {
+    var header = document.getElementById("TasklistHead");
+    header.textContent = listname;
+
+    loadTasks(lid);
+}
 
 async function loadTasks(lid) {
     sessionStorage.setItem("lid", lid)
