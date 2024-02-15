@@ -23,8 +23,8 @@ async function loadAllTaskLists() {
     }
 }
 
-async function deleteTask() {
-    const tid = 2;
+async function deleteTask(tid,lid) {
+    
     try {
         const response = await fetch('/deleteTask', {
             method: 'POST',
@@ -37,6 +37,7 @@ async function deleteTask() {
                 tid: tid,
             })
         })
+        loadTasks(lid);
 
     } catch (error) {
         console.error('Error during addtask:', error);
@@ -58,7 +59,7 @@ async function getTasks() {
             })
         })
         const data = await response.json();
-        console.log(data.data)
+        return data.data;
 
     } catch (error) {
         console.error('Error during addtask:', error);
@@ -145,5 +146,33 @@ async function addUserToList() {
 
     } catch (error) {
         console.error('Error during addtask:', error);
+    }
+}
+
+
+async function loadTasks(lid){
+
+    const tasks = await getTasks(lid);
+    var taskContainer = document.getElementById('taskContainer');
+    taskContainer.innerHTML = '';
+    for(let i in tasks){
+        var taskDiv = document.createElement('div');
+        taskDiv.classList.add("Task")
+        var checkBox = document.createElement('input')
+        checkBox.classList.add("checkbox");
+        checkBox.setAttribute('type', 'checkbox');
+        var taskname = document.createElement('p');
+        taskname.textContent = tasks[i].taskname;
+        var loeschen = document.createElement('img')
+        loeschen.setAttribute('src' , 'pictures/trashcan2.png');
+        loeschen.setAttribute('onclick' , `deleteTask(${tasks[i].tid}, ${lid})`);
+        loeschen.classList.add('trashicon');
+
+        taskDiv.appendChild(checkBox);
+        taskDiv.appendChild(taskname)
+        taskDiv.appendChild(loeschen)
+
+       
+        taskContainer.appendChild(taskDiv)
     }
 }
