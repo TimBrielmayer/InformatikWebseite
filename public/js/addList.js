@@ -6,7 +6,7 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
     const listname = document.getElementById("listname").value;
     const users = ["philipp"]
     try {
-        const response = await fetch('/createList', {
+        var response = await fetch('/createList', {
             method: 'POST',
             headers:
             {
@@ -17,12 +17,18 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
                 listname: listname,
                 users: users
             })
+            
         })
+        var lid = await response.json()
         var popUp = document.getElementById("addListPopUp");
         popUp.style.display = "none";
         loadAllTaskLists();
-        //console.log(getListByName(listname));
-        //  loadTaskList(listname,getListByName(listname)); //parameter 2 vanpasssen
+
+        //const data = await response.json();
+        //console.log('Hier ' + data)
+        //console.log(listname)
+        //console.log("Hier "+await getListByName(listname));
+        loadTaskList(listname,lid); //parameter 2 vanpasssen
     } catch (error) {
         console.error('Error during addtask:', error);
     }
