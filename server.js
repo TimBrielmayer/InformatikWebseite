@@ -187,6 +187,7 @@ app.post('/createList', async (req, res) => {
       return console.error(err.message);
     }
     const lid = this.lastID
+    res.json(lid)
     for (i = 0; i < users.length; i++) {
       sql = `SELECT uid FROM users WHERE username = "${users[i]}"`;
       db.get(sql, (err, row) => {
