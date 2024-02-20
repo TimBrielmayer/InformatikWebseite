@@ -11,6 +11,9 @@ async function loadUsername() {
         else {
             username = await response.json();
             console.log('logged in user: ' + username);
+
+            const usernameElement = document.getElementById('username');
+            usernameElement.textContent = username;
         }
 
     } catch (error) {
