@@ -11,6 +11,9 @@ async function loadUsername() {
         else {
             username = await response.json();
             console.log('logged in user: ' + username);
+
+            const usernameElement = document.getElementById('username');
+            usernameElement.textContent = username;
         }
 
     } catch (error) {
@@ -186,6 +189,9 @@ function loadTaskList(listname, lid) {
     header.textContent = listname;
 
     loadTasks(lid);
+
+    addTaskButton = document.getElementById('addTaskButton');
+    addTaskButton.style.display = 'flex';
 }
 
 async function loadTasks(lid) {
