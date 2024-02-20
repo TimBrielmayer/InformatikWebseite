@@ -28,7 +28,7 @@ app.listen(port, () => {
 
 app.get("/getUsername", (req, res) => {
   //req.session.username = 'Philipp'
-  if(req.session.username === undefined) {
+  if (req.session.username === undefined) {
     res.status(204);
     res.send();
   }
@@ -117,7 +117,7 @@ app.post('/getTasks', (req, res) => {
 
 app.post('/getListByName', (req, res) => {
 
-  const {listname} = req.body;
+  const { listname } = req.body;
   const sql = `SELECT * FROM list WHERE listname = ${listname}`;
 
 
@@ -187,7 +187,7 @@ app.post('/createList', async (req, res) => {
       return console.error(err.message);
     }
     const lid = this.lastID
-    res.json(lid)
+
     for (i = 0; i < users.length; i++) {
       sql = `SELECT uid FROM users WHERE username = "${users[i]}"`;
       db.get(sql, (err, row) => {
@@ -197,13 +197,12 @@ app.post('/createList', async (req, res) => {
           if (err) {
             return console.error(err.message);
           }
-
+          res.status(200);
+          res.json(lid)
         });
       });
     }
 
-    res.status(200);
-    res.send("userlist created")
   });
 })
 
@@ -281,7 +280,7 @@ app.post('/addUserToList', async (req, res) => {
 })
 
 app.post('/changeTaskState', (req, res) => {
-  const { tid, state} = req.body;
+  const { tid, state } = req.body;
 
   const sql = `UPDATE task SET done = '${state}' WHERE tid = ${tid}`;
 
