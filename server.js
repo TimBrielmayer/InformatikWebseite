@@ -23,6 +23,9 @@ app.listen(port, () => {
   console.log("APP LISTEN ON PORT", port)
 })
 
+
+
+
 app.get("/getUsername", (req, res) => {
   //req.session.username = 'Philipp'
   if(req.session.username === undefined) {
@@ -34,6 +37,8 @@ app.get("/getUsername", (req, res) => {
     res.json(req.session.username)
   }
 })
+
+
 
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
@@ -100,6 +105,20 @@ app.post('/getTasks', (req, res) => {
 
   const { lid } = req.body;
   const sql = `SELECT * FROM task WHERE lid = ${lid}`;
+
+
+  db.all(sql, (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json({ data: rows });
+  });
+});
+
+app.post('/getListByName', (req, res) => {
+
+  const {listname} = req.body;
+  const sql = `SELECT * FROM list WHERE listname = ${listname}`;
 
 
   db.all(sql, (err, rows) => {
