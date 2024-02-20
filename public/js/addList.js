@@ -23,12 +23,7 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
         var popUp = document.getElementById("addListPopUp");
         popUp.style.display = "none";
         loadAllTaskLists();
-
-        //const data = await response.json();
-        //console.log('Hier ' + data)
-        //console.log(listname)
-        //console.log("Hier "+await getListByName(listname));
-        loadTaskList(listname,lid); //parameter 2 vanpasssen
+        loadTaskList(listname,lid); 
     } catch (error) {
         console.error('Error during addtask:', error);
     }
