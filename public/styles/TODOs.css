@@ -73,17 +73,19 @@ hr{
   height: 90%;
 }
 
-.Taskselection {
+.listselection {/*Auswahl der Listenbereich
+  linker Teil*/
   position: relative;
   height: 100%;
-  width: 210px;
+  width: 30%;
   background-color: #8689cd;
 }
 
-.Tasklist {
+.Tasklist {/*Darstellung der kompletten Tasklist mit Einstellungen
+  rechter Teil*/
   position: relative;
   height: 100%;
-  width: 750px;
+  width: 70%;
   background-color: #5aba75;
   box-sizing: border-box;
   border: 3px solid black;
@@ -99,13 +101,8 @@ hr{
   width: 100%;
   background-color: #8689cd;
   box-sizing: border-box;
-  border-bottom: 2px solid black;
-  
-  
+  border-bottom: 2px solid black; 
 }
-
-
-
 
 .groupTasks, .personalTasks {
   position: relative;
@@ -123,23 +120,34 @@ hr{
 }
 
 .List {/*Das ist In der Auflistung der Listen eine einzelne Liste*/
+  cursor:pointer;
   position: relative;
-  left:4%;
   height:60px;
   width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+
+  padding: 5px;
+  
   display:flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   box-sizing: border-box;
   border-bottom: 2px solid black;
   box-shadow: 1px 2px 5px blueviolet;
   font-size: 20px;
   font-family: "Times New Roman", Times, serif;
+}
+
+.listedlistname{
+  width:70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .Addbuttontasklist{
   cursor:pointer;
@@ -164,7 +172,7 @@ hr{
 
 }
 
-.Tasklistcontent{
+.Tasklistcontent{/* Das ist die Liste der gelisteten Tasks*/
   position: relative;
   height: calc(100%-30px);
   width: 100%;
@@ -176,7 +184,7 @@ hr{
 
 }
 
-.Task{
+.Task{/* Das ist ein einzelner Task in der Darstellung*/
   position: relative;
   height: 40px;
   width: 100%;
@@ -191,7 +199,7 @@ hr{
   background-color: rgb(83, 240, 35);
 }
 
-.Tasksentence{ /*Bitte noch in HMTL implementieren, ist die Klasse für die einzelnenen Task für <P>*/
+.taskname{
   width:85%;
   overflow-x:hidden;
   white-space: nowrap;

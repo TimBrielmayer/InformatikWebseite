@@ -37,13 +37,14 @@ async function loadAllTaskLists() {
     const listContainer = document.getElementById("listContainer");
     listContainer.innerHTML = '';
 
-    for (let i in allLists) {
+    for (let i in allLists) {/*Laden der Auflistung der Listen*/
 
         var container = document.createElement("div");
         container.classList.add("List");
         container.setAttribute("onclick", `loadTaskList("${allLists[i].listname}",${allLists[i].lid})`)
 
-        var list = document.createElement("p");
+        var list = document.createElement("p");/*Erstellung des Bereichs für den Listennamen*/
+        list.classList.add("listedlistname"); /*ist die Klasse des Namen der Todoliste in der Auflistung*/
         list.textContent = allLists[i].listname;
         container.appendChild(list);
 
@@ -208,6 +209,7 @@ async function loadTasks(lid) {
         checkBox.setAttribute('type', 'checkbox');
         var taskname = document.createElement('p');
         taskname.textContent = tasks[i].taskname;
+        taskname.classList.add("taskname");
         var loeschen = document.createElement('img')
         loeschen.setAttribute('src', 'pictures/trashcan2.png');
         loeschen.setAttribute('onclick', `deleteTask(${tasks[i].tid}, ${lid})`);
