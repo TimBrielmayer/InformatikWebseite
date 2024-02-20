@@ -204,9 +204,12 @@ async function loadTasks(lid) {
     for (let i in tasks) {
         var taskDiv = document.createElement('div');
         taskDiv.classList.add("Task")
-        var checkBox = document.createElement('input')
+        var checkBox = document.createElement('input');
+        checkBox.setAttribute('id', `checkBox-${tasks[i].tid}`);
         checkBox.classList.add("checkbox");
         checkBox.setAttribute('type', 'checkbox');
+        checkBox.checked = (tasks[i].done == 'TRUE');
+        checkBox.setAttribute('onclick', `changeTaskState(${tasks[i].tid})`);
         var taskname = document.createElement('p');
         taskname.textContent = tasks[i].taskname;
         taskname.classList.add("taskname");
@@ -241,6 +244,29 @@ async function getListByName(listname) {
         })
         const data = await response.json();
         return data.data;
+
+    } catch (error) {
+        console.error('Error during getListByName', error);
+    }
+}
+
+async function changeTaskState(tid) {
+    const checkBox = document.getElementById(`checkBox-${tid}`);
+    const state = (checkBox.checked) ? 'TRUE' : 'FALSE';
+    
+    try {
+        const response = await fetch('/changeTaskState', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify({
+                tid: tid,
+                state: state
+            })
+        });
 
     } catch (error) {
         console.error('Error during getListByName', error);

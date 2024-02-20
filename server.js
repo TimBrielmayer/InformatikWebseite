@@ -280,6 +280,21 @@ app.post('/addUserToList', async (req, res) => {
 
 })
 
+app.post('/changeTaskState', (req, res) => {
+  const { tid, state} = req.body;
+
+  const sql = `UPDATE task SET done = '${state}' WHERE tid = ${tid}`;
+
+  db.run(sql, function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
+
+    res.status(200);
+    res.send("task state changed")
+  });
+});
+
 
 console.log("tasks:")
 var sql = 'SELECT * FROM task'
