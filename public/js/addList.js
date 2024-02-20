@@ -36,3 +36,10 @@ document.getElementById("listabbrechen").addEventListener('click', async functio
 
 
 
+async function getUsers() {
+    const userList = document.getElementById('userlist').value;
+    const activeUser = await getUsername();
+    const users = [activeUser];
+    users.push(userList.split(','));
+    return users;
+}
