@@ -1,31 +1,7 @@
 document.getElementById('loginButton').addEventListener('click', async function(event) {
   event.preventDefault(); // Verhindert das Standardverhalten des Buttons (Seitenneuladen)
 
-  var username = document.getElementById('username').value;
-  var password = document.getElementById('password').value;
-
-  try {
-    const response = await fetch('/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: username,
-        password: password,
-      }),
-    });
-
-    if (response.ok) {
-      console.log("login success")
-      document.location.href = 'TODOs.html';
-    } else {
-      const error = await response.text();
-      alert(error);
-    }
-  } catch (error) {
-    console.error('Error during login:', error);
-  }
+  login();
 });
 
 
@@ -44,7 +20,7 @@ function validateForm() {
 
 async function login() {
 
-  validateForm();
+  //validateForm();
 
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
@@ -72,3 +48,10 @@ async function login() {
     console.error('Error during registration:', error);
   }
 }
+
+document.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    login();
+  }
+});
