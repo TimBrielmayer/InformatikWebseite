@@ -41,6 +41,7 @@ header{
   scale: 1;
 }
 .trashicon{
+  cursor:pointer;
   position:relative;
   height:70%;
   scale:1;
@@ -49,6 +50,7 @@ header{
   cursor: pointer;
 }
 .trashicon2{
+  cursor:pointer;
   position:relative;
   height: 45%;
   scale:1;
@@ -140,6 +142,7 @@ hr{
   font-family: "Times New Roman", Times, serif;
 }
 .Addbuttontasklist{
+  cursor:pointer;
   position: relative;
   top: 10px;
   left: 10px;
@@ -149,6 +152,7 @@ hr{
 }
 
 .Addbuttontask{
+  cursor:pointer;
   position: relative;
   width: 100px;
   height: 20px;
@@ -158,11 +162,6 @@ hr{
 .Addbuttontasklist:hover, .Addbuttontask:hover{
   background-color: #29c934;
 
-}
-
-.List:active{
-  background-color: rgb(113, 96, 208);
-  /* Dieser Bereich für die Javascript Funktion bei Auswahl einer Lister, dass deren Tasks geladen werden*/
 }
 
 .Tasklistcontent{
@@ -206,6 +205,7 @@ hr{
 }
 
 .checkbox{
+  cursor:pointer;
   height:30px;
   width: 30px;
   
@@ -237,4 +237,8 @@ hr{
 #addTaskForm {
   display: flex;
   flex-direction: column;
+}
+
+#listSpeichern{
+  cursor:pointer;
 }
