@@ -7,34 +7,27 @@
     <title>Homepage work in progress</title>
   </head>
   <body>
-    <nav>
-      <div class="nav-left">
-        <ul>
-          <li><img src="pictures/ToDo-neu.png" class="Logo" /></li>
-          <li>
-            <a href="#">Services</a>
-            <ul>
-              <li><a href="#">Service 1</a></li>
-              <li><a href="#">Service 2</a></li>
-              <li><a href="#">Service 3</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="#">About</a>
-            <ul>
-              <li><a href="#">Company</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Mission</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="pictures/ToDo-neu.png" alt="" />
       </div>
-      <div class="nav-right">
-        <a href="login.html"
-          ><button type="button" id="button">Log In</button></a
-        >
+      <div class="toggle-btn">
+        <div class="icon"></div>
       </div>
+      <ul class="menu">
+        <li><a href="#">Home</a></li>
+        <li class="submenu-wrapper">
+          <a href="#">About<span> > </span> </a>
+          <ul class="submenu">
+            <li><a href="#">Company</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Mission</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact</a>
+        </li>
+        <li><a href="login.html">Login</button></a></li>
+      </ul>
     </nav>
 
     <div class="container">
@@ -155,5 +148,6 @@
     <footer>
       <p>&copy; 2024 Meine Firma. Alle Rechte vorbehalten.</p>
     </footer>
+    <script src="js/HomePage.js"></script>
   </body>
 </html>
