@@ -110,7 +110,7 @@ hr{
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  height: 40%;
+  height: 80%;
   width: 80%;
   left: 5%;
   display: block;
@@ -126,7 +126,7 @@ hr{
   width: 100%;
 
   padding: 5px;
-  
+
   display:flex;
   align-items: center;
   flex-direction: row;
@@ -233,8 +233,8 @@ hr{
 #addTaskPopUp, #addListPopUp {
   display: none;
   position: absolute;
-  height: 80%;
-  width: 50%;
+  height: 40%;
+  width: 30%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -249,5 +249,25 @@ hr{
 }
 
 #listSpeichern{
+  cursor:pointer;
+}
+
+a:link {/* Entfernt die Formatierung auf Texten ausgelöst durch href*/
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+#listSpeichern, #listabbrechen,#taskSpeichern,#taskabbrechen, #edate, #sdate{
   cursor:pointer;
 }

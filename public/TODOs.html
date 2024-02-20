@@ -13,12 +13,16 @@
 
 <body onload="loadAllTaskLists(); loadUsername()">
   <header> <!-- Kopfzeile mit Logo und Account Dartstellung-->
-    <a href = "HomePage.html"><img src="pictures/ToDo-neu.png" class="Logo" href ="HomePage.html"></a>
-    <div class="Account"><span class="circle"></span>
-      <p id="username">
-          Mein Name
-      </p>
-  </div>
+    <a href = "HomePage.html"> <!-- Verbindung zur Homepage über anklicken des Logos-->
+      <img src="pictures/ToDo-neu.png" class="Logo" href ="HomePage.html">
+    </a>
+    <a href = "login.html"> <!-- Verbindung zur login Seite über klicken der Acoount Visualisierung-->
+      <div class="Account"><span class="circle"></span> <!-- Anzigen des Accounts Namen-->
+        <p id="username">
+            Mein Name
+        </p>
+      </div>
+    </a>
   </header>
   <hr>
   <div class="content"><!-- Aufbau der Todo Webseite mit Auswahl der Todo Liste und Präsentation der Liste-->
@@ -31,14 +35,14 @@
       <div class="Tasklisthead" id="TasklistHead"><!-- Der angeziegte Name der ausgewählten Liste-->
         Wähle eine Liste aus
       </div>
-      <div id="addTaskButton" class="Taskoption">
+      <div id="addTaskButton" class="Taskoption"> <!-- Hinzufügen einer Aufgabe in der ausgewählten Liste-->
         <button class="Addbuttontask" onclick='addTask()'>Add Task</button>
       </div>
       <div class="Tasklistcontent" id="taskContainer"> <!-- Inhalt der ausgewählten Liste-->
       </div>
     </div>
   </div>
-  <div id="addTaskPopUp">
+  <div id="addTaskPopUp"><!-- Pop Up für Erstellen einer neuen Aufgabe in der ausgewählten Liste-->
     <form id="addTaskForm">
       <label for="taskname">Taskname</label>
       <input type="text" name="taskname" id="taskname">
@@ -46,16 +50,16 @@
       <input type="datetime-local" name="sdate" id="sdate">
       <label for="edate">Enddatum</label>
       <input type="datetime-local" name="edate" id="edate">
-      <button type="button" name="taskSpeichern" id="taskSpeichern">Speichern</button>
-      <button type="button" name="taskabbrechen" id="taskabbrechen">Abbrechen</button>
+      <button type="button" name="taskSpeichern" id="taskSpeichern">Save</button>
+      <button type="button" name="taskabbrechen" id="taskabbrechen">Cancel</button>
     </form>
   </div>
-  <div id="addListPopUp">
+  <div id="addListPopUp"><!-- Pop Up für Erstellen einer neune Todo-Liste-->
     <form id="addListForm">
-      <label for="listname">Listenname</label>
-      <input type="text" name="listname" id="listname">
-      <button type="button" name="listSpeichern" id="listSpeichern">Speichern</button>
-      <button type="button" name="listabbrechen" id="listabbrechen">Abbrechen</button>
+      <label for="listname">listname</label>
+      <input type="text" name="listname" id="listname"><br><br>
+      <button type="button" name="listSpeichern" id="listSpeichern">Save</button>
+      <button type="button" name="listabbrechen" id="listabbrechen">Cancel</button>
     </form>
   </div>
 

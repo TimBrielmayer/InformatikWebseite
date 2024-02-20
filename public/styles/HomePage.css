@@ -29,6 +29,7 @@ body{
     display:flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 3000;
 }
 
 .logo{
@@ -164,10 +165,52 @@ body{
         padding-left:2rem;
     }
 }
+
+.image-container {
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+
+.text-overlay h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.text-overlay p {
+  font-size: 1.2em;
+}
+
+
+
 .content {
   flex: 1 0 70%; /* 70% des verfügbaren Platzes */
   text-align: justify;
 }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 60px; /* Adjust this value to match the height of your navbar */
+}
+
 
 .sidebar {
   flex: 1 0 25%; /* 25% des verfügbaren Platzes */
@@ -178,24 +221,8 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #333; 
-  color: #fff; 
+  background-color: #101d23; 
+  color: #d6e0f9; 
   padding: 20px 0; 
   text-align: center;
-}
-
-button {
-  background-color: #ffffff;
-  color: #080710;
-  padding: 5px 30px;
-  font-size: 12px;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0d941d;
-  scale: 1.05;
 }
