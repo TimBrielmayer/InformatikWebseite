@@ -131,8 +131,7 @@ app.post('/getListByName', (req, res) => {
 
 app.post('/getLists', (req, res) => {
 
-  //const uid = req.session.uid;
-  const uid = 1;
+  const uid = req.session.uid;
   const sql = `
       SELECT userlist.lid, list.listname
       FROM userlist
