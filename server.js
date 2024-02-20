@@ -131,8 +131,7 @@ app.post('/getListByName', (req, res) => {
 
 app.post('/getLists', (req, res) => {
 
-  //const uid = req.session.uid;
-  const uid = 1;
+  const uid = req.session.uid;
   const sql = `
       SELECT userlist.lid, list.listname
       FROM userlist
@@ -279,6 +278,21 @@ app.post('/addUserToList', async (req, res) => {
   });
 
 })
+
+app.post('/changeTaskState', (req, res) => {
+  const { tid, state} = req.body;
+
+  const sql = `UPDATE task SET done = '${state}' WHERE tid = ${tid}`;
+
+  db.run(sql, function (err) {
+    if (err) {
+      return console.error(err.message);
+    }
+
+    res.status(200);
+    res.send("task state changed")
+  });
+});
 
 
 console.log("tasks:")
