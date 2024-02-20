@@ -1,3 +1,4 @@
+
 body {
   height: 95vh;
   display: flex;
@@ -17,7 +18,8 @@ header{
   width: 150px;
   height:80%;
 
-  background-color: #8689cd;
+  background-color: var(--backgrounddark-color);
+  color: var(--textlight-color);
   border-radius: 0.5rem;
 
   text-align: center;
@@ -78,7 +80,7 @@ hr{
   position: relative;
   height: 100%;
   width: 30%;
-  background-color: #8689cd;
+  background-color: var(--backgroundlight-color);
 }
 
 .Tasklist {/*Darstellung der kompletten Tasklist mit Einstellungen
@@ -86,7 +88,7 @@ hr{
   position: relative;
   height: 100%;
   width: 70%;
-  background-color: #5aba75;
+  background-color: var(--backgroundlight-color);
   box-sizing: border-box;
   border: 3px solid black;
 }
@@ -99,7 +101,9 @@ hr{
   align-items: center;
   height: 30px;
   width: 100%;
-  background-color: #8689cd;
+
+  color:var(--textdark-color);
+  background-color: var(--backgroundlight-color);
   box-sizing: border-box;
   border-bottom: 2px solid black; 
 }
@@ -148,6 +152,7 @@ hr{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  color: var(--textdark-color);
 }
 .Addbuttontasklist{
   cursor:pointer;
@@ -188,7 +193,7 @@ hr{
   position: relative;
   height: 40px;
   width: 100%;
-  background-color: rgb(255, 206, 71); 
+  background-color: var(--yellow-color); 
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -196,19 +201,20 @@ hr{
   overflow:hidden;
 }
 .Task:nth-child(even){
-  background-color: rgb(83, 240, 35);
+  background-color: var(--green-color);
 }
 
-.taskname{
+.taskname{/* Das ist keine Klasse sondern ein Label, geht das auch*/
   width:85%;
   overflow-x:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  
 }
 
 .List:hover, .Task:hover{
   background-color: rgb(96, 169, 208);
-  /*border: 4px black; //Wäre nice wenn das klappt*/
+  border: 4px solid black; 
 
 }
 
@@ -222,7 +228,8 @@ hr{
 
 .Taskoption{
   height: 40px;
-  background-color: rgb(66, 64, 60);
+  width: 100%;
+  background-color: var(--backgrounddark-color);
   position: relative;
   display: flex;
   flex-direction: row;

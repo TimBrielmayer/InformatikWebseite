@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/TODOs.css">
-
+  <link rel="stylesheet" href="styles/general.css">
   <title>TODOs</title>
 
   <script src="js/dashboard.js"></script>
@@ -37,7 +37,12 @@
       </div>
       <div id="addTaskButton" class="Taskoption"> <!-- Hinzufügen einer Aufgabe in der ausgewählten Liste-->
         <button class="Addbuttontask" onclick='addTask()'>Add Task</button>
+        <!-- Hinzufügen eines anderen Nutzers für die ausgewählten Liste-->
+        <button class="Addbuttonuser" onclick='addUser()'>Add User
+        </button>
       </div>
+         
+      
       <div class="Tasklistcontent" id="taskContainer"> <!-- Inhalt der ausgewählten Liste-->
       </div>
     </div>
