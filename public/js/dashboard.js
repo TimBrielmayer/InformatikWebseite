@@ -1,23 +1,32 @@
 async function loadUsername() {
-    
+    const username = await getUsername();
+    console.log('logged in user: ' + username);
+
+    if (username == 0) {
+        window.location.href = 'login.html';
+    }
+    else {
+        const usernameElement = document.getElementById('username');
+        usernameElement.textContent = username;
+    }
+}
+
+async function getUsername() {
     try {
         const response = await fetch('/getUsername');
-        
-        if(response.status == 204) {
+
+        if (response.status == 204) {
             //no user logged in
-            console.log('no user logged in, navigate to login page')
-            window.location.href = "login.html";
+            return 0
         }
         else {
-            username = await response.json();
-            console.log('logged in user: ' + username);
-
-            const usernameElement = document.getElementById('username');
-            usernameElement.textContent = username;
+            const username = await response.json();
+            return username;
         }
 
     } catch (error) {
         console.error('Error during getUsername:', error);
+        return 0;
     }
 }
 
@@ -128,7 +137,7 @@ async function deleteList(lid) {
                 headers:
                 {
                     'Content-Type': 'application/json',
-    
+
                 },
                 body: JSON.stringify({
                     lid: lid
@@ -253,7 +262,7 @@ async function getListByName(listname) {
 async function changeTaskState(tid) {
     const checkBox = document.getElementById(`checkBox-${tid}`);
     const state = (checkBox.checked) ? 'TRUE' : 'FALSE';
-    
+
     try {
         const response = await fetch('/changeTaskState', {
             method: 'POST',
