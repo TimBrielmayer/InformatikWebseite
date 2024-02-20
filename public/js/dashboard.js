@@ -1,3 +1,23 @@
+async function loadUsername() {
+    
+    try {
+        const response = await fetch('/getUsername');
+        
+        if(response.status == 204) {
+            //no user logged in
+            console.log('no user logged in, navigate to login page')
+            window.location.href = "login.html";
+        }
+        else {
+            username = await response.json();
+            console.log('logged in user: ' + username);
+        }
+
+    } catch (error) {
+        console.error('Error during getUsername:', error);
+    }
+}
+
 function addTask() {
     var popUp = document.getElementById("addTaskPopUp");
     popUp.style.display = "flex";
@@ -51,7 +71,7 @@ async function deleteTask(tid, lid) {
             loadTasks(lid);
 
         } catch (error) {
-            console.error('Error during addtask:', error);
+            console.error('Error during deleteTask:', error);
         }
     }
 }
