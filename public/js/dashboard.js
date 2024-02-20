@@ -26,6 +26,7 @@ async function getUsername() {
 
     } catch (error) {
         console.error('Error during getUsername:', error);
+        return 0;
     }
 }
 

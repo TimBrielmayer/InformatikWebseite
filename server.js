@@ -143,7 +143,10 @@ app.post('/getLists', (req, res) => {
     if (err) {
       return res.status(500).json({ error: err.message });
     }
-    res.json({ data: rows });
+    else {
+      res.status(200);
+      res.json({ data: rows });
+    }
   });
 });
 
@@ -197,11 +200,11 @@ app.post('/createList', async (req, res) => {
           if (err) {
             return console.error(err.message);
           }
-          res.status(200);
-          res.json(lid)
         });
       });
     }
+    res.status(200);
+    res.json(lid)
 
   });
 })

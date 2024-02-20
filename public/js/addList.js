@@ -4,7 +4,8 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
     event.preventDefault();
 
     const listname = document.getElementById("listname").value;
-    const users = ["philipp"]
+    const users = await getUsers();
+    console.log(users)
     try {
         var response = await fetch('/createList', {
             method: 'POST',
@@ -40,7 +41,7 @@ document.getElementById("listabbrechen").addEventListener('click', async functio
 async function getUsers() {
     const userList = document.getElementById('userlist').value;
     const activeUser = await getUsername();
-    const users = [activeUser];
-    users.push(userList.split(','));
+    const users = userList.split(',');
+    users.push(activeUser);
     return users;
 }
