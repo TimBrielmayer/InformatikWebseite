@@ -1,3 +1,4 @@
+
 document.getElementById("taskSpeichern").addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -35,4 +36,10 @@ document.getElementById("taskSpeichern").addEventListener('click', async functio
     } catch (error) {
         console.error('Error during addtask:', error);
     }
+});
+
+document.getElementById("taskabbrechen").addEventListener('click', async function (event) {
+    event.preventDefault();
+    var popUp = document.getElementById("addTaskPopUp");
+        popUp.style.display = "none";
 });

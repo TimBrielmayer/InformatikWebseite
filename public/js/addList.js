@@ -1,3 +1,5 @@
+
+
 document.getElementById("listSpeichern").addEventListener('click', async function (event) {
     event.preventDefault();
 
@@ -23,4 +25,10 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
     } catch (error) {
         console.error('Error during addtask:', error);
     }
+});
+
+document.getElementById("listabbrechen").addEventListener('click', async function (event) {
+    event.preventDefault();
+    var popUp = document.getElementById("addListPopUp");
+    popUp.style.display = "none";
 });

@@ -15,12 +15,22 @@ async function loadAllTaskLists() {
     listContainer.innerHTML = '';
 
     for (let i in allLists) {
-        var list = document.createElement("p");
-        list.classList.add("List");
-        list.textContent = allLists[i].listname;
-        list.setAttribute("onclick", `loadTasks(${allLists[i].lid})`)
 
-        listContainer.appendChild(list);
+        var container = document.createElement("div");
+        container.classList.add("List");
+        container.setAttribute("onclick", `loadTaskList("${allLists[i].listname}",${allLists[i].lid})`)
+
+        var list = document.createElement("p");
+        list.textContent = allLists[i].listname;
+        container.appendChild(list);
+
+        var trashIcon = document.createElement("img");
+        trashIcon.classList.add("trashicon2");
+        trashIcon.setAttribute("src", "pictures/trashcan2.png");
+        trashIcon.setAttribute("onclick", `deleteList(${allLists[i].lid})`);
+        container.appendChild(trashIcon);
+
+        listContainer.appendChild(container);
     }
 }
 
@@ -87,21 +97,23 @@ async function getLists() {
 }
 
 async function deleteList(lid) {
-    try {
-        const response = await fetch('/deleteList', {
-            method: 'POST',
-            headers:
-            {
-                'Content-Type': 'application/json',
-
-            },
-            body: JSON.stringify({
-                lid: lid
+    if (confirm("Bist du dir sicher, dass du diese Liste löschen willst?")) {
+        try {
+            const response = await fetch('/deleteList', {
+                method: 'POST',
+                headers:
+                {
+                    'Content-Type': 'application/json',
+    
+                },
+                body: JSON.stringify({
+                    lid: lid
+                })
             })
-        })
-
-    } catch (error) {
-        console.error('Error during addtask:', error);
+            loadAllTaskLists();
+        } catch (error) {
+            console.error('Error during addtask:', error);
+        }
     }
 }
 
@@ -149,6 +161,12 @@ async function addUserToList() {
     }
 }
 
+function loadTaskList(listname, lid) {
+    var header = document.getElementById("TasklistHead");
+    header.textContent = listname;
+
+    loadTasks(lid);
+}
 
 async function loadTasks(lid) {
     sessionStorage.setItem("lid", lid)
