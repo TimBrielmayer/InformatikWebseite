@@ -23,6 +23,18 @@ app.listen(port, () => {
   console.log("APP LISTEN ON PORT", port)
 })
 
+app.get("/getUsername", (req, res) => {
+  //req.session.username = 'Philipp'
+  if(req.session.username === undefined) {
+    res.status(204);
+    res.send();
+  }
+  else {
+    res.status(200);
+    res.json(req.session.username)
+  }
+})
+
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
   let checkUserQuery = `SELECT * FROM users WHERE username = '${username}'`;
@@ -39,9 +51,10 @@ app.post("/register", async (req, res) => {
 
         await db.run(createNewUser);
 
-        let getUID = `SELECT uid FROM users WHERE username = "${username}"`;
+        let getUID = `SELECT uid, username FROM users WHERE username = "${username}"`;
         db.get(getUID, (err, row) => {
           req.session.uid = row.uid;
+          req.session.username = row.username;
         });
 
         res.status(200);
@@ -71,6 +84,7 @@ app.post("/login", async (req, res) => {
 
       if (isPasswordMatched) {
         req.session.uid = row.uid;
+        req.session.username = row.username;
 
         res.status(200);
         res.send("Login success!");
