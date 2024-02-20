@@ -189,6 +189,9 @@ function loadTaskList(listname, lid) {
     header.textContent = listname;
 
     loadTasks(lid);
+
+    addTaskButton = document.getElementById('addTaskButton');
+    addTaskButton.style.display = 'flex';
 }
 
 async function loadTasks(lid) {
