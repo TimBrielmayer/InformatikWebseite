@@ -210,6 +210,7 @@ hr{
   background-color: var(--green-color);
 }
 
+
 .taskname{/* Name kommt einmal als Label als auch als Klasse vor!!!!!!!!*/
   width:85%;
   overflow-x:hidden;
@@ -221,7 +222,7 @@ hr{
 
 .checkbox:checked + .taskname{
   text-decoration: line-through;
-  color: red;
+  color: grey;
 }
 
 .List:hover, .Task:hover{
