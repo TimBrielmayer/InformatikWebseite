@@ -311,7 +311,7 @@ app.post('/changeTaskState', (req, res) => {
 app.post("/getUsersInList", (req, res) => {
   //req.session.username = 'Philipp'
   const { lid } = req.body;
-  var sql = `SELECT users.uid, users.username FROM user
+  var sql = `SELECT users.uid, users.username FROM users
   INNER JOIN userlist ON userlist.uid = users.uid
   WHERE userlist.lid = ${lid};`
 
