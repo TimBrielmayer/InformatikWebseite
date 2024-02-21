@@ -5,7 +5,6 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
 
     const listname = document.getElementById("listname").value;
     const users = await getUsers();
-    console.log(users)
     try {
         var response = await fetch('/createList', {
             method: 'POST',
@@ -46,7 +45,10 @@ function closeListPopUp() {
 async function getUsers() {
     const userList = document.getElementById('userlist').value;
     const activeUser = await getUsername();
-    const users = userList.split(',');
+    var users = [];
+    if(userList) {
+        users = userList.split(',');
+    }
     users.push(activeUser);
     return users;
 }

@@ -269,18 +269,24 @@ app.post('/removeUserFromList', async (req, res) => {
 app.post('/addUserToList', async (req, res) => {
 
   const { lid, users } = req.body;
-  const user = users.split(",")
-
-  sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
+  const user = users.split(", ")
+  for(i=0; i < user.length;i++){
+    sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
+   
       db.get(sql, (err, row) => {
         sql = `INSERT INTO userlist (uid,lid) VALUES (${row.uid},${lid})`;
 
         db.run(sql, async function (err) {
           if (err) {
             return console.error(err.message);
+          }else{
+            res.status(200);
           }
+
         });
       });
+  }
+  
     
   
 
@@ -300,6 +306,26 @@ app.post('/changeTaskState', (req, res) => {
     res.send("task state changed")
   });
 });
+
+
+app.post("/getUsersInList", (req, res) => {
+  //req.session.username = 'Philipp'
+  const { lid } = req.body;
+  var sql = `SELECT users.uid, users.username FROM users
+  INNER JOIN userlist ON userlist.uid = users.uid
+  WHERE userlist.lid = ${lid};`
+
+  db.get(sql, (err, row) => {
+    res.json(row);
+    res.status(200);
+  });
+  
+
+  //return res.status
+
+ 
+})
+
 
 
 console.log("tasks:")
