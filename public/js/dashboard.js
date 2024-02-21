@@ -150,9 +150,7 @@ async function deleteList(lid) {
     }
 }
 
-async function removeUserFromList() {
-    const lid = 1;
-    const uid = 2;
+async function removeUserFromList(lid, uid) {
     try {
         const response = await fetch('/removeUserFromList', {
             method: 'POST',
@@ -289,17 +287,10 @@ function openUserMenu() {
     loadAddedUsers();
 }
 
-function loadAddedUsers() {
-
-}
-
-async function addNewUser() {
+async function loadAddedUsers() {
     const lid = sessionStorage.getItem('lid');
-
-    const username = document.getElementById('newUsername').value;
-
     try {
-        const response = await fetch('/addUserToList', {
+        const response = await fetch('/getUsersInList', {
             method: 'POST',
             headers:
             {
@@ -307,14 +298,21 @@ async function addNewUser() {
 
             },
             body: JSON.stringify({
-                lid: lid,
-                username: username
+                lid: lid
             })
         });
 
     } catch (error) {
-        console.error('Error during addUserToList', error);
+        console.error('Error during getListByName', error);
     }
+}
+
+async function addNewUser() {
+    const lid = sessionStorage.getItem('lid');
+
+    const username = document.getElementById('newUsername').value;
+
+    await addUserToList(lid, username)
 }
 
 function closeUserPopUp() {
