@@ -30,12 +30,17 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
     }
 });
 
-document.getElementById("listabbrechen").addEventListener('click', async function (event) {
-    event.preventDefault();
-    var popUp = document.getElementById("addListPopUp");
-    popUp.style.display = "none";
-});
 
+function closeListPopUp() {
+    var popUp = document.getElementById('addListPopUp');
+    popUp.style.display = 'none';
+    var elements = popUp.getElementsByTagName("input");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].type == "text") {
+            elements[i].value = "";
+        }
+    }
+}
 
 
 async function getUsers() {
