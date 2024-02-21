@@ -172,9 +172,10 @@ async function removeUserFromList() {
     }
 }
 
-async function addUserToList() {
-    const lid = 1;
+async function addUserToList(lid,usernames) {
     const uid = 2;
+
+    //create List klauen
     try {
         const response = await fetch('/addUserToList', {
             method: 'POST',
@@ -281,3 +282,5 @@ async function changeTaskState(tid) {
         console.error('Error during getListByName', error);
     }
 }
+
+
