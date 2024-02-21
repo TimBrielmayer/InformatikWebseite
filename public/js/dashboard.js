@@ -281,3 +281,8 @@ async function changeTaskState(tid) {
         console.error('Error during getListByName', error);
     }
 }
+
+function addUserToList() {
+    var popUp = document.getElementById('addUserToList');
+    popUp.style.display = 'flex';
+}

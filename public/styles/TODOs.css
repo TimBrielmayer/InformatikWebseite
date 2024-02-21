@@ -237,7 +237,7 @@ hr{
   display: none;
 }
 
-#addTaskPopUp, #addListPopUp {
+#addTaskPopUp, #addListPopUp, #addUserToListPopUp {
   display: none;
   position: absolute;
   height: 40%;
