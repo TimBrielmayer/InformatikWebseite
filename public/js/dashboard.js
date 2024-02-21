@@ -172,10 +172,8 @@ async function removeUserFromList() {
     }
 }
 
-async function addUserToList(lid,usernames) {
-    const uid = 2;
-
-    //create List klauen
+async function addUserToList(lid,users) {
+    //console.log(users);
     try {
         const response = await fetch('/addUserToList', {
             method: 'POST',
@@ -186,12 +184,12 @@ async function addUserToList(lid,usernames) {
             },
             body: JSON.stringify({
                 lid: lid,
-                uid: uid
+                users: users
             })
         })
 
     } catch (error) {
-        console.error('Error during addtask:', error);
+        console.error('Error during addUserToList:', error);
     }
 }
 

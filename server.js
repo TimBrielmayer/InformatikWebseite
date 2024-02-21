@@ -269,9 +269,10 @@ app.post('/removeUserFromList', async (req, res) => {
 app.post('/addUserToList', async (req, res) => {
 
   const { lid, users } = req.body;
-  const user = users.split(",")
-
-  sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
+  const user = users.split(", ")
+  for(i=0; i < user.length;i++){
+    sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
+   
       db.get(sql, (err, row) => {
         sql = `INSERT INTO userlist (uid,lid) VALUES (${row.uid},${lid})`;
 
@@ -281,6 +282,8 @@ app.post('/addUserToList', async (req, res) => {
           }
         });
       });
+  }
+  
     
   
 
