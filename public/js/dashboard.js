@@ -282,7 +282,18 @@ async function changeTaskState(tid) {
     }
 }
 
-function addUserToList() {
-    var popUp = document.getElementById('addUserToList');
+function openUserMenu() {
+    var popUp = document.getElementById('addUserToListPopUp');
     popUp.style.display = 'flex';
+}
+
+function closeUserPopUp() {
+    var popUp = document.getElementById('addUserToListPopUp');
+    popUp.style.display = 'none';
+    var elements = popUp.getElementsByTagName("input");
+    for (var i = 0; i < elements.length; i++) {
+        if (elements[i].type == "text") {
+            elements[i].value = "";
+        }
+    }
 }

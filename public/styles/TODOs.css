@@ -237,6 +237,11 @@ hr{
   display: none;
 }
 
+#addTaskForm , #addListForm, #addUserToListPopUp{
+  display: flex;
+  flex-direction: column;
+}
+
 #addTaskPopUp, #addListPopUp, #addUserToListPopUp {
   display: none;
   position: absolute;
@@ -248,11 +253,6 @@ hr{
   border-radius: 10px;
   padding: 25px;
   background-color: red;
-}
-
-#addTaskForm {
-  display: flex;
-  flex-direction: column;
 }
 
 #listSpeichern{
