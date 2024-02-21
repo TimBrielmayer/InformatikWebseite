@@ -278,13 +278,43 @@ async function changeTaskState(tid) {
         });
 
     } catch (error) {
-        console.error('Error during getListByName', error);
+        console.error('Error during changeTaskState', error);
     }
 }
 
 function openUserMenu() {
     var popUp = document.getElementById('addUserToListPopUp');
     popUp.style.display = 'flex';
+
+    loadAddedUsers();
+}
+
+function loadAddedUsers() {
+
+}
+
+async function addNewUser() {
+    const lid = sessionStorage.getItem('lid');
+
+    const username = document.getElementById('newUsername').value;
+
+    try {
+        const response = await fetch('/addUserToList', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify({
+                lid: lid,
+                username: username
+            })
+        });
+
+    } catch (error) {
+        console.error('Error during addUserToList', error);
+    }
 }
 
 function closeUserPopUp() {
