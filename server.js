@@ -268,17 +268,21 @@ app.post('/removeUserFromList', async (req, res) => {
 
 app.post('/addUserToList', async (req, res) => {
 
-  const { lid, uid } = req.body;
+  const { lid, users } = req.body;
+  const user = users.split(",")
 
-  var sql = `INSERT INTO userlist (uid,lid) VALUES (${uid}, ${lid});`
-  db.run(sql, async function (err) {
-    if (err) {
-      return console.error(err.message);
-    }
+  sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
+      db.get(sql, (err, row) => {
+        sql = `INSERT INTO userlist (uid,lid) VALUES (${row.uid},${lid})`;
 
-    res.status(200);
-    res.send("user added")
-  });
+        db.run(sql, async function (err) {
+          if (err) {
+            return console.error(err.message);
+          }
+        });
+      });
+    
+  
 
 })
 
