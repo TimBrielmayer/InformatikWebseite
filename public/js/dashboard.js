@@ -170,7 +170,7 @@ async function removeUserFromList(lid, uid) {
     }
 }
 
-async function addUserToList(lid,users) {
+async function addUserToList(lid, users) {
     //console.log(users);
     try {
         const response = await fetch('/addUserToList', {
@@ -301,6 +301,24 @@ async function loadAddedUsers() {
                 lid: lid
             })
         });
+        const data = await response.json();
+
+        var allAddedUsers = document.getElementById('allAddedUsers');
+        allAddedUsers.innerHTML = '';
+
+        for (let i in data) {
+            var user = document.createElement('p');
+            user.textContent = data[i].username;
+            allAddedUsers.appendChild(user);
+        }
+
+        const popUp = document.getElementById('addUserToListPopUp')
+        var elements = popUp.getElementsByTagName("input");
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].type == "text") {
+                elements[i].value = "";
+            }
+        }
 
     } catch (error) {
         console.error('Error during getListByName', error);
@@ -313,6 +331,8 @@ async function addNewUser() {
     const username = document.getElementById('newUsername').value;
 
     await addUserToList(lid, username)
+
+    await loadAddedUsers();
 }
 
 function closeUserPopUp() {

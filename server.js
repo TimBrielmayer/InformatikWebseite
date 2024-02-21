@@ -281,6 +281,7 @@ app.post('/addUserToList', async (req, res) => {
             return console.error(err.message);
           }else{
             res.status(200);
+            res.send('User erfolgreich hinzugefügt')
           }
 
         });
@@ -315,8 +316,8 @@ app.post("/getUsersInList", (req, res) => {
   INNER JOIN userlist ON userlist.uid = users.uid
   WHERE userlist.lid = ${lid};`
 
-  db.get(sql, (err, row) => {
-    res.json(row);
+  db.all(sql, (err, rows) => {
+    res.json(rows);
     res.status(200);
   });
   
