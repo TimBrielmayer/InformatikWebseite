@@ -38,13 +38,8 @@ document.getElementById("taskSpeichern").addEventListener('click', async functio
     }
 });
 
-function closeTaskPopUp() {
+document.getElementById("taskabbrechen").addEventListener('click', async function (event) {
+    event.preventDefault();
     var popUp = document.getElementById("addTaskPopUp");
-    popUp.style.display = "none";
-    var elements = popUp.getElementsByTagName("input");
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].type == "text") {
-            elements[i].value = "";
-        }
-    }
-}
+        popUp.style.display = "none";
+});

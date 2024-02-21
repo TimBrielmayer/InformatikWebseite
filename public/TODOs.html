@@ -38,7 +38,7 @@
       <div id="addTaskButton" class="Taskoption"> <!-- Hinzufügen einer Aufgabe in der ausgewählten Liste-->
         <button class="Addbuttontask" onclick='addTask()'>Add Task</button>
         <!-- Hinzufügen eines anderen Nutzers für die ausgewählten Liste-->
-        <button class="Addbuttonuser" onclick='openUserMenu()'>Add User
+        <button class="Addbuttonuser" onclick='addUser()'>Add User
         </button>
       </div>
          
@@ -56,17 +56,17 @@
       <label for="edate">Enddatum</label>
       <input type="datetime-local" name="edate" id="edate">
       <button type="button" name="taskSpeichern" id="taskSpeichern">Save</button>
-      <button type="button" onclick="closeTaskPopUp()">Cancel</button>
+      <button type="button" name="taskabbrechen" id="taskabbrechen">Cancel</button>
     </form>
   </div>
   <div id="addListPopUp"><!-- Pop Up für Erstellen einer neune Todo-Liste-->
     <form id="addListForm">
       <label for="listname">listname</label>
-      <input type="text" name="listname" id="listname">
+      <input type="text" name="listname" id="listname"><br><br>
       <label for="userlist">Benutzer</label>
-      <input type="text" name="userlist" id="userlist">
+      <input type="text" name="userlist" id="userlist"><br><br>
       <button type="button" name="listSpeichern" id="listSpeichern">Save</button>
-      <button type="button" onclick="closeListPopUp()">Cancel</button>
+      <button type="button" name="listabbrechen" id="listabbrechen">Cancel</button>
     </form>
   </div>
   <div id="addUserToListPopUp">

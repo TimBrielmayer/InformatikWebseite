@@ -18,36 +18,30 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
                 listname: listname,
                 users: users
             })
-
+            
         })
         var lid = await response.json()
         var popUp = document.getElementById("addListPopUp");
         popUp.style.display = "none";
         loadAllTaskLists();
-        loadTaskList(listname, lid);
+        loadTaskList(listname,lid); 
     } catch (error) {
         console.error('Error during addtask:', error);
     }
 });
 
-function closeListPopUp() {
+document.getElementById("listabbrechen").addEventListener('click', async function (event) {
+    event.preventDefault();
     var popUp = document.getElementById("addListPopUp");
     popUp.style.display = "none";
-    var elements = popUp.getElementsByTagName("input");
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].type == "text") {
-            elements[i].value = "";
-        }
-    }
-}
+});
+
+
 
 async function getUsers() {
     const userList = document.getElementById('userlist').value;
     const activeUser = await getUsername();
-    var users = [];
-    if (userList) {
-        users = userList.split(',');
-    }
+    const users = userList.split(',');
     users.push(activeUser);
     return users;
 }
