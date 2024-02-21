@@ -26,3 +26,9 @@ db.run('CREATE TABLE IF NOT EXISTS list (lid INTEGER PRIMARY KEY, listname TEXT)
 
 
 createElement
+
+
+getUsersInList
+lid 
+
+user.id user.username

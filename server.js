@@ -279,7 +279,10 @@ app.post('/addUserToList', async (req, res) => {
         db.run(sql, async function (err) {
           if (err) {
             return console.error(err.message);
+          }else{
+            res.status(200);
           }
+
         });
       });
   }
@@ -303,6 +306,26 @@ app.post('/changeTaskState', (req, res) => {
     res.send("task state changed")
   });
 });
+
+
+app.post("/getUsersInList", (req, res) => {
+  //req.session.username = 'Philipp'
+  const { lid } = req.body;
+  var sql = `SELECT users.uid, users.username FROM user
+  INNER JOIN userlist ON userlist.uid = users.uid
+  WHERE userlist.lid = ${lid};`
+
+  db.get(sql, (err, row) => {
+    res.json(row);
+    res.status(200);
+  });
+  
+
+  //return res.status
+
+ 
+})
+
 
 
 console.log("tasks:")
