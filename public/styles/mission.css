@@ -1,0 +1,22 @@
+.mission {
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+.mission1 {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-content {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    color: #007bff;
+}
+
+p {
+    line-height: 1.6;
+}
