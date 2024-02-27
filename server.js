@@ -25,7 +25,6 @@ app.listen(port, () => {
 
 
 
-
 app.get("/getUsername", (req, res) => {
   //req.session.username = 'Philipp'
   if (req.session.username === undefined) {
@@ -152,9 +151,9 @@ app.post('/getLists', (req, res) => {
 
 app.post('/addTask', async (req, res) => {
 
-  const { taskname, sdate, edate, lid } = req.body;
+  const { taskname, edate, lid } = req.body;
 
-  var sql = `INSERT INTO task (taskname,sdate,edate,lid) VALUES('${taskname}','${sdate}','${edate}',${lid})`
+  var sql = `INSERT INTO task (taskname,edate,lid) VALUES('${taskname}','${edate}',${lid})`
   db.run(sql, async function (err) {
     if (err) {
       return console.error(err.message);
@@ -274,7 +273,12 @@ app.post('/addUserToList', async (req, res) => {
     sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
    
       db.get(sql, (err, row) => {
-        sql = `INSERT INTO userlist (uid,lid) SELECT ${row.uid},${lid} WHERE NOT EXISTS(SELECT * FROM userlist WHERE uid = ${row.uid} AND lid =${lid});`;
+        if(row == null){
+          res.status(400);
+          res.send('Dieser User existiert nicht');
+        }else{
+          
+          sql = `INSERT INTO userlist (uid,lid) SELECT ${row.uid},${lid} WHERE NOT EXISTS(SELECT * FROM userlist WHERE uid = ${row.uid} AND lid =${lid});`;
 
         db.run(sql, async function (err) {
           if (err) {
@@ -285,6 +289,9 @@ app.post('/addUserToList', async (req, res) => {
           }
 
         });
+        }
+       
+        
       });
   }
   
