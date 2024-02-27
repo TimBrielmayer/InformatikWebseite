@@ -1,17 +1,17 @@
 
 
 body {
-  height: 95vh;
+  height: 140vh;
   display: flex;
   flex-direction: column;
 }
 
-header{
+/*header{
   height: 10%;
   display: flex;
   justify-content : space-between;
   
-}
+}*/
 
 .Account{
   position:relative;
@@ -46,7 +46,7 @@ header{
 .trashicon{
   cursor:pointer;
   position:relative;
-  height:70%;
+  height:100%;
   scale:1;
   padding: 10px;
   border-radius:50%;
@@ -55,7 +55,7 @@ header{
 .trashicon2{
   cursor:pointer;
   position:relative;
-  height: 45%;
+  height: 80%;
   scale:1;
   padding: 10px;
   border-radius:50%;
@@ -71,9 +71,11 @@ hr{
 }
 
 .content{
+  position:relative;
   display: flex;
   flex-direction: row;
   height: 90%;
+  margin-top: 50px;
 }
 
 .listselection {/*Auswahl der Listenbereich
@@ -81,7 +83,7 @@ hr{
   position: relative;
   height: 100%;
   width: 30%;
-  background-color: var(--backgroundlight-color);
+  background-color: var(--backgrounddark-color);
 }
 
 .Tasklist {/*Darstellung der kompletten Tasklist mit Einstellungen
@@ -112,7 +114,7 @@ hr{
 
 .groupTasks, .personalTasks {
   position: relative;
-  overflow-y: scroll;
+  overflow-y: hidden;
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -123,6 +125,10 @@ hr{
   border: 0.3rem solid red;
   border-spacing: 0.5rem;
   margin-top: 10%;
+}
+
+.groupTasks:hover{
+  overflow-y:scroll
 }
 
 .List {/*Das ist In der Auflistung der Listen eine einzelne Liste*/
@@ -147,6 +153,8 @@ hr{
   box-shadow: 1px 2px 5px blueviolet;
   font-size: 20px;
   font-family: "Times New Roman", Times, serif;
+  background-color: var(--backgroundlight-color);
+  color: var(--textdark-color);
 }
 
 .listedlistname{
@@ -227,7 +235,7 @@ hr{
 
 .List:hover, .Task:hover{
   background-color: rgb(96, 169, 208);
-  border: 4px solid black; 
+  outline: 4px solid black; 
 
 }
 

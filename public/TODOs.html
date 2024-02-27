@@ -6,25 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/TODOs.css">
   <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/navbar.css">
+  <link rel="stylesheet" href="styles/footer.css">
   <title>TODOs</title>
 
   <script src="js/dashboard.js"></script>
 </head>
 
 <body onload="loadAllTaskLists(); loadUsername()">
-  <header> <!-- Kopfzeile mit Logo und Account Dartstellung-->
-    <a href = "HomePage.html"> <!-- Verbindung zur Homepage über anklicken des Logos-->
-      <img src="pictures/ToDo-neu.png" class="Logo" href ="HomePage.html">
-    </a>
-    <a href = "login.html"> <!-- Verbindung zur login Seite über klicken der Acoount Visualisierung-->
-      <div class="Account"><span class="circle"></span> <!-- Anzigen des Accounts Namen-->
-        <p id="username">
-            Mein Name
-        </p>
+  <!-- Kopfzeile mit Logo und Account Dartstellung-->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="pictures/ToDo-neu.png" alt="" />
       </div>
-    </a>
-  </header>
-  <hr>
+      <div class="toggle-btn">
+        <div class="icon"></div>
+      </div>
+      <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="submenu-wrapper">
+          <a href="#">About<span> > </span> </a>
+          <ul class="submenu">
+            <li><a href="register.html">Register</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="mission.html">Mission</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  
   <div class="content"><!-- Aufbau der Todo Webseite mit Auswahl der Todo Liste und Präsentation der Liste-->
     <div class="listselection"><!-- Auswahl der Todo Liste-->
       <input type="button" class="Addbuttontasklist" value="+Add tasklist" onclick="addList()">
@@ -78,6 +90,39 @@
     </div>
     <button type="button" onclick="closeUserPopUp()">Cancel</button>
   </div>
+
+  
+  <footer>
+    <div class="footer-row">
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul class="links">
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="mission.html">Mission</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Information</h4>
+        <ul class="links">
+          <li>DHBW Ravensburg</li>
+          <li><a href="mailto:esc@dhbw-ravensburg.de">Mail: esc@dhbw-ravensburg.de</a></li>
+          <li><a href="tel:+4975118992172">Phone: +49 . 751/18999-2172</a></li>
+          <li><a href="http://www.ravensburg.dhbw.de">www.ravensburg.dhbw.de</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Final words</h4>
+        <p>
+          I hope you enjoy our website. This website is still in work and
+          progress. New features might come in the future. Thank you!
+        </p>
+      </div>
+    </div>
+
+    <p>&copy; 2024 My Company. All rights reserved.</p>
+  </footer>
+  
 
   <script src="js/addTask.js"></script>
   <script src="js/addList.js"></script>
