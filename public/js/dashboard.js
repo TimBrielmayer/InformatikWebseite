@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 async function loadUsername() {
     const username = await getUsername();
     console.log('logged in user: ' + username);
@@ -9,6 +11,47 @@ async function loadUsername() {
         const usernameElement = document.getElementById('username');
         usernameElement.textContent = username;
     }
+}
+
+async function getUid() {
+    var usernames = ['tim', 'philipp', 'jdfsfsl', 'tobias'];
+    var uids = [];
+    var response;
+
+    for (i = 0; i < usernames.length; i++) {
+        console.log(i + " dashboard " + usernames[i]);
+        try {
+            response = await fetch('/getUid', {
+                method: 'POST',
+                headers:
+                {
+                    'Content-Type': 'application/json',
+
+                },
+                body: JSON.stringify({
+                    username: usernames[i],
+                })
+
+
+            });
+
+        } catch (error) {
+            console.error("FEHLER");
+        }
+        uid = await response.json();
+
+        if (uid ==null) {
+            uids.push(-1)
+        } else {
+            uids.push(uid);
+        }
+    
+        
+
+    }
+    console.log(uids);
+
+
 }
 
 async function getUsername() {

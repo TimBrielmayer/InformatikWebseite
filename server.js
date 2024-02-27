@@ -343,6 +343,27 @@ app.post("/getUsersInList", (req, res) => {
 })
 
 
+app.post('/getUid', async(req, res) => {
+
+  const { username } = req.body;
+  const sql = `SELECT uid FROM users WHERE username = "${username}";`;
+
+
+  await db.get(sql, (err, rows) => {
+    if(rows == null){
+      res.json(null)
+      res.status(400);
+      return;
+    }else{
+      res.json(rows.uid);
+      res.status(200)
+    }
+   
+  });
+
+});
+
+
 
 console.log("tasks:")
 var sql = 'SELECT * FROM task'
@@ -358,6 +379,12 @@ db.all(sql, (err, rows) => {
 
 console.log("userlist:")
 sql = 'SELECT * FROM userlist'
+db.all(sql, (err, rows) => {
+  console.log(rows)
+})
+
+console.log("users:")
+sql = 'SELECT * FROM users'
 db.all(sql, (err, rows) => {
   console.log(rows)
 })
