@@ -43,7 +43,7 @@ function closeListPopUp() {
 
 
 async function getUsers() {
-    const userList = document.getElementById('userlist').value;
+    var userList = document.getElementById('userlist').value;
     const activeUser = await getUsername();
     var users = [];
 
