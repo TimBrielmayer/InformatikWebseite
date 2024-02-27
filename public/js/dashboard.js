@@ -147,6 +147,7 @@ async function deleteList(lid) {
         } catch (error) {
             console.error('Error during addtask:', error);
         }
+        window.location.reload();
     }
 }
 

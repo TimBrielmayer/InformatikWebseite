@@ -15,6 +15,16 @@ async function register() {
     return;
   }
 
+  if (username.includes(",")) {
+    alert("Username must not include ,");
+    return;
+  }
+  if (username.includes(" ")) {
+    alert("Username must not include spaces");
+    return;
+  }
+  
+
   try {
     const response = await fetch('/register', {
       method: 'POST',

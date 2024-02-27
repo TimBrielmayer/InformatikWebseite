@@ -46,7 +46,9 @@ async function getUsers() {
     const userList = document.getElementById('userlist').value;
     const activeUser = await getUsername();
     var users = [];
+
     if(userList) {
+        userList = userList.replace(" ","");
         users = userList.split(',');
     }
     users.push(activeUser);
