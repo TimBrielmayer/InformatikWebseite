@@ -274,7 +274,7 @@ app.post('/addUserToList', async (req, res) => {
     sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
    
       db.get(sql, (err, row) => {
-        sql = `INSERT INTO userlist (uid,lid) SELECT ${row.uid},${lid} WHERE NOT EXIST(SELECT * FROM userlist WHERE uid = ${row.uid} AND lid =${lid});`;
+        sql = `INSERT INTO userlist (uid,lid) SELECT ${row.uid},${lid} WHERE NOT EXISTS(SELECT * FROM userlist WHERE uid = ${row.uid} AND lid =${lid});`;
 
         db.run(sql, async function (err) {
           if (err) {
