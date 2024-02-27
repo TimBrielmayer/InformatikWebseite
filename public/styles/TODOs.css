@@ -39,10 +39,6 @@ body {
   display: inline-block;
 }
 
-.Logo {
-  height: 70%;
-  scale: 1;
-}
 .trashicon{
   cursor:pointer;
   position:relative;
@@ -70,11 +66,13 @@ hr{
   margin: 5px;
 }
 
-.content{
+.content{/*Inhalt der Seite*/
   position:relative;
   display: flex;
+  overflow-x:hidden;
   flex-direction: row;
   height: 90%;
+  min-height:400px;
   margin-top: 50px;
 }
 
@@ -97,7 +95,7 @@ hr{
   overflow-y: scroll;
 }
 
-.Tasklisthead {
+.Tasklisthead {/*Name der ausgewählten Liste*/
   position: relative;
   text-align: center;
   display: flex;
@@ -112,7 +110,7 @@ hr{
   border-bottom: 2px solid black; 
 }
 
-.groupTasks, .personalTasks {
+.groupTasks{/*Auswahl der To do Listen*/
   position: relative;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -157,7 +155,7 @@ hr{
   color: var(--textdark-color);
 }
 
-.listedlistname{
+.listedlistname{ /*ist die Klasse des Namen der Todoliste in der Auflistung, zu finden in dashboard.js*/
   width:70%;
   overflow: hidden;
   white-space: nowrap;
@@ -179,6 +177,7 @@ hr{
   position: relative;
   width: 100px;
   height: 20px;
+  margin:5px;
 }
 
 
@@ -219,7 +218,7 @@ hr{
 }
 
 
-.taskname{/* Name kommt einmal als Label als auch als Klasse vor!!!!!!!!*/
+.taskname{
   width:85%;
   overflow-x:hidden;
   white-space: nowrap;
@@ -228,7 +227,7 @@ hr{
   
 }
 
-.checkbox:checked + .taskname{
+.checkbox:checked + .taskname{/*Ändern der Textform bei abgeschlossener Aufgabe*/
   text-decoration: line-through;
   color: grey;
 }
@@ -247,7 +246,7 @@ hr{
   
 }
 
-.Taskoption{
+.Taskoption{/*Optionbar für die ausgewählte Liste*/
   height: 40px;
   width: 100%;
   background-color: var(--backgrounddark-color);
