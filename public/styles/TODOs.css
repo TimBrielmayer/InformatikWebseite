@@ -258,27 +258,7 @@ hr{
   display: none;
 }
 
-#addTaskForm, #addUserToListPopUp {
-  display: flex;
-  flex-direction: column;
-}
 
-#addTaskPopUp, #addListPopUp, #addUserToListPopUp {
-  display: none;
-  position: absolute;
-  height: 40%;
-  width: 30%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 10px;
-  padding: 25px;
-  background-color: red;
-}
-
-#listSpeichern{
-  cursor:pointer;
-}
 
 a:link {/* Entfernt die Formatierung auf Texten ausgelöst durch href*/
   text-decoration: none;
@@ -294,8 +274,4 @@ a:hover {
 
 a:active {
   text-decoration: none;
-}
-
-#listSpeichern, #listabbrechen,#taskSpeichern,#taskabbrechen, #edate, #sdate{
-  cursor:pointer;
 }

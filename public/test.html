@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="styles/general.css">
-  <link rel="stylesheet" href="styles/register.css">
+  <link rel="stylesheet" href="styles/test.css">
   <title>Registration Form</title>
   <script defer src="js/addtask.js"></script>
   <script defer src="js/deleteTask.js"></script>
@@ -13,7 +12,51 @@
 
 <body>
 
-    <button onclick = 'addUserToList(777,"tim, philipp")'>Sign Up</button>
+  <div id="addTaskPopUp" class="popUp"><!-- Pop Up für Erstellen einer neuen Aufgabe in der ausgewählten Liste-->
+    <h2>New Task</h2>
+    <form id="addTaskForm" class="popUpForm">
+      <label for="taskname">Taskname</label>
+      <input type="text" name="taskname" id="taskname">
+      <label for="edate">Enddatum</label>
+      <input type="datetime-local" name="edate" id="edate">
+      <div class="popUpOptions">
+        <div name="taskSpeichern" id="taskSpeichern" class="submitPopUp">Save</div>
+        <div onclick="closeTaskPopUp();" class="cancelPopUp">Cancel</div>
+      </div>
+    </form>
+  </div>
+
+  <div id="addListPopUp" class="popUp"><!-- Pop Up für Erstellen einer neune Todo-Liste-->
+    <h2>New List</h2>
+    <form id="addListForm" class="popUpForm">
+      <label for="listname">Listname</label>
+      <input type="text" name="listname" id="listname">
+      <label for="userlist">Users (Comma seperated)</label>
+      <input type="text" name="userlist" id="userlist">
+      <div class="popUpOptions">
+        <div name="listSpeichern" id="listSpeichern" class="submitPopUp">Save</div>
+        <div onclick="closeListPopUp()" class="cancelPopUp">Cancel</div>
+      </div>
+    </form>
+  </div>
+
+  <div id="addUserToListPopUp" class="popUp">
+    <h3>All Users</h3>
+    <div id="allAddedUsers">
+      <p>Philipp</p>
+      <p>Tim</p>
+      <p>Dominik</p>
+    </div>
+    <h3>Add a new user</h3>
+    <div id="newUser">
+      <input type="text" id="newUsername">
+      <div onclick="addNewUser()" class="submitPopUp">Add</div>
+    </div>
+    <div class="popUpOptions">
+      <div onclick="closeUserPopUp()" class="cancelPopUp">Cancel</div>
+    </div>
+  </div>
+
 </body>
 
 </html>
