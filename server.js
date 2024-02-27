@@ -180,31 +180,39 @@ app.post('/deleteTask', async (req, res) => {
 })
 
 app.post('/createList', async (req, res) => {
-
   const { listname, users } = req.body;
 
   var sql = `INSERT INTO list (listname) VALUES('${listname}')`
-  db.run(sql, async function (err) {
+  await db.run(sql, async function (err) {
     if (err) {
       return console.error(err.message);
     }
     const lid = this.lastID
+    res.json(lid)
+
 
     for (i = 0; i < users.length; i++) {
       sql = `SELECT uid FROM users WHERE username = "${users[i]}"`;
-      db.get(sql, (err, row) => {
-        sql = `INSERT INTO userlist (uid,lid) VALUES (${row.uid},${lid})`;
 
-        db.run(sql, async function (err) {
-          if (err) {
-            return console.error(err.message);
-          }
-        });
+      await db.get(sql, async (err, row) => {
+        if (row == null) {
+          res.status(400)
+          res.json(lid)
+          return
+
+        } else {
+          sql = `INSERT INTO userlist (uid,lid) VALUES (${row.uid},${lid})`;
+
+          await db.run(sql, async function (err) {
+            if (err) {
+              return console.error(err.message);  
+            }
+          });
+        }
       });
-    }
-    res.status(200);
-    res.json(lid)
 
+    }
+   
   });
 })
 
@@ -269,34 +277,34 @@ app.post('/addUserToList', async (req, res) => {
 
   const { lid, users } = req.body;
   const user = users.split(", ")
-  for(i=0; i < user.length;i++){
+  for (i = 0; i < user.length; i++) {
     sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
-   
-      db.get(sql, (err, row) => {
-        if(row == null){
-          res.status(400);
-          res.send('Dieser User existiert nicht');
-        }else{
-          
-          sql = `INSERT INTO userlist (uid,lid) SELECT ${row.uid},${lid} WHERE NOT EXISTS(SELECT * FROM userlist WHERE uid = ${row.uid} AND lid =${lid});`;
+
+    db.get(sql, (err, row) => {
+      if (row == null) {
+        res.status(400);
+        res.send('Dieser User existiert nicht');
+      } else {
+
+        sql = `INSERT INTO userlist (uid,lid) SELECT ${row.uid},${lid} WHERE NOT EXISTS(SELECT * FROM userlist WHERE uid = ${row.uid} AND lid =${lid});`;
 
         db.run(sql, async function (err) {
           if (err) {
             return console.error(err.message);
-          }else{
+          } else {
             res.status(200);
             res.send('User erfolgreich hinzugefügt')
           }
 
         });
-        }
-       
-        
-      });
+      }
+
+
+    });
   }
-  
-    
-  
+
+
+
 
 })
 
@@ -327,11 +335,11 @@ app.post("/getUsersInList", (req, res) => {
     res.json(rows);
     res.status(200);
   });
-  
+
 
   //return res.status
 
- 
+
 })
 
 

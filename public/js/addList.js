@@ -19,6 +19,13 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
             })
             
         })
+        console.log(response.status);
+        if(response.ok){
+            console.log("hallo1123213")
+        }else{
+            alert("Ein User existiert nicht")
+            return;
+        }
         var lid = await response.json()
         var popUp = document.getElementById("addListPopUp");
         popUp.style.display = "none";
