@@ -4,10 +4,14 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
     event.preventDefault();
 
     const listname = document.getElementById("listname").value;
-    const users = await getUsers();
-    //var users = ['tim', 'philipp', 'jdfsfsl', 'tobias'];
+    var users = await getUsers();
+
+    users = [...new Set(users)]; //remove duplicates
+
     var uids = await getUid(users);
-    console.log(uids);
+    
+
+
     var uidRichtig = new Array();
     var uidFehler = new Array();
     for(i = 0; i < uids.length;i++){
@@ -44,7 +48,11 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
     } catch (error) {
         console.error('Error during addtask:', error);
     }
-    alert("Folgende User existieren nicht " + uidFehler);
+    //console.log(uidFehler);
+    if (uidFehler.length > 0) {
+         alert("Folgende User existieren nicht " + uidFehler );
+    }
+   
 });
 
 
