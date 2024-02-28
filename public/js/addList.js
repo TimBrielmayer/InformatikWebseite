@@ -22,8 +22,8 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
         }
     }
 
-    console.log("f " + uidFehler);
-    console.log("r " + uidRichtig);
+    //console.log("f " + uidFehler);
+    //console.log("r " + uidRichtig);
 
     try {
         var response = await fetch('/createList', {
