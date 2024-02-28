@@ -13,13 +13,12 @@ async function loadUsername() {
     }
 }
 
-async function getUid() {
-    var usernames = ['tim', 'philipp', 'jdfsfsl', 'tobias'];
+async function getUid(usernames) {
+    
     var uids = [];
     var response;
 
     for (i = 0; i < usernames.length; i++) {
-        console.log(i + " dashboard " + usernames[i]);
         try {
             response = await fetch('/getUid', {
                 method: 'POST',
@@ -49,7 +48,8 @@ async function getUid() {
         
 
     }
-    console.log(uids);
+    //console.log(uids);
+    return(uids);
 
 
 }

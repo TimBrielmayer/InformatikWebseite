@@ -5,6 +5,22 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
 
     const listname = document.getElementById("listname").value;
     const users = await getUsers();
+    //var users = ['tim', 'philipp', 'jdfsfsl', 'tobias'];
+    var uids = await getUid(users);
+    console.log(uids);
+    var uidRichtig = new Array();
+    var uidFehler = new Array();
+    for(i = 0; i < uids.length;i++){
+        if(uids[i] == -1){
+            uidFehler.push(users[i])
+        }else{
+            uidRichtig.push(uids[i]);
+        }
+    }
+
+    console.log("f " + uidFehler);
+    console.log("r " + uidRichtig);
+
     try {
         var response = await fetch('/createList', {
             method: 'POST',
@@ -15,17 +31,11 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
             },
             body: JSON.stringify({
                 listname: listname,
-                users: users
+                uids: uidRichtig
             })
             
         })
-        console.log(response.status);
-        if(response.ok){
-            console.log("hallo1123213")
-        }else{
-            alert("Ein User existiert nicht")
-            return;
-        }
+   
         var lid = await response.json()
         var popUp = document.getElementById("addListPopUp");
         popUp.style.display = "none";
@@ -34,6 +44,7 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
     } catch (error) {
         console.error('Error during addtask:', error);
     }
+    alert("Folgende User existieren nicht " + uidFehler);
 });
 
 

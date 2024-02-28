@@ -180,38 +180,26 @@ app.post('/deleteTask', async (req, res) => {
 })
 
 app.post('/createList', async (req, res) => {
-  const { listname, users } = req.body;
-
+  const { listname, uids } = req.body;
+  console.log(uids);
   var sql = `INSERT INTO list (listname) VALUES('${listname}')`
   await db.run(sql, async function (err) {
     if (err) {
       return console.error(err.message);
     }
     const lid = this.lastID
-    res.json(lid)
-
-
-    for (i = 0; i < users.length; i++) {
-      sql = `SELECT uid FROM users WHERE username = "${users[i]}"`;
-
-      await db.get(sql, async (err, row) => {
-        if (row == null) {
-          res.status(400)
-          res.json(lid)
-          return
-
-        } else {
-          sql = `INSERT INTO userlist (uid,lid) VALUES (${row.uid},${lid})`;
-
-          await db.run(sql, async function (err) {
-            if (err) {
-              return console.error(err.message);  
-            }
-          });
+    
+    for (i = 0; i < uids.length; i++) {
+      sql = `INSERT INTO userlist (uid,lid) VALUES (${uids[i]},${lid})`;
+      await db.run(sql, async function (err) {
+        if (err) {
+          return console.error(err.message);  
         }
       });
 
     }
+    res.json(lid);
+    res.status(200);
    
   });
 })
