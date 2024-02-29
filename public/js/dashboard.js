@@ -263,6 +263,14 @@ async function loadTasks(lid) {
         var taskname = document.createElement('p');
         taskname.textContent = tasks[i].taskname;
         taskname.classList.add("taskname");
+
+        /*Jo hier versuche ich was mit dem Enddatum*/
+        var edate = document.createElement('p');
+        edate.textContent = tasks[i].edate;
+        edate.classList.add("edateout");
+        /*Zwischen den beiden Kommentaren ist Versuch + appendChild ungefähr Zeile 280
+        */
+
         var loeschen = document.createElement('img')
         loeschen.setAttribute('src', 'pictures/trashcan2.png');
         loeschen.setAttribute('onclick', `deleteTask(${tasks[i].tid}, ${lid})`);
@@ -270,6 +278,7 @@ async function loadTasks(lid) {
 
         taskDiv.appendChild(checkBox);
         taskDiv.appendChild(taskname)
+        taskDiv.appendChild(edate); /*Des ist auch neu*/
         taskDiv.appendChild(loeschen)
 
 

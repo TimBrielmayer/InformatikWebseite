@@ -172,6 +172,17 @@ hr{
   border-radius:25px;
 }
 
+.Taskoption{/*Optionbar für die ausgewählte Liste*/
+  height: 40px;
+  width: 100%;
+  background-color: var(--backgrounddark-color);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  display: none;
+}
+
 .Addbuttontask{
   cursor:pointer;
   position: relative;
@@ -219,12 +230,17 @@ hr{
 
 
 .taskname{
-  width:85%;
+  width:75%;
   overflow-x:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none;
   
+}
+
+.edateout{
+  width: 50px;
+  color: red;
 }
 
 .checkbox:checked + .taskname{/*Ändern der Textform bei abgeschlossener Aufgabe*/
@@ -245,19 +261,6 @@ hr{
   min-width: 30px;
   
 }
-
-.Taskoption{/*Optionbar für die ausgewählte Liste*/
-  height: 40px;
-  width: 100%;
-  background-color: var(--backgrounddark-color);
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  display: none;
-}
-
-
 
 a:link {/* Entfernt die Formatierung auf Texten ausgelöst durch href*/
   text-decoration: none;
