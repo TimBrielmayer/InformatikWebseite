@@ -7,6 +7,8 @@ document.getElementById("taskSpeichern").addEventListener('click', async functio
     const edateObject = new Date(inputEDate);
     const edate = `${edateObject.getFullYear()}${(edateObject.getMonth() + 1).toString().padStart(2, '0')}${edateObject.getDate().toString().padStart(2, '0')} ${edateObject.getHours().toString().padStart(2, '0')}:${edateObject.getMinutes().toString().padStart(2, '0')}:00 AM`;
 
+    if(taskname == '') { alert('Please name youre task!'); return; }
+
     const lid = sessionStorage.getItem("lid");
     try {
         const response = await fetch('/addtask', {

@@ -264,8 +264,10 @@ async function loadTasks(lid) {
         taskname.classList.add("taskname");
 
         var edate = document.createElement('p');
-        //edate.textContent = tasks[i].edate;
-        edate.textContent = getDateDiff(tasks[i].edate);
+        console.log(tasks[i].edate)
+        if(tasks[i].edate != 'NaNNaNNaN NaN:NaN:00 AM') {
+            edate.textContent = getDateDiff(tasks[i].edate);
+        }
         edate.classList.add("edateout");
 
         var loeschen = document.createElement('img')
