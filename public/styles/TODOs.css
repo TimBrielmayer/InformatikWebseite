@@ -1,7 +1,7 @@
 
 
 body {
-  height: 140vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   -ms-overflow-style: none;  /* IE and Edge */
@@ -77,8 +77,8 @@ hr{
   display: flex;
   overflow:hidden;
   flex-direction: row;
-  height: 90%;
-  min-height:400px;
+  height: calc(100% - 75px);
+  min-height: calc(100% - 75px);
   margin-top: 50px;
   background-color: var(--backgrounddark-color);
   padding-top: 25px;
@@ -172,6 +172,7 @@ hr{
   position: relative;
   height: 100%;
   width: 70%;
+  margin: 0 10px 0 10px;
   background-color: var(--backgroundlight-color);
   box-sizing: border-box;
   overflow: hidden;
