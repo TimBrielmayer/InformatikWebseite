@@ -4,6 +4,12 @@ body {
   height: 140vh;
   display: flex;
   flex-direction: column;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /*header{
@@ -45,7 +51,7 @@ body {
   height:100%;
   scale:1;
   padding: 10px;
-  border-radius:50%;
+  border-radius: 50%;
   cursor: pointer;
 }
 .trashicon2{
@@ -69,11 +75,13 @@ hr{
 .content{/*Inhalt der Seite*/
   position:relative;
   display: flex;
-  overflow-x:hidden;
+  overflow:hidden;
   flex-direction: row;
   height: 90%;
   min-height:400px;
   margin-top: 50px;
+  background-color: var(--backgrounddark-color);
+  padding-top: 25px;
 }
 
 .listselection {/*Auswahl der Listenbereich
@@ -82,51 +90,48 @@ hr{
   height: 100%;
   width: 30%;
   background-color: var(--backgrounddark-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  overflow: hidden;
 }
 
-.Tasklist {/*Darstellung der kompletten Tasklist mit Einstellungen
-  rechter Teil*/
+.createListButton{
+  cursor:pointer;
   position: relative;
-  height: 100%;
-  width: 70%;
-  background-color: var(--backgroundlight-color);
-  box-sizing: border-box;
-  border: 3px solid black;
-  overflow-y: scroll;
-}
-
-.Tasklisthead {/*Name der ausgewählten Liste*/
-  position: relative;
+  width: 80%;
+  height: 40px;
+  border-radius:25px;
   text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 30px;
-  width: 100%;
-
-  color:var(--textdark-color);
-  background-color: var(--backgroundlight-color);
-  box-sizing: border-box;
-  border-bottom: 2px solid black; 
+  justify-content: center;
+  background-color: #009B7D;
+  color: white;
 }
 
-.groupTasks{/*Auswahl der To do Listen*/
+.listContainer{/*Auswahl der To do Listen*/
   position: relative;
   overflow-y: hidden;
   overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  height: 80%;
-  width: 80%;
-  left: 5%;
+  height: 100%;
+  width: 100%;
   display: block;
-  border: 0.3rem solid red;
   border-spacing: 0.5rem;
-  margin-top: 10%;
+  margin-top: 25px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.groupTasks:hover{
+.listContainer:hover{
   overflow-y:scroll
+}
+
+.listContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .List {/*Das ist In der Auflistung der Listen eine einzelne Liste*/
@@ -148,7 +153,6 @@ hr{
 
   box-sizing: border-box;
   border-bottom: 2px solid black;
-  box-shadow: 1px 2px 5px blueviolet;
   font-size: 20px;
   font-family: "Times New Roman", Times, serif;
   background-color: var(--backgroundlight-color);
@@ -162,75 +166,111 @@ hr{
   text-overflow: ellipsis;
   color: var(--textdark-color);
 }
-.Addbuttontasklist{
-  cursor:pointer;
+
+.Tasklist {/*Darstellung der kompletten Tasklist mit Einstellungen
+  rechter Teil*/
   position: relative;
-  top: 10px;
-  left: 10px;
-  width: 100px;
-  height: 20px;
-  border-radius:25px;
+  height: 100%;
+  width: 70%;
+  background-color: var(--backgroundlight-color);
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-.Taskoption{/*Optionbar für die ausgewählte Liste*/
-  height: 40px;
-  width: 100%;
-  background-color: var(--backgrounddark-color);
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.Tasklist::-webkit-scrollbar {
   display: none;
 }
 
-.Addbuttontask{
+#listName {/*Name der ausgewählten Liste*/
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 100%;
+  overflow: hidden;
+
+  color:var(--textlight-color);
+  background-color: #658997;
+  box-sizing: border-box;
+
+  border-bottom: 5px solid var(--backgrounddark-color);;
+}
+
+.optionRow{/*Optionbar für die ausgewählte Liste*/
+  display: none;
+  height: 40px;
+  width: 100%;
+  background-color: #658997;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+.addTaskButton, .userMenu{
   cursor:pointer;
   position: relative;
   width: 100px;
-  height: 20px;
-  margin:5px;
+  height: 30px;
+  background-color: #009B7D;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 
-.Addbuttontasklist:hover, .Addbuttontask:hover{
+.createListButton:hover, .addTaskButton:hover, .userMenu:hover{
   background-color: #29c934;
-
 }
 
 .Tasklistcontent{/* Das ist die Aufgabenliste der ausgewälten Liste*/
   position: relative;
-  height: calc(100%-30px);
+  height: auto;
   width: 100%;
 
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 
+  background-color: #658997;
 }
 
 .Task{/* Das ist ein einzelner Task in der Darstellung*/
   position: relative;
   height: 40px;
-  width: 100%;
+  width: calc(100% - 10px);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content : space-between;
-  overflow:hidden;
+  overflow: hidden;
+  padding: 0 5px 0 5px;
 }
 
 .Task:nth-child(even){
-  background-color: var(--yellow-color); 
+  /*background-color: var(--yellow-color);*/
+  background-color: #0a2c258a;
+  color: white;
+  margin: 5px;
 }
 
 .Task:nth-child(odd){
-  background-color: var(--green-color);
+  /*background-color: var(--green-color);*/
+  background-color: #153f3770;
+  color: white;
+  margin: 5px;
 }
 
-
 .taskname{
-  width:75%;
+  width: calc(75% - 50px);
   overflow-x:hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -250,8 +290,6 @@ hr{
 
 .List:hover, .Task:hover{
   background-color: rgb(96, 169, 208);
-  outline: 4px solid black; 
-
 }
 
 .checkbox{

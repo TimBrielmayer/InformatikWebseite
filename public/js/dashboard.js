@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 async function loadUsername() {
     const username = await getUsername();
     console.log('logged in user: ' + username);
@@ -14,7 +12,7 @@ async function loadUsername() {
 }
 
 async function getUid(usernames) {
-    
+
     var uids = [];
     var response;
 
@@ -39,17 +37,17 @@ async function getUid(usernames) {
         }
         uid = await response.json();
 
-        if (uid ==null) {
+        if (uid == null) {
             uids.push(-1)
         } else {
             uids.push(uid);
         }
-    
-        
+
+
 
     }
     //console.log(uids);
-    return(uids);
+    return (uids);
 
 
 }
@@ -236,13 +234,13 @@ async function addUserToList(lid, users) {
 }
 
 function loadTaskList(listname, lid) {
-    var header = document.getElementById("TasklistHead");
+    var header = document.getElementById("listName");
     header.textContent = listname;
 
     loadTasks(lid);
 
-    addTaskButton = document.getElementById('addTaskButton');
-    addTaskButton.style.display = 'flex';
+    optionRow = document.getElementById('optionRow');
+    optionRow.style.display = 'flex';
 }
 
 async function loadTasks(lid) {
@@ -260,16 +258,15 @@ async function loadTasks(lid) {
         checkBox.setAttribute('type', 'checkbox');
         checkBox.checked = (tasks[i].done == 'TRUE');
         checkBox.setAttribute('onclick', `changeTaskState(${tasks[i].tid})`);
+
         var taskname = document.createElement('p');
         taskname.textContent = tasks[i].taskname;
         taskname.classList.add("taskname");
 
-        /*Jo hier versuche ich was mit dem Enddatum*/
         var edate = document.createElement('p');
-        edate.textContent = tasks[i].edate;
+        //edate.textContent = tasks[i].edate;
+        edate.textContent = getDateDiff(tasks[i].edate);
         edate.classList.add("edateout");
-        /*Zwischen den beiden Kommentaren ist Versuch + appendChild ungefähr Zeile 280
-        */
 
         var loeschen = document.createElement('img')
         loeschen.setAttribute('src', 'pictures/trashcan2.png');
@@ -277,13 +274,42 @@ async function loadTasks(lid) {
         loeschen.classList.add('trashicon');
 
         taskDiv.appendChild(checkBox);
-        taskDiv.appendChild(taskname)
-        taskDiv.appendChild(edate); /*Des ist auch neu*/
+        taskDiv.appendChild(taskname);
+        taskDiv.appendChild(edate);
         taskDiv.appendChild(loeschen)
 
 
         taskContainer.appendChild(taskDiv)
     }
+}
+function getDateDiff(edate) {
+    var currentDate = new Date();
+
+
+    var year = parseInt(edate.substr(0, 4), 10);
+    var month = parseInt(edate.substr(4, 2), 10) - 1; // Monate im Date-Objekt sind 0-basiert
+    var day = parseInt(edate.substr(6, 2), 10);
+    var hours = parseInt(edate.substr(9, 2), 10);
+    var minutes = parseInt(edate.substr(12, 2), 10);
+    var seconds = parseInt(edate.substr(15, 2), 10);
+    var ampm = edate.substr(18, 2);
+
+    // Überprüfen, ob es sich um PM handelt und die Stunden entsprechend anpassen
+    if (ampm === 'PM' && hours < 12) {
+        hours += 12;
+    }
+    var edateDate = new Date(year, month, day, hours, minutes, seconds);
+
+    var dateDiffMilliseconds = edateDate - currentDate;
+    var dateDiffSeconds = Math.floor(dateDiffMilliseconds / 1000);
+    var dateDiffMinutes = Math.floor(dateDiffSeconds / 60);
+    var dateDiffHours = Math.floor(dateDiffMinutes / 60);
+    var dateDiffDays = Math.floor(dateDiffHours / 24);
+
+    if(dateDiffDays != 0) { return `${dateDiffDays} days` }
+    if(dateDiffHours != 0) { return `${dateDiffHours} hours` }
+    if(dateDiffMinutes != 0) {return `${dateDiffMinutes} min` }
+    if(dateDiffSeconds != 0) {return `${dateDiffSeconds} sec` }
 }
 
 async function getListByName(listname) {

@@ -18,7 +18,7 @@
   <!-- Kopfzeile mit Logo und Account Dartstellung-->
   <nav class="navbar">
     <div class="logo">
-      <img src="pictures/ToDo-neu.png" alt="" />
+      <img src="pictures/logo_no_slogan.png" alt="" />
     </div>
     <div class="toggle-btn">
       <div class="icon"></div>
@@ -39,24 +39,22 @@
             <div class="circle"></div>
             <div id="username"></div>
           </div>
-      </a></li>
+        </a></li>
     </ul>
   </nav>
 
   <div class="content"><!-- Aufbau der Todo Webseite mit Auswahl der Todo Liste und Präsentation der Liste-->
     <div class="listselection"><!-- Auswahl der Todo Liste-->
-      <input type="button" class="Addbuttontasklist" value="+Add tasklist" onclick="addList()">
-      <div class="groupTasks" id="listContainer"> <!-- listen Auswahl-->
+     <div class="createListButton" onclick="addList()">+ Create new list</div>
+      <div class="listContainer" id="listContainer"> <!-- listen Auswahl-->
       </div>
     </div>
     <div class="Tasklist"> <!-- Darstellung der ausgewählten Liste-->
-      <div class="Tasklisthead" id="TasklistHead"><!-- Der angeziegte Name der ausgewählten Liste-->
-        Wähle eine Liste aus
-      </div>
-      <div id="addTaskButton" class="Taskoption"> <!-- Hinzufügen einer Aufgabe in der ausgewählten Liste-->
-        <button class="Addbuttontask" onclick='addTask()'>Add Task</button>
+      <h2 id="listName">Wähle eine Liste aus</h2><!-- Der angeziegte Name der ausgewählten Liste-->
+      <div id="optionRow" class="optionRow"> <!-- Hinzufügen einer Aufgabe in der ausgewählten Liste-->
+        <div class="addTaskButton" onclick="addTask()">+ Add task</div>
         <!-- Hinzufügen eines anderen Nutzers für die ausgewählten Liste-->
-        <button class="Addbuttonuser" onclick='openUserMenu()'>User menu
+        <div class="userMenu" onclick="openUserMenu()"> User menu</div>
         </button>
       </div>
 
@@ -68,20 +66,24 @@
 
 
   <div id="addTaskPopUp" class="popUp"><!-- Pop Up für Erstellen einer neuen Aufgabe in der ausgewählten Liste-->
-    <h2>New Task</h2>
-    <form id="addTaskForm" class="popUpForm">
-      <label for="taskname">Taskname</label>
-      <input type="text" name="taskname" id="taskname">
-      <label for="edate">Enddatum</label>
-      <input type="datetime-local" name="edate" id="edate">
-      <div class="popUpOptions">
-        <div name="taskSpeichern" id="taskSpeichern" class="submitPopUp">Save</div>
-        <div onclick="closeTaskPopUp();" class="cancelPopUp">Cancel</div>
-      </div>
-    </form>
+    <div class="popUpContent">
+      <h2>New Task</h2>
+      <form id="addTaskForm" class="popUpForm">
+        <label for="taskname">Taskname</label>
+        <input type="text" name="taskname" id="taskname">
+        <label for="edate">Enddatum</label>
+        <input type="datetime-local" name="edate" id="edate">
+        <div class="popUpOptions">
+          <div name="taskSpeichern" id="taskSpeichern" class="submitPopUp">Save</div>
+          <div onclick="closeTaskPopUp();" class="cancelPopUp">Cancel</div>
+        </div>
+      </form>
     </div>
 
-    <div id="addListPopUp" class="popUp"><!-- Pop Up für Erstellen einer neune Todo-Liste-->
+  </div>
+
+  <div id="addListPopUp" class="popUp"><!-- Pop Up für Erstellen einer neune Todo-Liste-->
+    <div class="popUpContent">
       <h2>New List</h2>
       <form id="addListForm" class="popUpForm">
         <label for="listname">Listname</label>
@@ -94,8 +96,10 @@
         </div>
       </form>
     </div>
+  </div>
 
-    <div id="addUserToListPopUp" class="popUp">
+  <div id="addUserToListPopUp" class="popUp">
+    <div class="popUpContent">
       <h3>All Users</h3>
       <div id="allAddedUsers">
         <p>Philipp</p>
@@ -111,43 +115,44 @@
         <div onclick="closeUserPopUp()" class="cancelPopUp">Cancel</div>
       </div>
     </div>
+  </div>
 
 
-    <footer>
-      <div class="footer-row">
-        <div class="footer-col">
-          <h4>About</h4>
-          <ul class="links">
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="mission.html">Mission</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Information</h4>
-          <ul class="links">
-            <li>DHBW Ravensburg</li>
-            <li><a href="mailto:esc@dhbw-ravensburg.de">Mail: esc@dhbw-ravensburg.de</a></li>
-            <li><a href="tel:+4975118992172">Phone: +49 . 751/18999-2172</a></li>
-            <li><a href="http://www.ravensburg.dhbw.de">www.ravensburg.dhbw.de</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Final words</h4>
-          <p>
-            I hope you enjoy our website. This website is still in work and
-            progress. New features might come in the future. Thank you!
-          </p>
-        </div>
+  <footer>
+    <div class="footer-row">
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul class="links">
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="mission.html">Mission</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h4>Contact Information</h4>
+        <ul class="links">
+          <li>DHBW Ravensburg</li>
+          <li><a href="mailto:esc@dhbw-ravensburg.de">Mail: esc@dhbw-ravensburg.de</a></li>
+          <li><a href="tel:+4975118992172">Phone: +49 . 751/18999-2172</a></li>
+          <li><a href="http://www.ravensburg.dhbw.de">www.ravensburg.dhbw.de</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Final words</h4>
+        <p>
+          I hope you enjoy our website. This website is still in work and
+          progress. New features might come in the future. Thank you!
+        </p>
+      </div>
+    </div>
 
-      <p>&copy; 2024 My Company. All rights reserved.</p>
-    </footer>
+    <p>&copy; 2024 My Company. All rights reserved.</p>
+  </footer>
 
 
-    <script src="js/addTask.js"></script>
-    <script src="js/addList.js"></script>
-    <script src="js/index.js"></script>
+  <script src="js/addTask.js"></script>
+  <script src="js/addList.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
