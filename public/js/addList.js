@@ -4,6 +4,9 @@ document.getElementById("listSpeichern").addEventListener('click', async functio
     event.preventDefault();
 
     const listname = document.getElementById("listname").value;
+    console.log(listname)
+    if(listname == '') { alert('Please name youre list!'); return; }
+
     var users = await getUsers();
 
     users = [...new Set(users)]; //remove duplicates
