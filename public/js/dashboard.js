@@ -101,7 +101,8 @@ async function loadAllTaskLists() {
         var trashIcon = document.createElement("img");
         trashIcon.classList.add("trashicon2");
         trashIcon.setAttribute("src", "pictures/trashcan2.png");
-        trashIcon.setAttribute("onclick", `deleteList(${allLists[i].lid})`);
+        trashIcon.setAttribute("onclick", `removeUserFromList(${allLists[i].lid})`);
+
         container.appendChild(trashIcon);
 
         listContainer.appendChild(container);
@@ -171,9 +172,30 @@ async function getLists() {
 }
 
 async function deleteList(lid) {
-    if (confirm("Bist du dir sicher, dass du diese Liste löschen willst?")) {
+    try {
+        const response = await fetch('/deleteList', {
+            method: 'POST',
+            headers:
+            {
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify({
+                lid: lid
+            })
+        })
+        loadAllTaskLists();
+    } catch (error) {
+        console.error('Error during addtask:', error);
+    }
+    window.location.reload();
+}
+
+async function removeUserFromList(lid) {
+    console.log(lid);
+    if (confirm("Bist du dir sicher, dass du diesen User entfernen möchtest?")) {
         try {
-            const response = await fetch('/deleteList', {
+            const response = await fetch('/removeUserFromList', {
                 method: 'POST',
                 headers:
                 {
@@ -184,32 +206,32 @@ async function deleteList(lid) {
                     lid: lid
                 })
             })
-            loadAllTaskLists();
         } catch (error) {
-            console.error('Error during addtask:', error);
+            console.error('Error during removeUserFromList1:', error);
+
         }
         window.location.reload();
     }
 }
 
-async function removeUserFromList(lid, uid) {
+async function getUsersInList(lid) {
     try {
-        const response = await fetch('/removeUserFromList', {
+        const response = await fetch('/getUsersInList', {
             method: 'POST',
             headers:
             {
                 'Content-Type': 'application/json',
-
             },
             body: JSON.stringify({
-                lid: lid,
-                uid: uid
+                lid: lid
             })
         })
-
+        const data = await response.json();
+        return data;
     } catch (error) {
-        console.error('Error during addtask:', error);
+        console.error('Error during ^2:', error);
     }
+
 }
 
 async function addUserToList(lid, users) {
@@ -265,7 +287,7 @@ async function loadTasks(lid) {
 
         var edate = document.createElement('p');
         console.log(tasks[i].edate)
-        if(tasks[i].edate != 'NaNNaNNaN NaN:NaN:00 AM') {
+        if (tasks[i].edate != 'NaNNaNNaN NaN:NaN:00 AM') {
             edate.textContent = getDateDiff(tasks[i].edate);
         }
         edate.classList.add("edateout");
@@ -308,10 +330,10 @@ function getDateDiff(edate) {
     var dateDiffHours = Math.floor(dateDiffMinutes / 60);
     var dateDiffDays = Math.floor(dateDiffHours / 24);
 
-    if(dateDiffDays != 0) { return `${dateDiffDays} days` }
-    if(dateDiffHours != 0) { return `${dateDiffHours} hours` }
-    if(dateDiffMinutes != 0) {return `${dateDiffMinutes} min` }
-    if(dateDiffSeconds != 0) {return `${dateDiffSeconds} sec` }
+    if (dateDiffDays != 0) { return `${dateDiffDays} days` }
+    if (dateDiffHours != 0) { return `${dateDiffHours} hours` }
+    if (dateDiffMinutes != 0) { return `${dateDiffMinutes} min` }
+    if (dateDiffSeconds != 0) { return `${dateDiffSeconds} sec` }
 }
 
 async function getListByName(listname) {

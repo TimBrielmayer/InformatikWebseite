@@ -239,8 +239,8 @@ app.post('/deleteList', async (req, res) => {
 
 app.post('/removeUserFromList', async (req, res) => {
 
-  const { lid, uid } = req.body;
-
+  const { lid } = req.body;
+  const uid = req.session.uid;
   var sql = `DELETE FROM userlist WHERE lid = ${lid} AND uid = ${uid};`
   db.run(sql, async function (err) {
     if (err) {
@@ -290,10 +290,6 @@ app.post('/addUserToList', async (req, res) => {
 
     });
   }
-
-
-
-
 })
 
 app.post('/changeTaskState', (req, res) => {
