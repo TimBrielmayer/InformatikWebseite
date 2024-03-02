@@ -38,13 +38,45 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px;
-  margin-top: 60px; 
+  margin-top: 20px;
+}
+
+.content {
+  flex: 1 1 70%; /* 70% of the available space */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar {
-  flex: 1 0 25%; /* 25% des verfügbaren Platzes */
-  padding: 25px;
+  flex: 1 1 25%; /* 25% of the available space */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
 }
+
+h1, h2 {
+  color: #333;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .content, .sidebar {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+}
+
 /*Die drei Karten*/
 .card-list {
   display: grid;
