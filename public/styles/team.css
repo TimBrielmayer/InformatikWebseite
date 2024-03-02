@@ -43,6 +43,9 @@
 .team-member ul li strong {
     font-weight: bold;
 }
+.team-member:hover {
+    border: 2px solid #000;
+}
 
 .image img {
     max-width: 100%;
