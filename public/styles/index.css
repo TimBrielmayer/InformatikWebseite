@@ -58,9 +58,7 @@
   margin-left: 20px;
 }
 
-h1, h2 {
-  color: #333;
-}
+
 
 p {
   margin-bottom: 15px;
@@ -74,6 +72,9 @@ p {
   .content, .sidebar {
     flex: 1 1 100%;
     margin-bottom: 20px;
+  }
+  .sidebar {
+    margin-left: 0;
   }
 }
 
