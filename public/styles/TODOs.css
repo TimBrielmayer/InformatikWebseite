@@ -338,10 +338,11 @@ a:active {
   }
 
   .listselection {
-    width: 100%;
+    width: calc(100% - 10px);
     height: auto;
-    box-sizing: content-box;
     overflow-y: visible;
+    margin-right: 5px;
+    margin-left: 5px;
   }
 
   .listContainer {
