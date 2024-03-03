@@ -285,7 +285,7 @@ p {
   }
   a.button:hover {
     color: #fff;
-    background-color: #c87e4f;
+    background-color: #009B7D;
   }
   
   /* swiper button css */
@@ -318,7 +318,7 @@ p {
   }
   .swiper-pagination-bullet-active {
     border: 2px solid #fff;
-    background-color: #c87e4f;
+    background-color: #009B7D;
   }
   
   @media screen and (max-width: 768px) {
