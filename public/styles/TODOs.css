@@ -87,6 +87,7 @@ hr{
 
 .listselection {/*Auswahl der Listenbereich
   linker Teil*/
+  display: flex;
   position: relative;
   height: 100%;
   width: 30%;
@@ -120,7 +121,9 @@ hr{
   text-overflow: ellipsis;
   height: 100%;
   width: 100%;
-  display: block;
+  /*display: block;*/
+  display: flex;
+  flex-direction: column;
   border-spacing: 0.5rem;
   margin-top: 25px;
   -ms-overflow-style: none;  /* IE and Edge */
@@ -139,6 +142,7 @@ hr{
   cursor:pointer;
   position: relative;
   height:60px;
+  min-height: 60px;
   width: 100%;
 
   padding: 5px;
@@ -170,6 +174,8 @@ hr{
 
 .Tasklist {/*Darstellung der kompletten Tasklist mit Einstellungen
   rechter Teil*/
+  display: flex;
+  flex-direction: column;
   position: relative;
   height: 100%;
   width: 70%;
@@ -234,6 +240,8 @@ hr{
 }
 
 .Tasklistcontent{/* Das ist die Aufgabenliste der ausgewälten Liste*/
+  display: flex;
+  flex-direction: column;
   position: relative;
   height: auto;
   width: 100%;
@@ -248,6 +256,7 @@ hr{
 .Task{/* Das ist ein einzelner Task in der Darstellung*/
   position: relative;
   height: 40px;
+  min-height: 40px;
   width: calc(100% - 10px);
   display: flex;
   flex-direction: row;
@@ -316,4 +325,43 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+
+@media (max-width: 800px) {
+  .content {
+    flex-direction: column;
+    box-sizing: content-box;
+    overflow-y: visible;
+    height: 150%;
+    min-height: 150%;
+  }
+
+  .listselection {
+    width: calc(100% - 10px);
+    height: auto;
+    overflow-y: visible;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .listContainer {
+    min-height: max-content;
+    box-sizing: content-box;
+    overflow-y: visible;
+  }
+
+  .Tasklist {
+    width: calc(100% - 10px);
+    margin: 25px 5px 25px 5px;
+    height: auto;
+    box-sizing: content-box;
+    overflow-y: visible;
+  }
+
+  .Tasklistcontent {
+    height: auto;
+    box-sizing: content-box;
+    overflow-y: visible;
+  }
 }

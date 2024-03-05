@@ -2,6 +2,10 @@
     margin-top: 60px;
     margin-bottom: 40px;
 }
+.mission-content:hover {
+    border: 2px solid #000;
+}
+
 .mission1 {
     max-width: 800px;
     margin: 0 auto;
