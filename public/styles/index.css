@@ -224,3 +224,7 @@ p {
   .header-flex .section-sub-header {
     font-size: 1.5rem;
   }
+
+  .pictures{
+    border-radius: 45%;
+  }
