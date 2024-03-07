@@ -1,26 +1,43 @@
 .mission {
     margin-top: 60px;
     margin-bottom: 40px;
-}
-.mission-content:hover {
-    border: 2px solid #000;
-}
-
-.mission1 {
+  }
+  
+  .mission1 {
     max-width: 800px;
     margin: 0 auto;
-}
-
-.mission-content {
+  }
+  
+  .mission-content {
     padding: 20px;
     border-radius: 10px;
     background-color: #f9f9f9;
-}
+    text-align: justify;
+  }
 
-h2 {
-    color: #007bff;
-}
-
-p {
+  .mission-content .list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h2 {
+    color: #495ca8;
+  }
+  
+  h3 {
+    color: #495ca8;
+    margin-bottom: 10px;
+  }
+  
+  p {
     line-height: 1.6;
-}
+    margin-bottom: 20px;
+  }
+  
+  @media screen and (max-width: 850px) {
+    .mission1 {
+      width: 90%;
+      max-width: none;
+    }
+  }
