@@ -1,3 +1,4 @@
+/* Image am Anfang*/
 .image-container {
   position: relative;
   width: 100%;
@@ -27,7 +28,12 @@
 .text-overlay p {
   font-size: 1.2em;
 }
-
+@media only screen and (max-width: 768px) {
+  .text-overlay h1 {
+    font-size: 2em; /* Adjust the font size as needed */
+  }
+}
+/*TextBlock*/
 .content {
   flex: 1 0 70%; /* 70% des verfügbaren Platzes */
   text-align: justify;
@@ -205,12 +211,12 @@ p {
 
   @media screen and (max-width: 1200px) {
     .flex-item {
-      width: calc(50%); /* Full width on smaller screens */
+      width: calc(50%); 
     }
   }
   @media screen and (max-width: 576px) {
     .flex-item {
-      width: calc(100%); /* Full width on even smaller screens */
+      width: calc(100%); 
     }
   }  
 
