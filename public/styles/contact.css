@@ -7,6 +7,7 @@
     justify-content: space-evenly;
     align-items: flex-start;
     padding: 20px;
+    text-align: justify;
 }
 
 .contact-info {
@@ -15,14 +16,19 @@
     border-radius: 10px;
     background-color: #f9f9f9;
 }
-.contact-info:hover {
-    border: 2px solid #000;
-}
+
 
 .contact-info h2 {
     margin-top: 0;
+    color: #495ca8;
 }
 
+h3 {
+    color: #495ca8;
+}
+h4 {
+    color: #495ca8;
+}
 .contact-info ul {
     list-style: none;
     padding: 0;
@@ -34,6 +40,7 @@
 
 .contact-info ul li strong {
     font-weight: bold;
+    color: #495ca8;
 }
 
 .social-media {
@@ -50,6 +57,8 @@
     flex: 1;
     padding: 20px;
 }
+
+
 
 .image img {
     max-width: 100%;
