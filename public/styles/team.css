@@ -29,6 +29,7 @@
 
 .team-member h2 {
     margin-top: 0;
+    color: #495ca8;
 }
 
 .team-member ul {
@@ -42,6 +43,7 @@
 
 .team-member ul li strong {
     font-weight: bold;
+    color: #495ca8;
 }
 .team-member:hover {
     border: 2px solid #000;

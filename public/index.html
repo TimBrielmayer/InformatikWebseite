@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="styles/navbar.css" />
     <link rel="stylesheet" href="styles/footer.css" />
     <link rel="stylesheet" href="styles/swiper-bundle.min.css" />
-    <title>Homepage work in progress</title>
+    <link rel="icon" type="image/png" href="pictures/icon.png">
+    <title>Homepage</title>
   </head>
   <body>
     <nav class="navbar">
@@ -31,14 +32,52 @@
         <li><a href="login.html">Login</a></li>
       </ul>
     </nav>
-
-    <div class="image-container">
-      <img src="pictures/Bild 1.jpg" alt="Description of your image" />
-      <div class="text-overlay">
-        <h1>Easily organise your Work with our Solution To-Do List!</h1>
+    <section class="main swiper mySwiper">
+      <div class="wrapper swiper-wrapper">
+        <div class="slide swiper-slide">
+          <img loading="lazy" src="pictures/Bild5.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">Starting with a ToDo List</span>
+            <h2>
+              Enjoy a organised <br />
+              day at work and home
+            </h2>
+            <a href="register.html" class="button">Register now!</a>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <img loading="lazy" src="pictures/Bild4.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">We really like what we do.</span>
+            <h2>
+              Keep track <br />
+              on upcoming events
+            </h2>
+            <a href="register.html" class="button">Register now!</a>
+          </div>
+        </div>
+        <div class="slide swiper-slide">
+          <img loading="lazy" src="pictures/Bild6.jpg" alt="" class="image" />
+          <div class="image-data">
+            <span class="text">Take us with you on your journeys!</span>
+            <h2>
+              Planning upcoming travels <br />
+              and keeping the oversight
+            </h2>
+            <a href="register.html" class="button">Register now!</a>
+          </div>
+        </div>
       </div>
-    </div>
 
+      <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/initswiper.js"></script>
+    
     <div class="container">
       <div class="content">
         <h1>
@@ -107,34 +146,38 @@
 
       <aside class="sidebar">
         <h2>News</h2>
-        
-            <h2>Intuitive Design of the Site</h2>
-            <p>
-              At the heart of our todo site lies an intuitive design crafted to
-              enhance user experience and streamline productivity. From the
-              moment you land on our platform, you'll be greeted with a clean
-              and organized interface, designed with user-friendliness in mind.
-            </p>
 
-            <p>
-              Our intuitive layout ensures that even first-time users can
-              navigate the platform effortlessly, with clearly labeled buttons
-              and intuitive workflows. Whether you're creating a new task,
-              organizing your to-do list, or accessing advanced features, every
-              action is just a click away.
-            </p>
+        <h2>Intuitive Design of the Site</h2>
+        <p>
+          At the heart of our todo site lies an intuitive design crafted to
+          enhance user experience and streamline productivity. From the moment
+          you land on our platform, you'll be greeted with a clean and organized
+          interface, designed with user-friendliness in mind.
+        </p>
 
-            <p>
-              But our commitment to intuitive design goes beyond aesthetics – we
-              prioritize functionality and efficiency in every aspect of our
-              platform. Whether you're accessing our site on a desktop,
-              smartphone, or tablet, you'll find a consistent and seamless
-              experience tailored to your device.
-            </p>
-          
+        <p>
+          Our intuitive layout ensures that even first-time users can navigate
+          the platform effortlessly, with clearly labeled buttons and intuitive
+          workflows. Whether you're creating a new task, organizing your to-do
+          list, or accessing advanced features, every action is just a click
+          away.
+        </p>
+
+        <p>
+          But our commitment to intuitive design goes beyond aesthetics – we
+          prioritize functionality and efficiency in every aspect of our
+          platform. Whether you're accessing our site on a desktop, smartphone,
+          or tablet, you'll find a consistent and seamless experience tailored
+          to your device.
+        </p>
       </aside>
     </div>
-
+    <div class="image-container">
+      <img loading="lazy" src="pictures/Bild1.jpg" alt="Description of your image" />
+      <div class="text-overlay">
+        <h1>Easily organise your Work with our Solution To-Do List!</h1>
+      </div>
+    </div>
     <div class="header-flex">
       <h2 class="section-header">Why should you use our Website?</h2>
       <h3 class="section-sub-header">We promise</h3>
@@ -143,24 +186,40 @@
     <div class="flex-container-oben">
       <div class="flex-item">
         <div class="flex-content">
-          <img src="pictures/productivity.jpg" alt="productivity" class ="pictures" />
+          <img
+            loading="lazy"
+            src="pictures/productivity.jpg"
+            alt="productivity"
+            class="pictures"
+          />
           <div class="flex-text">
             <h4>Productivity:</h4>
             <p>
-              Enhance your productivity with our intuitive task management system.
-               Stay organized, prioritize tasks, and achieve your goals efficiently.
-                Our platform provides features to streamline your workflow, helping you tackle both personal and professional tasks with ease.
+              Enhance your productivity with our intuitive task management
+              system. Stay organized, prioritize tasks, and achieve your goals
+              efficiently. Our platform provides features to streamline your
+              workflow, helping you tackle both personal and professional tasks
+              with ease.
             </p>
           </div>
         </div>
       </div>
       <div class="flex-item">
         <div class="flex-content">
-          <img src="pictures/Integrateability.jpg" alt="Integreatability" class ="pictures" />
+          <img
+            loading="lazy"
+            src="pictures/Integrateability.jpg"
+            alt="Integreatability"
+            class="pictures"
+          />
           <div class="flex-text">
             <h4>Integrability into Daily Life:</h4>
             <p>
-              Seamlessly integrate our platform into your daily life. With a user-friendly interface and mobile accessibility, you can manage your tasks on the go. Whether you're at home, work, or on the move, our platform adapts to your lifestyle, ensuring you stay on top of your to-do list effortlessly.
+              Seamlessly integrate our platform into your daily life. With a
+              user-friendly interface and mobile accessibility, you can manage
+              your tasks on the go. Whether you're at home, work, or on the
+              move, our platform adapts to your lifestyle, ensuring you stay on
+              top of your to-do list effortlessly.
             </p>
           </div>
         </div>
@@ -169,109 +228,75 @@
     <div class="flex-container-unten">
       <div class="flex-item">
         <div class="flex-content">
-          <img src="pictures/family.jpg" alt="family" class ="pictures"/>
+          <img loading="lazy" src="pictures/family.jpg" alt="family" class="pictures" />
           <div class="flex-text">
             <h4>Collaborative Planning with Friends and Family:</h4>
             <p>
-              Experience the power of collaborative planning by sharing your to-do lists with friends and family. Coordinate events, manage household chores, and plan activities together. Our platform fosters teamwork, making it simple for everyone to contribute and stay informed about shared responsibilities.
+              Experience the power of collaborative planning by sharing your
+              to-do lists with friends and family. Coordinate events, manage
+              household chores, and plan activities together. Our platform
+              fosters teamwork, making it simple for everyone to contribute and
+              stay informed about shared responsibilities.
             </p>
           </div>
         </div>
       </div>
       <div class="flex-item">
         <div class="flex-content">
-          <img src="pictures/easytouse.jpg" alt="easytouse" class ="pictures"/>
+          <img loading="lazy" src="pictures/easytouse.jpg" alt="easytouse" class="pictures" />
           <div class="flex-text">
             <h4>Easy to Use:</h4>
             <p>
-              Simplicity is at the core of our platform. Enjoy a hassle-free experience with an easy-to-use interface. Quickly create, edit, and mark tasks as completed. Whether you're tech-savvy or new to task management tools, our platform ensures a user-friendly environment for all. Get started with ease and make task management a breeze.
+              Simplicity is at the core of our platform. Enjoy a hassle-free
+              experience with an easy-to-use interface. Quickly create, edit,
+              and mark tasks as completed. Whether you're tech-savvy or new to
+              task management tools, our platform ensures a user-friendly
+              environment for all. Get started with ease and make task
+              management a breeze.
             </p>
           </div>
         </div>
       </div>
     </div>
 
-
-
     <div class="card-list">
-      <a href="#" class="card-item">
-        <img src="pictures/Bild2.jpg" alt="Card Image" />
+      <a class="card-item">
+        <img loading="lazy" src="pictures/Bild2.jpg" alt="Card Image" />
         <span class="listen">Create a List</span>
         <h3>Creating and change a list</h3>
         <p>
-          You can easily organize tasks by creating lists.
-          You are looking for a place to write down upcoming tasks or your shopping list.
-          to write down. You can easily organize this with lists
-          and do it.
+          You can easily organize tasks by creating lists. You are looking for a
+          place to write down upcoming tasks or your shopping list. to write
+          down. You can easily organize this with lists and do it.
         </p>
       </a>
-      <a href="#" class="card-item">
-        <img src="pictures/Bild3.jpg" alt="Card Image" />
+      <a class="card-item">
+        <img loading="lazy" src="pictures/Bild3.jpg" alt="Card Image" />
         <span class="benutzer">User interface</span>
         <h3>User-friendly interface.</h3>
         <p>
           Adding, editing and deleting tasks is made easy by the intuitive user
-          user interface. The tasks can be categorized with
-          categorized with start date and end date.
+          user interface. The tasks can be categorized with categorized with
+          start date and end date.
         </p>
       </a>
-      <a href="#" class="card-item">
-        <img src="pictures/editor.jpg" alt="Card Image" />
-        <span class="editor">Editor</span>
-        <h3>An "editor" ensures content quality and accuracy.</h3>
-        <p>test</p>
+      <a class="card-item">
+        <img loading="lazy" src="pictures/Bild7.jpg" alt="Card Image" />
+        <span class="editor">Collaboration and Sharing:</span>
+        <h3>Collaboration and Sharing</h3>
+        <p>
+          Collaboration and sharing features enhance task management by allowing
+          users to work together on projects and share lists with colleagues or
+          family members. 
+        </p>
       </a>
     </div>
-
-    <section class="main swiper mySwiper">
-      <div class="wrapper swiper-wrapper">
-        <div class="slide swiper-slide">
-          <img src="pictures/Bild3.jpg" alt="" class="image" />
-          <div class="image-data">
-            <span class="text">Starting with a ToDo List</span>
-            <h2>
-              Enjoy a organised <br />
-              day at work and home
-            </h2>
-            <a href="register.html" class="button">Register now!</a>
-          </div>
-        </div>
-        <div class="slide swiper-slide">
-          <img src="pictures/Bild2.jpg" alt="" class="image" />
-          <div class="image-data">
-            <span class="text">We really like what we do.</span>
-            <h2>
-              Keep track <br />
-              on upcoming events
-            </h2>
-            <a href="register.html" class="button">Register now!</a>
-          </div>
-        </div>
-        <div class="slide swiper-slide">
-          <img src="pictures/Bild 1.jpg" alt="" class="image" />
-          <div class="image-data">
-            <span class="text">Take us with you on your journeys!ä</span>
-            <h2>
-              Planning upcoming travels <br />
-              and keeping the oversight
-            </h2>
-            <a href="register.html" class="button">Register now!</a>
-          </div>
-        </div>
+    <div class="image-container">
+      <img loading="lazy" src="pictures/Bild8.jpg" alt="Description of your image" />
+      <div class="text-overlay">
+        <h1>Easily organise your Work with our Solution To-Do List!</h1>
       </div>
-
-      <div class="swiper-button-next nav-btn"></div>
-      <div class="swiper-button-prev nav-btn"></div>
-      <div class="swiper-pagination"></div>
-    </section>
-
-    <!-- Swiper JS -->
-    <script src="js/swiper-bundle.min.js"></script>
-
-    
-    
-    
-
+    </div>
     <footer>
       <div class="footer-row">
         <div class="footer-col">
