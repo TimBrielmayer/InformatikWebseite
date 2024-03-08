@@ -11,7 +11,7 @@
   .mission-content {
     padding: 20px;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     text-align: justify;
   }
 
@@ -30,9 +30,10 @@
     margin-bottom: 10px;
   }
  
-  p {
+  .mission p {
     line-height: 1.6;
     margin-bottom: 20px;
+    color:#333;
   }
   
   @media screen and (max-width: 850px) {

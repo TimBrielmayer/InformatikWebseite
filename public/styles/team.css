@@ -18,6 +18,12 @@
     margin-bottom: 20px;
 }
 
+.team-member li {
+    color: black;
+}
+.team-member p {
+    color:black;
+}
 .team-member .image {
     flex: 1;
     padding-right: 20px;
