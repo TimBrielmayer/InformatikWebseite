@@ -263,8 +263,9 @@ app.post('/removeUserFromList', async (req, res) => {
 
 app.post('/addUserToList', async (req, res) => {
 
-  const { lid, users } = req.body;
-  const user = users.split(", ")
+  var { lid, users } = req.body;
+  users = users.replace(" ","");
+  var user = users.split(',');
   for (i = 0; i < user.length; i++) {
     sql = `SELECT uid FROM users WHERE username = "${user[i]}"`;
 

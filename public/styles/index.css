@@ -1,4 +1,4 @@
-/* Image am Anfang*/
+/* Image am Ende*/
 .image-container {
   position: relative;
   width: 100%;
@@ -30,12 +30,12 @@
 }
 @media only screen and (max-width: 768px) {
   .text-overlay h1 {
-    font-size: 2em; /* Adjust the font size as needed */
+    font-size: 2em; 
   }
 }
 /*TextBlock*/
 .content {
-  flex: 1 0 70%; /* 70% des verfügbaren Platzes */
+  flex: 1 0 70%; 
   text-align: justify;
 }
 
@@ -46,6 +46,17 @@
   padding: 20px;
   margin-top: 20px;
 }
+.container p {
+  color: black;
+}
+
+.container h1 {
+  color: black;
+}
+.container h2 {
+  color: black;
+}
+
 
 .content {
   flex: 1 1 70%; /* 70% of the available space */
@@ -161,13 +172,14 @@ p {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   .flex-container-unten {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-evenly;
+    margin-bottom: 40px;
   }
   
   .flex-item {
@@ -200,12 +212,13 @@ p {
   .flex-content h4 {
     margin-top: 0;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   
   .flex-content p {
     margin-bottom: 0;
     text-align: justify;
+    font-size: 1rem;
   }
   
 
@@ -219,16 +232,36 @@ p {
       width: calc(100%); 
     }
   }  
+  @media screen and (max-width: 850px) {
+    .flex-container-oben {
+      width: 90%;
+      max-width: none;
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 850px) {
+    .flex-container-unten {
+      width: 90%;
+      max-width: none;
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    .flex-content {
+      padding-left: 20px; /* Adjust as needed for the desired gap */
+    }
+  }
 
   .header-flex {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
   }
   .header-flex .section-header {
     font-size: 2.5rem;
   }
   .header-flex .section-sub-header {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
 
