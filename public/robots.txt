@@ -1,11 +1,12 @@
 User-agent: Bingbot
-Disallow: /
+Disallow: /TODOS
 User-agent: Googlebot
-Disallow: /privacy
+Disallow: /TODOS
 User-agent: *
 Allow: /
 Sitemap:
-https://www.example.com/sitemap.xml
+http://localhost:4000/sitemap.xml
 
 
 Vorgaben für die Crawler der Suchmaschinen + Angabe der Sitemap
+Die Verbotene Seite /privacy haben wir garnicht, soll man TODOS verbieten da drauf zu crawlen?
