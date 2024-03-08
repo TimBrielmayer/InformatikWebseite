@@ -161,13 +161,14 @@ p {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-evenly;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   .flex-container-unten {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-evenly;
+    margin-bottom: 40px;
   }
   
   .flex-item {
@@ -200,12 +201,13 @@ p {
   .flex-content h4 {
     margin-top: 0;
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   
   .flex-content p {
     margin-bottom: 0;
     text-align: justify;
+    font-size: 1rem;
   }
   
 
@@ -222,7 +224,8 @@ p {
 
   .header-flex {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
   }
   .header-flex .section-header {
     font-size: 2.5rem;
