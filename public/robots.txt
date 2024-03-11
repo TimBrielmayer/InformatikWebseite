@@ -1,12 +1,13 @@
 User-agent: Bingbot
-Disallow: /TODOS
+Disallow: /TODOS.html
 User-agent: Googlebot
-Disallow: /TODOS
+Disallow: /TODOS.html
 User-agent: *
-Allow: /
+Disallow: /TODOS.html
+
+#source wikipedia.org/robots.txt
+# Misbehaving: requests much too fast:
+User-agent: fast
+Disallow: /
 Sitemap:
 http://localhost:4000/sitemap.xml
-
-
-Vorgaben für die Crawler der Suchmaschinen + Angabe der Sitemap
-Die Verbotene Seite /privacy haben wir garnicht, soll man TODOS verbieten da drauf zu crawlen?
