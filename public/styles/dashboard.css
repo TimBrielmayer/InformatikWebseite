@@ -352,7 +352,7 @@ a:active {
     min-height: 150%;
   }
 
-  .listselection {
+  .listSelection {
     width: calc(100% - 10px);
     height: auto;
     overflow-y: visible;
