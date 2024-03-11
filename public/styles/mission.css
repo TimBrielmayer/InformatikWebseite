@@ -1,44 +1,44 @@
 .mission {
-    margin-top: 80px;
-    margin-bottom: 40px;
-  }
-  
-  .mission1 {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .mission-content {
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    text-align: justify;
-  }
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
 
-  .mission-content .list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.mission1 {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mission-content {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: justify;
+}
+
+.mission-content .list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  color: #495ca8;
+}
+
+h3 {
+  color: #495ca8;
+  margin-bottom: 10px;
+}
+
+.mission p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+@media screen and (max-width: 850px) {
+  .mission1 {
+    width: 90%;
+    max-width: none;
   }
-  
-  h2 {
-    color: #495ca8;
-  }
-  
-  h3 {
-    color: #495ca8;
-    margin-bottom: 10px;
-  }
- 
-  .mission p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color:#333;
-  }
-  
-  @media screen and (max-width: 850px) {
-    .mission1 {
-      width: 90%;
-      max-width: none;
-    }
-  }
+}

@@ -1,57 +1,64 @@
 body {
-    background-color: #101d23;;
+    background-color: #101d23;
+    ;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-form{
+
+form {
     display: flex;
     flex-direction: column;
     height: auto;
     width: 400px;
-    background-color: rgba(255,255,255,0.13);
+    background-color: rgba(255, 255, 255, 0.13);
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
     margin: 50px 0 50px 0;
 }
-form *{
-    font-family: 'Poppins',sans-serif;
+
+form * {
+    font-family: 'Poppins', sans-serif;
     color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
-form h3{
+
+form h3 {
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
 
-label{
+label {
     display: block;
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
 }
-input{
+
+input {
     display: block;
     height: 50px;
     width: 100%;
-    background-color: rgba(255,255,255,0.07);
+    background-color: rgba(255, 255, 255, 0.07);
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
 }
-::placeholder{
+
+::placeholder {
     color: #e5e5e5;
 }
-button{
+
+button {
     margin-top: 30px;
     width: 100%;
     background-color: #ffffff;
@@ -67,4 +74,3 @@ button:hover {
     background-color: #009B7D;
     scale: 1.05;
 }
-

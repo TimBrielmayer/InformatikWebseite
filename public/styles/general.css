@@ -1,8 +1,8 @@
 :root {
-    --backgrounddark-color: #101d23;
-    --backgroundlight-color:#d6e0f9;
-    --textlight-color: #d6e0f9;
-    --textdark-color:#033045;
-    --green-color:rgb(83, 240, 35);
-    --yellow-color: rgb(255, 206, 71);
-  }
+  --backgrounddark-color: #101d23;
+  --backgroundlight-color: #d6e0f9;
+  --textlight-color: #d6e0f9;
+  --textdark-color: #033045;
+  --green-color: rgb(83, 240, 35);
+  --yellow-color: rgb(255, 206, 71);
+}

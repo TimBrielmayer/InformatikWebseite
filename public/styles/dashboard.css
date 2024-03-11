@@ -1,29 +1,20 @@
-
-
 body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 body::-webkit-scrollbar {
   display: none;
 }
 
-/*header{
-  height: 10%;
-  display: flex;
-  justify-content : space-between;
-  
-}*/
-
-.Account{
-  position:relative;
-  right:10px;
+.Account {
+  position: relative;
+  right: 10px;
   width: 150px;
-  height:80%;
+  height: 80%;
 
   background-color: var(--backgroundlight-color);
   color: var(--textdark-color);
@@ -36,7 +27,9 @@ body::-webkit-scrollbar {
 
 
 }
-.circle{ /*Ist für den Grünen Punkt beim Account Name Zuständig, in hmtl unter <span class ="circle">
+
+.circle {
+  /*Ist für den Grünen Punkt beim Account Name Zuständig, in hmtl unter <span class ="circle">
   Möglichkeit noch dazu, die Verbindung zum Server über Grün und Rot als Offline darzustellen*/
   height: 10px;
   width: 10px;
@@ -46,37 +39,41 @@ body::-webkit-scrollbar {
   margin-right: 5px;
 }
 
-.trashicon{
-  cursor:pointer;
-  position:relative;
-  height:100%;
-  scale:1;
+.trashicon {
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  scale: 1;
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
 }
-.trashicon2{
-  cursor:pointer;
-  position:relative;
+
+.trashicon2 {
+  cursor: pointer;
+  position: relative;
   height: 80%;
-  scale:1;
+  scale: 1;
   padding: 10px;
-  border-radius:50%;
+  border-radius: 50%;
   cursor: pointer;
 }
-.trashicon:hover, .trashicon2:hover{
+
+.trashicon:hover,
+.trashicon2:hover {
   background-color: red;
-  scale:1.1;
+  scale: 1.1;
 }
 
-hr{
+hr {
   margin: 5px;
 }
 
-.content{/*Inhalt der Seite*/
-  position:relative;
+.content {
+  /*Inhalt der Seite*/
+  position: relative;
   display: flex;
-  overflow:hidden;
+  overflow: hidden;
   flex-direction: row;
   height: calc(100% - 75px);
   min-height: calc(100% - 75px);
@@ -85,7 +82,8 @@ hr{
   padding-top: 25px;
 }
 
-.listselection {/*Auswahl der Listenbereich
+.listSelection {
+  /*Auswahl der Listenbereich
   linker Teil*/
   display: flex;
   position: relative;
@@ -99,12 +97,12 @@ hr{
   overflow: hidden;
 }
 
-.createListButton{
-  cursor:pointer;
+.createListButton {
+  cursor: pointer;
   position: relative;
   width: 80%;
   height: 40px;
-  border-radius:25px;
+  border-radius: 25px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -113,7 +111,8 @@ hr{
   color: white;
 }
 
-.listContainer{/*Auswahl der To do Listen*/
+.listContainer {
+  /*Auswahl der To do Listen*/
   position: relative;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -126,28 +125,31 @@ hr{
   flex-direction: column;
   border-spacing: 0.5rem;
   margin-top: 25px;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
-.listContainer:hover{
-  overflow-y:scroll
+.listContainer:hover {
+  overflow-y: scroll
 }
 
 .listContainer::-webkit-scrollbar {
   display: none;
 }
 
-.List {/*Das ist In der Auflistung der Listen eine einzelne Liste*/
-  cursor:pointer;
+.List {
+  /*Das ist In der Auflistung der Listen eine einzelne Liste*/
+  cursor: pointer;
   position: relative;
-  height:60px;
+  height: 60px;
   min-height: 60px;
   width: 100%;
 
   padding: 5px;
 
-  display:flex;
+  display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
@@ -164,15 +166,17 @@ hr{
   color: var(--textdark-color);
 }
 
-.listedlistname{ /*ist die Klasse des Namen der Todoliste in der Auflistung, zu finden in dashboard.js*/
-  width:70%;
+.listedListname {
+  /*ist die Klasse des Namen der Todoliste in der Auflistung, zu finden in dashboard.js*/
+  width: 70%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   color: var(--textdark-color);
 }
 
-.Tasklist {/*Darstellung der kompletten Tasklist mit Einstellungen
+.Tasklist {
+  /*Darstellung der kompletten Tasklist mit Einstellungen
   rechter Teil*/
   display: flex;
   flex-direction: column;
@@ -184,15 +188,18 @@ hr{
   box-sizing: border-box;
   overflow: hidden;
   overflow-y: scroll;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .Tasklist::-webkit-scrollbar {
   display: none;
 }
 
-#listName {/*Name der ausgewählten Liste*/
+#listName {
+  /*Name der ausgewählten Liste*/
   position: relative;
   text-align: center;
   display: flex;
@@ -202,14 +209,16 @@ hr{
   width: 100%;
   overflow: hidden;
 
-  color:var(--textlight-color);
+  color: var(--textlight-color);
   background-color: #658997;
   box-sizing: border-box;
 
-  border-bottom: 5px solid var(--backgrounddark-color);;
+  border-bottom: 5px solid var(--backgrounddark-color);
+  ;
 }
 
-.optionRow{/*Optionbar für die ausgewählte Liste*/
+.optionRow {
+  /*Optionbar für die ausgewählte Liste*/
   display: none;
   height: 40px;
   width: 100%;
@@ -221,8 +230,9 @@ hr{
   padding: 10px;
 }
 
-.addTaskButton, .userMenu{
-  cursor:pointer;
+.addTaskButton,
+.userMenu {
+  cursor: pointer;
   position: relative;
   width: 100px;
   height: 30px;
@@ -234,12 +244,14 @@ hr{
   color: white;
 }
 
-
-.createListButton:hover, .addTaskButton:hover, .userMenu:hover{
+.createListButton:hover,
+.addTaskButton:hover,
+.userMenu:hover {
   background-color: #29c934;
 }
 
-.Tasklistcontent{/* Das ist die Aufgabenliste der ausgewälten Liste*/
+.TasklistContent {
+  /* Das ist die Aufgabenliste der ausgewälten Liste*/
   display: flex;
   flex-direction: column;
   position: relative;
@@ -253,7 +265,8 @@ hr{
   background-color: #658997;
 }
 
-.Task{/* Das ist ein einzelner Task in der Darstellung*/
+.Task {
+  /* Das ist ein einzelner Task in der Darstellung*/
   position: relative;
   height: 40px;
   min-height: 40px;
@@ -261,57 +274,60 @@ hr{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content : space-between;
+  justify-content: space-between;
   overflow: hidden;
   padding: 0 5px 0 5px;
 }
 
-.Task:nth-child(even){
+.Task:nth-child(even) {
   /*background-color: var(--yellow-color);*/
   background-color: #0a2c258a;
   color: white;
   margin: 5px;
 }
 
-.Task:nth-child(odd){
+.Task:nth-child(odd) {
   /*background-color: var(--green-color);*/
   background-color: #153f3770;
   color: white;
   margin: 5px;
 }
 
-.taskname{
+.taskname {
   width: calc(75% - 50px);
-  overflow-x:hidden;
+  overflow-x: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   text-decoration: none;
-  
+
 }
 
-.edateout{
+.edateout {
   width: 50px;
   color: red;
 }
 
-.checkbox:checked + .taskname{/*Ändern der Textform bei abgeschlossener Aufgabe*/
+.checkbox:checked+.taskname {
+  /*Ändern der Textform bei abgeschlossener Aufgabe*/
   text-decoration: line-through;
   color: grey;
 }
 
-.List:hover, .Task:hover{
+.List:hover,
+.Task:hover {
   background-color: rgb(96, 169, 208);
 }
 
-.checkbox{
-  cursor:pointer;
-  height:30px;
+.checkbox {
+  cursor: pointer;
+  height: 30px;
   width: 30px;
   min-width: 30px;
-  
+
 }
 
-a:link {/* Entfernt die Formatierung auf Texten ausgelöst durch href*/
+a:link {
+  /* Entfernt die Formatierung auf Texten ausgelöst durch href*/
   text-decoration: none;
 }
 
@@ -326,7 +342,6 @@ a:hover {
 a:active {
   text-decoration: none;
 }
-
 
 @media (max-width: 800px) {
   .content {
@@ -359,7 +374,7 @@ a:active {
     overflow-y: visible;
   }
 
-  .Tasklistcontent {
+  .TasklistContent {
     height: auto;
     box-sizing: content-box;
     overflow-y: visible;

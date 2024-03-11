@@ -4,18 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/TODOs.css">
+  <link rel="stylesheet" href="styles/dashboard.css">
   <link rel="stylesheet" href="styles/general.css">
   <link rel="stylesheet" href="styles/popUps.css">
   <link rel="stylesheet" href="styles/navbar.css">
   <link rel="stylesheet" href="styles/footer.css">
   <link rel="icon" type="image/png" href="pictures/icon.png">
-  <title>TODOs</title>
+  <title>Dashboard</title>
 
   <script src="js/dashboard.js"></script>
 </head>
 
-<body onload="loadAllTaskLists(); loadUsername()">
+<body onload="loadAllTaskLists(); loadUsername()">  <!--Beim Laden: verfügbare Tasklists und Username (oben rechts) laden-->
+
   <!-- Kopfzeile mit Logo und Account Dartstellung-->
   <nav class="navbar">
     <div class="logo">
@@ -44,28 +45,32 @@
     </ul>
   </nav>
 
+
+  <!--Inhalt des Dashboards-->
   <div class="content"><!-- Aufbau der Todo Webseite mit Auswahl der Todo Liste und Präsentation der Liste-->
-    <div class="listselection"><!-- Auswahl der Todo Liste-->
-     <div class="createListButton" onclick="addList()">+ Create new list</div>
+    <div class="listSelection"><!-- Auswahl der Todo Liste-->
+     <div class="createListButton" onclick="openAddListPopUp()">+ Create new list</div>
       <div class="listContainer" id="listContainer"> <!-- listen Auswahl-->
       </div>
     </div>
     <div class="Tasklist"> <!-- Darstellung der ausgewählten Liste-->
       <h2 id="listName">Wähle eine Liste aus</h2><!-- Der angeziegte Name der ausgewählten Liste-->
       <div id="optionRow" class="optionRow"> <!-- Hinzufügen einer Aufgabe in der ausgewählten Liste-->
-        <div class="addTaskButton" onclick="addTask()">+ Add task</div>
+        <div class="addTaskButton" onclick="openAddTaskPopUp()">+ Add task</div>
         <!-- Hinzufügen eines anderen Nutzers für die ausgewählten Liste-->
         <div class="userMenu" onclick="openUserMenu()"> User menu</div>
         </button>
       </div>
 
 
-      <div class="Tasklistcontent" id="taskContainer"> <!-- Inhalt der ausgewählten Liste-->
+      <div class="TasklistContent" id="taskContainer"> <!-- Inhalt der ausgewählten Liste-->
       </div>
     </div>
   </div>
 
 
+  <!--Pop Ups (standardmäßig nicht angezeigt)-->
+  
   <div id="addTaskPopUp" class="popUp"><!-- Pop Up für Erstellen einer neuen Aufgabe in der ausgewählten Liste-->
     <div class="popUpContent">
       <h2>New Task</h2>
@@ -99,7 +104,7 @@
     </div>
   </div>
 
-  <div id="addUserToListPopUp" class="popUp">
+  <div id="addUserToListPopUp" class="popUp">   <!--Pop Up für das Hinzufügen eines Benutzers zu einer Liste-->
     <div class="popUpContent">
       <h3>All Users</h3>
       <div id="allAddedUsers">
@@ -119,6 +124,7 @@
   </div>
 
 
+  <!--Footer-->
   <footer>
     <div class="footer-row">
       <div class="footer-col">
@@ -153,6 +159,8 @@
 
   <script src="js/addTask.js"></script>
   <script src="js/addList.js"></script>
+  <script src="js/userMenu.js"></script>
+  <script src="js/popUps.js"></script>
   <script src="js/index.js"></script>
 </body>
 

@@ -7,9 +7,10 @@
 }
 
 .team-member {
-    display: flex; 
+    display: flex;
     flex-direction: row;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
+    /* Center horizontally */
     align-items: center;
     width: 100%;
     padding: 20px;
@@ -21,9 +22,11 @@
 .team-member li {
     color: black;
 }
+
 .team-member p {
-    color:black;
+    color: black;
 }
+
 .team-member .image {
     flex: 1;
     padding-right: 20px;
@@ -51,6 +54,7 @@
     font-weight: bold;
     color: #495ca8;
 }
+
 .team-member:hover {
     border: 2px solid #000;
 }
@@ -67,12 +71,16 @@
     }
 
     .team-member {
-        flex-direction: column; /* Change to a column layout for smaller screens */
-        align-items: center; /* Center align items for smaller screens */
+        flex-direction: column;
+        /* Change to a column layout for smaller screens */
+        align-items: center;
+        /* Center align items for smaller screens */
     }
 
-    .team-member .image, .team-member .info {
-        flex: auto; /* Equal distribution of space for smaller screens */
+    .team-member .image,
+    .team-member .info {
+        flex: auto;
+        /* Equal distribution of space for smaller screens */
         padding: 10px;
     }
 }

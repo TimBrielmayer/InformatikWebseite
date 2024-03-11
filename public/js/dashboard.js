@@ -1,4 +1,4 @@
-async function loadUsername() {
+async function loadUsername() { //lädt den username, welcher oben rechts angezeigt wird und leitet falls nicht angemeldet zur login Seite weiter
     const username = await getUsername();
     console.log('logged in user: ' + username);
 
@@ -11,7 +11,7 @@ async function loadUsername() {
     }
 }
 
-async function getUid(usernames) {
+async function getUid(usernames) {  //liefert die ID des angemeldeten Benutzers
 
     var uids = [];
     var response;
@@ -28,31 +28,23 @@ async function getUid(usernames) {
                 body: JSON.stringify({
                     username: usernames[i],
                 })
-
-
             });
 
         } catch (error) {
             console.error("FEHLER");
         }
-        uid = await response.json();
+        const uid = await response.json();
 
         if (uid == null) {
             uids.push(-1)
         } else {
             uids.push(uid);
         }
-
-
-
     }
-    //console.log(uids);
     return (uids);
-
-
 }
 
-async function getUsername() {
+async function getUsername() {  //liefert den Benutzername des aktuell angemeldeten Benutzers
     try {
         const response = await fetch('/getUsername');
 
@@ -71,30 +63,20 @@ async function getUsername() {
     }
 }
 
-function addTask() {
-    var popUp = document.getElementById("addTaskPopUp");
-    popUp.style.display = "flex";
-}
-
-function addList() {
-    var popUp = document.getElementById("addListPopUp");
-    popUp.style.display = "flex";
-}
-
-async function loadAllTaskLists() {
+async function loadAllTaskLists() { //lädt alle Listen an welchen der angemeldete Benutzer beteiligt ist
     const allLists = await getLists();
 
     const listContainer = document.getElementById("listContainer");
     listContainer.innerHTML = '';
 
-    for (let i in allLists) {/*Laden der Auflistung der Listen*/
+    for (let i in allLists) {
 
         var container = document.createElement("div");
         container.classList.add("List");
         container.setAttribute("onclick", `loadTaskList("${allLists[i].listname}",${allLists[i].lid})`)
 
         var list = document.createElement("p");/*Erstellung des Bereichs für den Listennamen*/
-        list.classList.add("listedlistname"); /*ist die Klasse des Namen der Todoliste in der Auflistung*/
+        list.classList.add("listedListname"); /*ist die Klasse des Namen der Todoliste in der Auflistung*/
         list.textContent = allLists[i].listname;
         container.appendChild(list);
 
@@ -109,7 +91,7 @@ async function loadAllTaskLists() {
     }
 }
 
-async function deleteTask(tid, lid) {
+async function deleteTask(tid, lid) {   //löscht eine spezifische Task. Wird aufgerufen bei Klick auf den Mülleimer neben der entsprechenden Task
     if (confirm("Bist du dir sicher, dass du diese Task löschen willst?")) {
         try {
             const response = await fetch('/deleteTask', {
@@ -131,7 +113,7 @@ async function deleteTask(tid, lid) {
     }
 }
 
-async function getTasks(lid) {
+async function getTasks(lid) {  //liefert alle Tasks welche bereits in einer ausgewählten Liste enthalten sind
     try {
         const response = await fetch('/getTasks', {
             method: 'POST',
@@ -152,7 +134,7 @@ async function getTasks(lid) {
     }
 }
 
-async function getLists() {
+async function getLists() { //liefert alle Listen an welchen der angemeldete Benutzer beteiligt ist
     try {
         const response = await fetch('/getLists', {
             method: 'POST',
@@ -171,7 +153,7 @@ async function getLists() {
     }
 }
 
-async function deleteList(lid) {
+async function deleteList(lid) {    //löscht eine bestimmte Liste. Aufruf per Klick auf den Mülleimer neben der Liste
     try {
         const response = await fetch('/deleteList', {
             method: 'POST',
@@ -191,71 +173,7 @@ async function deleteList(lid) {
     window.location.reload();
 }
 
-async function removeUserFromList(lid) {
-    console.log(lid);
-    if (confirm("Bist du dir sicher, dass du diesen User entfernen möchtest?")) {
-        try {
-            const response = await fetch('/removeUserFromList', {
-                method: 'POST',
-                headers:
-                {
-                    'Content-Type': 'application/json',
-
-                },
-                body: JSON.stringify({
-                    lid: lid
-                })
-            })
-        } catch (error) {
-            console.error('Error during removeUserFromList1:', error);
-
-        }
-        window.location.reload();
-    }
-}
-
-async function getUsersInList(lid) {
-    try {
-        const response = await fetch('/getUsersInList', {
-            method: 'POST',
-            headers:
-            {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                lid: lid
-            })
-        })
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error during ^2:', error);
-    }
-
-}
-
-async function addUserToList(lid, users) {
-    //console.log(users);
-    try {
-        const response = await fetch('/addUserToList', {
-            method: 'POST',
-            headers:
-            {
-                'Content-Type': 'application/json',
-
-            },
-            body: JSON.stringify({
-                lid: lid,
-                users: users
-            })
-        })
-
-    } catch (error) {
-        console.error('Error during addUserToList:', error);
-    }
-}
-
-function loadTaskList(listname, lid) {
+function loadTaskList(listname, lid) {  //lädt den Name und Inhalt einer ausgewählten Taskliste
     var header = document.getElementById("listName");
     header.textContent = listname;
 
@@ -265,7 +183,7 @@ function loadTaskList(listname, lid) {
     optionRow.style.display = 'flex';
 }
 
-async function loadTasks(lid) {
+async function loadTasks(lid) { //lädt alle Tasks einer Liste
     sessionStorage.setItem("lid", lid)
 
     const tasks = await getTasks(lid);
@@ -302,11 +220,11 @@ async function loadTasks(lid) {
         taskDiv.appendChild(edate);
         taskDiv.appendChild(loeschen)
 
-
         taskContainer.appendChild(taskDiv)
     }
 }
-function getDateDiff(edate) {
+
+function getDateDiff(edate) {   //liefert die verbleibende Zeit bis zu einem bestimmten Enddatum
     var currentDate = new Date();
 
 
@@ -336,30 +254,7 @@ function getDateDiff(edate) {
     if (dateDiffSeconds != 0) { return `${dateDiffSeconds} sec` }
 }
 
-async function getListByName(listname) {
-
-    console.log(listname);
-    try {
-        const response = await fetch('/getListByName', {
-            method: 'POST',
-            headers:
-            {
-                'Content-Type': 'application/json',
-
-            },
-            body: JSON.stringify({
-                listname: listname,
-            })
-        })
-        const data = await response.json();
-        return data.data;
-
-    } catch (error) {
-        console.error('Error during getListByName', error);
-    }
-}
-
-async function changeTaskState(tid) {
+async function changeTaskState(tid) {   //ändert den Status einer Task (erledigt/nicht erledigt)
     const checkBox = document.getElementById(`checkBox-${tid}`);
     const state = (checkBox.checked) ? 'TRUE' : 'FALSE';
 
@@ -378,73 +273,6 @@ async function changeTaskState(tid) {
         });
 
     } catch (error) {
-        console.error('Error during getListByName', error);
-    }
-}
-
-
-function openUserMenu() {
-    var popUp = document.getElementById('addUserToListPopUp');
-    popUp.style.display = 'flex';
-
-    loadAddedUsers();
-}
-
-async function loadAddedUsers() {
-    const lid = sessionStorage.getItem('lid');
-    try {
-        const response = await fetch('/getUsersInList', {
-            method: 'POST',
-            headers:
-            {
-                'Content-Type': 'application/json',
-
-            },
-            body: JSON.stringify({
-                lid: lid
-            })
-        });
-        const data = await response.json();
-
-        var allAddedUsers = document.getElementById('allAddedUsers');
-        allAddedUsers.innerHTML = '';
-
-        for (let i in data) {
-            var user = document.createElement('p');
-            user.textContent = data[i].username;
-            allAddedUsers.appendChild(user);
-        }
-
-        const popUp = document.getElementById('addUserToListPopUp')
-        var elements = popUp.getElementsByTagName("input");
-        for (var i = 0; i < elements.length; i++) {
-            if (elements[i].type == "text") {
-                elements[i].value = "";
-            }
-        }
-
-    } catch (error) {
-        console.error('Error during getListByName', error);
-    }
-}
-
-async function addNewUser() {
-    const lid = sessionStorage.getItem('lid');
-
-    const username = document.getElementById('newUsername').value;
-
-    await addUserToList(lid, username)
-
-    await loadAddedUsers();
-}
-
-function closeUserPopUp() {
-    var popUp = document.getElementById('addUserToListPopUp');
-    popUp.style.display = 'none';
-    var elements = popUp.getElementsByTagName("input");
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].type == "text") {
-            elements[i].value = "";
-        }
+        console.error('Error during changeTaskState', error);
     }
 }

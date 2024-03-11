@@ -1,9 +1,8 @@
-document.getElementById('loginButton').addEventListener('click', async function(event) {
+document.getElementById('loginButton').addEventListener('click', async function (event) { //Anmeldung
   event.preventDefault(); // Verhindert das Standardverhalten des Buttons (Seitenneuladen)
 
   login();
 });
-
 
 function validateForm() {
   var username = document.getElementById('username').value;
@@ -18,9 +17,7 @@ function validateForm() {
   }
 }
 
-async function login() {
-
-  //validateForm();
+async function login() {  //überprüft Anmeldedaten
 
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
@@ -39,7 +36,7 @@ async function login() {
 
     if (response.ok) {
       console.log("login success")
-      document.location.href = 'TODOs.html';
+      document.location.href = 'dashboard.html';
     } else {
       const error = await response.text();
       alert(error);
@@ -49,7 +46,7 @@ async function login() {
   }
 }
 
-document.addEventListener('keypress', function (e) {
+document.addEventListener('keypress', function (e) {  //Bestätigung mit Enter
   if (e.key === 'Enter') {
     e.preventDefault();
     login();

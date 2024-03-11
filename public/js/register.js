@@ -1,8 +1,7 @@
-document.getElementById('registerButton').addEventListener('click', async function (e) {
+document.getElementById('registerButton').addEventListener('click', async function (e) {  //Registrierung
   e.preventDefault();
   await register();
 });
-
 
 async function register() {
   const username = document.getElementById('username-input').value;
@@ -23,7 +22,6 @@ async function register() {
     alert("Username must not include spaces");
     return;
   }
-  
 
   try {
     const response = await fetch('/register', {
@@ -39,7 +37,7 @@ async function register() {
     });
 
     if (response.ok) {
-      document.location.href = 'TODOs.html';
+      document.location.href = 'dashboard.html';
     } else {
       const error = await response.text();
       alert(error);
@@ -49,7 +47,7 @@ async function register() {
   }
 }
 
-document.addEventListener('keypress', function (e) {
+document.addEventListener('keypress', function (e) {  //Bestätigung mit Enter
   if (e.key === 'Enter') {
     e.preventDefault();
     register();

@@ -10,4 +10,3 @@ function toggleNavbar() {
 document.querySelector(".toggle-btn").addEventListener("click", function () {
   toggleNavbar();
 });
-

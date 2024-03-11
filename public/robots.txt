@@ -1,9 +1,9 @@
 User-agent: Bingbot
-Disallow: /TODOS.html
+Disallow: /dashboard.html
 User-agent: Googlebot
-Disallow: /TODOS.html
+Disallow: /dashboard.html
 User-agent: *
-Disallow: /TODOS.html
+Disallow: /dashboard.html
 
 #source wikipedia.org/robots.txt
 # Misbehaving: requests much too fast:
